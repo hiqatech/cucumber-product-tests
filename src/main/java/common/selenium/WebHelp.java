@@ -29,7 +29,7 @@ public class WebHelp {
     public static int waitTimeMax= 5000;
     public static int waitTime = 250;
 
-    public static String startWebDriver(String driver)
+    public static String startMyWebDriver(String driver)
     {
         try
         {
@@ -41,7 +41,7 @@ public class WebHelp {
             {
 
                 case "CHROME":
-                    String chromeDriverPath = driverPath + "chromeDriver.exe";
+                    String chromeDriverPath = driverPath + "chromedriver.exe";
                     System.setProperty("webdriver.chrome.driver",chromeDriverPath);
 
                     HashMap<String,Object> chromePrefs = new HashMap<String,Object>();
@@ -116,11 +116,11 @@ public class WebHelp {
 
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
 
     }
 
-    public static String stopWebDriver()
+    public static String stopMyWebDriver()
     {
         try
         {
@@ -129,7 +129,7 @@ public class WebHelp {
             return  "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return "NOTE : " + ex.toString();}
     }
 
     public static String navigateTo(String URL)
@@ -141,7 +141,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static Boolean verifyNotNull(String text)
@@ -224,7 +224,7 @@ public class WebHelp {
             else return "FAIL";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String switchToFrameInFrame(String frameSelector1, String frameSelector2)
@@ -249,7 +249,7 @@ public class WebHelp {
             else return "FAIL";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String switchToDefaultContent()
@@ -260,7 +260,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String switchToWindow(int windowNumber)
@@ -272,7 +272,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String keyActions(String actionKey)
@@ -307,7 +307,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String sendKeys(String elementSelector, String actionKey)
@@ -342,7 +342,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
 
@@ -356,7 +356,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String handleAlert(String action)
@@ -371,7 +371,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String readTextOfWebElement(String elementSelector)
@@ -382,7 +382,7 @@ public class WebHelp {
             return webElement.getText();
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String readAttributeOfWebElement(String elementSelector, String attribute)
@@ -393,7 +393,7 @@ public class WebHelp {
             return webElement.getAttribute(attribute);
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String isChecked(String elementSelector, String status)
@@ -409,7 +409,7 @@ public class WebHelp {
             else return "FAIL";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String tryToSelect(WebElement webElement)
@@ -421,7 +421,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String tryToClick(WebElement webElement)
@@ -432,7 +432,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String tryToHover(WebElement webElement)
@@ -444,7 +444,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String scrollAnd(String act, String elementSelector)
@@ -479,7 +479,7 @@ public class WebHelp {
             return result;
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String safeAct(String act, String elementSelector)
@@ -526,7 +526,7 @@ public class WebHelp {
             else { System.out.println(act + " action has not been defined");return "FAIL";}
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String takeScreenShot(String dest)
@@ -540,7 +540,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String selectFromDropDownBy(String elementSelector,String what, String text)
@@ -558,7 +558,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String clickFromDropDownBy(String dropdownSelector, String optionsSelector, String text, String attribute)
@@ -588,7 +588,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String isSelected(String elementSelector, String status)
@@ -609,7 +609,7 @@ public class WebHelp {
             else { System.out.println(status + " has not been defined");return "FAIL";}
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String uploadFileWithKey(String fileName)
@@ -632,7 +632,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String uploadFile(String browserButtonSelector, String fileName)
@@ -644,7 +644,7 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
     public static String selectNthElement(String elementSelector , String index)
@@ -656,7 +656,7 @@ public class WebHelp {
            return "PASS";
         }
         catch(Exception ex)
-        {System.out.println(ex.toString()); return  ex.toString();}
+        {return  ex.toString();}
     }
 
 

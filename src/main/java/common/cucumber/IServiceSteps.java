@@ -15,7 +15,7 @@ import cucumber.api.java.en.Given;
 import static common.service.ServiceHelp.sendRequest;
 import com.jayway.restassured.response.Response;
 
-public class ServiceSteps {
+public class IServiceSteps {
 
   public static Response currentResponse;
 
