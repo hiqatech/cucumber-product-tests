@@ -3,9 +3,10 @@ package common.util;
 import cucumber.api.DataTable;
 import gherkin.formatter.model.DataTableRow;
 import org.apache.commons.io.output.ByteArrayOutputStream;
-import org.joda.time.DateTime;
 
 import java.beans.XMLEncoder;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class DataHelp {
@@ -15,7 +16,7 @@ public class DataHelp {
 
     public static String getTimeStamp(String format)
     {
-        String timeStamp = DateTime.now().toString(format);
+        String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern(format));
         return timeStamp;
     }
 
@@ -144,7 +145,7 @@ public class DataHelp {
 
     public static  String generateRandomString(int length, String startWith)
     {
-        String dateTime = DateTime.now().toString("yyyyMMddHHmmss");
+        String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
         int randomLength = length - startWith.length();
         int remove = dateTime.length() -randomLength;
 
@@ -165,20 +166,21 @@ public class DataHelp {
     {
         try
         {
-            DateTime newDate = new DateTime();
+
+            LocalDateTime newDate = LocalDateTime.now();
             dateString = dateString.replace("CurrentDate","");
             if(dateString.contains("+"))
             {
                 int offset = Integer.parseInt(dateString.replace("+",""));
-                newDate = DateTime.now().plusDays(offset);
+                newDate = newDate.plusDays(offset);
             }
             else if(dateString.contains("-"))
             {
                 int offset = Integer.parseInt(dateString.replace("-",""));
-                newDate = DateTime.now().minusDays(offset);
+                newDate = newDate.minusDays(offset);
             }
 
-            return newDate.toString(pattern);
+            return newDate.format(DateTimeFormatter.ofPattern(pattern));
         }
         catch(Exception ex)
         {System.out.println(ex.toString()); return  ex.toString();}
