@@ -3,7 +3,8 @@ package common.setup;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import org.joda.time.DateTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import static common.app.App.*;
 import static common.selenium.WebHelp.takeScreenShot;
@@ -16,9 +17,7 @@ public class RunnerHooks {
     public static Scenario scenario;
     public static String myScenario;
 
-
     //------------------------------------------------------------------------//
-
 
     @Before
     public void setup(Scenario scenario) throws Exception
@@ -37,13 +36,16 @@ public class RunnerHooks {
         System.setProperty("scenario",myScenario);
         System.setProperty("product",myScenario.substring(0,myScenario.indexOf("-")).replace(" ",""));
 
+        LocalDateTime dateTime = LocalDateTime.now();
+
         System.setProperty("projectPath",System.getProperty("user.dir"));
-        System.setProperty("systemTime", DateTime.now().toString("yyyy-MM-dd HH:mm:ss"));
+        System.setProperty("systemTime", dateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
         System.setProperty("userID",System.getProperty("user.home").replace("C:\\Users\\",""));
         System.setProperty("downloadPath",System.getProperty("user.home")+"\\Downloads");
         System.setProperty("reportPath",System.getProperty("projectPath")+"\\target\\cucumber-reports");
         System.setProperty("filePath",System.getProperty("projectPath") + "\\src\\main\\resources\\files\\");
         System.setProperty("driverPath",System.getProperty("projectPath") + "\\src\\main\\resources\\webdrivers\\");
+        System.setProperty("reportConfigPath",System.getProperty("projectPath") + "\\src\\main\\resources\\report\\extent-config.html");
 
         System.out.println("************************************************************************************");
 
@@ -76,7 +78,7 @@ public class RunnerHooks {
             takeScreenShot(myScenario + " failed_" + getTimeStamp("YYYY-MM-DD-HH-mm-ss-SSS"));
             stopWebDriver();
             stopAndroidDriver();
-            startIOSDriver();
+            stopIOSDriver();
 
             System.out.println("Test Failed !");
             }
@@ -88,10 +90,7 @@ public class RunnerHooks {
         stopAndroidDriver();
         stopIOSDriver();
         System.out.println("************************************************************************************");
-
-
     }
-
 
     //-----------------------------------------------------------------------------//
 
