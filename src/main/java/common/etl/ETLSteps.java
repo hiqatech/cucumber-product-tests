@@ -29,6 +29,7 @@ public class ETLSteps {
         } catch (Exception ex) {
             return "FAIL : " + ex.toString();
         }
+<<<<<<< HEAD
 
         return "PASS : I read the " + file + " from " + path;
     }
@@ -37,21 +38,48 @@ public class ETLSteps {
     public static String diffFilesAndWriteInto(String diff, String file, String path){
 
         int size = 0;
+=======
+        return "PASS : I read the " + file + " from " + path;
+    }
+
+    public static String diffFilesAndWriteInto(String diff, String file, String path){
+        int size = 0;
+
+>>>>>>> origin/master
         if(diff.equals("file1-file2")) {
             for (Object bs : al2) {
                 al1.remove(bs);
             }
+<<<<<<< HEAD
             size =al1.size();
+=======
+>>>>>>> origin/master
             al3 = al1;
         }
         else if(diff.equals("file2-file1")) {
             for (Object bs : al1) {
                 al2.remove(bs);
             }
+<<<<<<< HEAD
             size =al2.size();
             al3 = al2;
         }
 
+=======
+            al3 = al2;
+        }
+        else if(diff.equals("file1-file2 & file2-file1")) {
+            for (Object bs : al2) {
+                al1.remove(bs);
+            }
+            for (Object bs : al1) {
+                al2.remove(bs);
+            }
+            al1.addAll(al2);
+            al3 = al1;
+        }
+        size =al3.size();
+>>>>>>> origin/master
      try
         {
             FileWriter writer=new FileWriter(path+file);
@@ -68,9 +96,15 @@ public class ETLSteps {
         {
             return "FAIL : " + ex.toString();
         }
+<<<<<<< HEAD
 
         return "PASS : I compared the files and noted File1-File2 into " + file + " at " + path;
     }
 
 
+=======
+        return "PASS : I compared the files and noted File1-File2 into " + file + " at " + path;
+    }
+
+>>>>>>> origin/master
 }

@@ -1,5 +1,6 @@
 package common.selenium;
 
+import common.setup.RunnerHooks;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -107,17 +108,19 @@ public class WebHelp {
 
             }
 
-            webDriver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
-            webDriver.manage().timeouts().setScriptTimeout(20,TimeUnit.SECONDS);
-
+            webDriver.manage().timeouts().pageLoadTimeout(30,TimeUnit.SECONDS);
+            webDriver.manage().timeouts().setScriptTimeout(30,TimeUnit.SECONDS);
             webDriver.manage().window().maximize();
-
             return  "PASS";
 
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
 
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String stopMyWebDriver()
@@ -129,7 +132,11 @@ public class WebHelp {
             return  "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return "NOTE : " + ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "NOTE";}
+>>>>>>> origin/master
     }
 
     public static String navigateTo(String URL)
@@ -141,7 +148,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static Boolean verifyNotNull(String text)
@@ -174,7 +185,8 @@ public class WebHelp {
             Thread.sleep(sleep);
             return "PASS";
         }
-        catch (Exception ex){return ex.toString();}
+        catch (Exception ex)
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
     }
 
     public static String waitToAppear(String elementSelector)
@@ -224,7 +236,11 @@ public class WebHelp {
             else return "FAIL";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String switchToFrameInFrame(String frameSelector1, String frameSelector2)
@@ -249,7 +265,11 @@ public class WebHelp {
             else return "FAIL";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String switchToDefaultContent()
@@ -260,7 +280,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String switchToWindow(int windowNumber)
@@ -272,7 +296,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String keyActions(String actionKey)
@@ -307,7 +335,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String sendKeys(String elementSelector, String actionKey)
@@ -342,7 +374,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
 
@@ -356,7 +392,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String handleAlert(String action)
@@ -371,7 +411,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String readTextOfWebElement(String elementSelector)
@@ -382,7 +426,11 @@ public class WebHelp {
             return webElement.getText();
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String readAttributeOfWebElement(String elementSelector, String attribute)
@@ -393,7 +441,11 @@ public class WebHelp {
             return webElement.getAttribute(attribute);
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String isChecked(String elementSelector, String status)
@@ -409,7 +461,11 @@ public class WebHelp {
             else return "FAIL";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String tryToSelect(WebElement webElement)
@@ -421,7 +477,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String tryToClick(WebElement webElement)
@@ -432,7 +492,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String tryToHover(WebElement webElement)
@@ -444,7 +508,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String scrollAnd(String act, String elementSelector)
@@ -479,7 +547,11 @@ public class WebHelp {
             return result;
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String safeAct(String act, String elementSelector)
@@ -502,7 +574,7 @@ public class WebHelp {
             else {System.out.println(act + " action has not been defined"); return  "FAIL";}
         }
         catch(Exception ex)
-        {return  ex.toString();}
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
     }
 
     public static String safeInto(String act, String elementSelector, String text)
@@ -526,10 +598,14 @@ public class WebHelp {
             else { System.out.println(act + " action has not been defined");return "FAIL";}
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
-    public static String takeScreenShot(String dest)
+    public static String takeScreen(String dest)
     {
         try
         {
@@ -540,7 +616,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String selectFromDropDownBy(String elementSelector,String what, String text)
@@ -558,7 +638,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String clickFromDropDownBy(String dropdownSelector, String optionsSelector, String text, String attribute)
@@ -588,7 +672,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String isSelected(String elementSelector, String status)
@@ -609,7 +697,11 @@ public class WebHelp {
             else { System.out.println(status + " has not been defined");return "FAIL";}
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String uploadFileWithKey(String fileName)
@@ -632,7 +724,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String uploadFile(String browserButtonSelector, String fileName)
@@ -644,7 +740,11 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
     public static String selectNthElement(String elementSelector , String index)
@@ -656,7 +756,11 @@ public class WebHelp {
            return "PASS";
         }
         catch(Exception ex)
+<<<<<<< HEAD
         {return  ex.toString();}
+=======
+        { RunnerHooks.message = ex.toString(); return "FAIL";}
+>>>>>>> origin/master
     }
 
 
