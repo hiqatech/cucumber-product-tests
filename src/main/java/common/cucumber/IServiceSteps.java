@@ -1,30 +1,26 @@
 package common.cucumber;
 
+import com.jayway.restassured.response.Response;
+import common.service.ServiceHelp;
+import common.setup.AllProducts;
+import common.util.DataGen;
+import cucumber.api.DataTable;
+import cucumber.api.java.en.Given;
+import org.json.simple.JSONObject;
+import org.junit.Assert;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import common.service.ServiceHelp;
-import common.setup.AllProducts;
-import common.util.DataGen;
-import org.json.simple.JSONObject;
-import org.junit.Assert;
-import cucumber.api.DataTable;
-import cucumber.api.java.en.Given;
-
 import static common.service.ServiceHelp.sendRequest;
-import com.jayway.restassured.response.Response;
 
 public class IServiceSteps {
 
   public static Response currentResponse;
 
-  @Given("^Sending next REST request with next data$")
-  public void CreatingRequest(DataTable dataTable){
-    HashMap<String,String> requestMap = new HashMap<String, String>();
-
+  public static void CreateRequest(HashMap<String,String> requestMap){
     String randomIntString = null;
-    requestMap = DataGen.dataToMap(dataTable, 1);
     String serviceName = requestMap.get("service");
 
     String requestName = requestMap.get("request");
@@ -34,9 +30,7 @@ public class IServiceSteps {
     }
 
     String requestType = requestMap.get("type");
-
     String fullRequestURL = AllProducts.getFullRequestURL(requestName);
-
     JSONObject requestBody = new JSONObject();
 
     if(!(requestType.equals("GET")))
@@ -48,10 +42,8 @@ public class IServiceSteps {
 
   }
 
-  @Given("^Verifying next REST response details$")
-  public void VerifyResponse(DataTable data_table) {
-    HashMap<String, String> expectedResponseMap = new HashMap<String, String>();
-    expectedResponseMap = DataGen.dataToMap(data_table, 1);
+
+  public static void VerifyResponse(HashMap<String, String> expectedResponseMap) {
     HashMap<String, String> responseMap = new HashMap<String, String>();
 
     //String fullResponseAsString = currentResponse.jsonPath().get().toString();
@@ -90,11 +82,7 @@ public class IServiceSteps {
               System.out.println(expectedValue + " verified on response " + iteratorList);
           }
         }
-
-
-
     }
 
   }
-
 }

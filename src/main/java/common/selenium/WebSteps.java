@@ -136,7 +136,7 @@ public class WebSteps extends WebHelp {
             for(int i=0;i<10;i++)
             keyActions("ArrowLeft");
         }
-        entry = entry.replace("-","").replace(".","").replace("/","");
+        entry = entry.replace("-","").replace("/","");
 
         return safeInto(act,elementSelector, entry) +" : "+ "I " + act + " the " + entry + " text into the " + elementName + " with selector " + elementSelector +"\n";
     }

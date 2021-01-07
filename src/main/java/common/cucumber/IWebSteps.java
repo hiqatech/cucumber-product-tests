@@ -156,7 +156,7 @@ public class IWebSteps extends WebSteps{
             Assert.assertTrue(false);
         }
         else {
-            RunnerHooks.scenario.write(result);
+            RunnerHooks.scenario.write("FAIL : " + result);
             //System.out.println(result);
         }
     }

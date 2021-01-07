@@ -2,7 +2,7 @@ package products.Linkedin.Pages;
 
 import java.util.HashMap;
 
-public class SearchPage {
+public class LogInPage {
 
     public static HashMap<String, String> elementLocators = new HashMap<String, String>();
 
