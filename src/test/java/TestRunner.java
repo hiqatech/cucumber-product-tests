@@ -7,8 +7,12 @@ import org.junit.runner.RunWith;
         (features = {"src/test/resources/features"},
         tags = { "@Smoke", "@Regression" },
         glue = {"classpath:common/cucumber","classpath:common.setup","classpath:products"},
-                plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
-                )
+                plugin = {
+                        "html:target/cucumber-reports/",
+                        "junit:target/reports-reports/report.xml",
+                        "json:target/reports-reports/report.json",
+                        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+        )
 
 public class TestRunner {
 }

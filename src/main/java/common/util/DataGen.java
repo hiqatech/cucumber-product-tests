@@ -2,11 +2,11 @@ package common.util;
 
 import java.beans.XMLEncoder;
 import java.io.ByteArrayOutputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
-
-import org.joda.time.DateTime;
 
 import cucumber.api.DataTable;
 import gherkin.formatter.model.DataTableRow;
@@ -60,7 +60,7 @@ public class DataGen {
 
   public static String generateRandomString(int length , String startWith)
   {
-    String datetimestring = DateTime.now().toString("yyyyMMddHHmmss");
+    String datetimestring = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
     int random_lenght = length - startWith.length();
     int remove = datetimestring.length() - random_lenght;
     String random_string = (datetimestring.substring(1, remove));
@@ -79,20 +79,20 @@ public class DataGen {
 
   public static String getDynamicDate(String value)
   {
-    DateTime newDate = new DateTime();
+    LocalDateTime newDate = LocalDateTime.now();
     value = value.replace("system_date", "");
     if (value.contains("-"))
     {
       int offset = Integer.parseInt(value.replace("-", ""));
-      newDate = DateTime.now().plusDays(offset);
+      newDate = LocalDateTime.now().plusDays(offset);
     }
     if (value.contains("+"))
     {
       int offset = Integer.parseInt(value.replace("+", ""));
-      newDate = DateTime.now().plusDays(offset);
+      newDate = LocalDateTime.now().plusDays(offset);
     }
 
-    String newDateString = newDate.toString("ddMMyyyy");
+    String newDateString = newDate.format(DateTimeFormatter.ofPattern("ddMMyyyy"));
     return newDateString;
   }
 

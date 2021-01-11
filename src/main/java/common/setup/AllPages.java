@@ -13,23 +13,23 @@ public class AllPages {
             return "";}
     }
 
-    public static String getLinkedinElementSelector(String elementName)
+    public static String getWhatsUpElementSelector(String elementName)
     {
         if(System.getProperty("activePage").equals("Home"))
-            return products.Linkedin.Pages.LogInPage.getElementSelector(elementName);
+            return products.WhatsUp.Pages.LogInPage.getElementSelector(elementName);
         else if(System.getProperty("activePage").equals("Search"))
-            return products.Linkedin.Pages.HomePage.getElementSelector(elementName);
+            return products.WhatsUp.Pages.HomePage.getElementSelector(elementName);
         else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
                                   " Page has not been defined in the AllPages");
             return "";}
     }
 
-    public static String getDropBoxElementSelector(String elementName)
+    public static String getGitHubElementSelector(String elementName)
     {
         if(System.getProperty("activePage").equals("Home"))
-            return products.DropBox.Pages.HomePage.getElementSelector(elementName);
+            return products.GitHub.Pages.HomePage.getElementSelector(elementName);
         else if(System.getProperty("activePage").equals("MyPage"))
-            return products.DropBox.Pages.MyPage.getElementSelector(elementName);
+            return products.GitHub.Pages.MyPage.getElementSelector(elementName);
         else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
                 " Page has not been defined in the AllPages");
             return "";}

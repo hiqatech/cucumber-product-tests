@@ -3,7 +3,7 @@ package common.setup;
 import org.json.simple.JSONObject;
 
 import static common.setup.AllPages.*;
-import static common.setup.AllRequests.getLinkedinRequestURL;
+import static common.setup.AllRequests.*;
 
 public class AllProducts {
 
@@ -11,22 +11,24 @@ public class AllProducts {
     {
         if(System.getProperty("product").contains("YouTube"))
             return getYouTubeElementSelector(elementName);
-        else if(System.getProperty("product").contains("DropBox"))
-            return getDropBoxElementSelector(elementName);
+        else if(System.getProperty("product").contains("GitHub"))
+            return getGitHubElementSelector(elementName);
+        else if(System.getProperty("product").contains("WhatsUp"))
+            return getWhatsUpElementSelector(elementName);
         else {System.out.println("Product has not been defined in AllProducts");
             return null;}
     }
 
     public static String getFullRequestURL(String requestName) {
         if (System.getProperty("product").contains("Linkedin")) {
-            return getLinkedinRequestURL(requestName); }
+            return getWhatsUpRequestURL(requestName); }
         else { System.out.println("Product has not defined yet in the test requests AllProducts \n");
             return null;}
     }
 
     public static JSONObject getRequestBodyByRequestName(String requestName) {
         if (System.getProperty("product").contains("Linkedin"))
-             return AllRequests.getLinkedinRequestBody(requestName);
+             return getWhatsUpRequestBody(requestName);
         else System.out.println("Product request has not defined yet in the test requests AllProducts \n");
             return null;
         }

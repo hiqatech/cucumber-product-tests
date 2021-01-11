@@ -1,4 +1,4 @@
-package products.Linkedin.Pages;
+package products.GitHub.Pages;
 
 import java.util.HashMap;
 
@@ -8,9 +8,10 @@ public class HomePage {
 
   public static void setElements()
   {
-    elementLocators.put("search_field", "//*[@id=\"search\"]");
-    elementLocators.put("search_submit", "//*[@id=\"search-icon-legacy\"]");
-    elementLocators.put("search_result1_image", "//*[@id=\"img\"]");
+    elementLocators.put("sing_in_button", "//*[@href=\"/login\"]");
+    elementLocators.put("email_field", "//input[@id=\"login_field\"]");
+    elementLocators.put("password_field", "//input[@id=\"password\"]");
+    elementLocators.put("login_button", "//input[@type=\"submit\"]");
     elementLocators.put("", "");
 
   }

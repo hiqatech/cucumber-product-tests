@@ -1,4 +1,4 @@
-package products.DropBox.Pages;
+package products.WhatsUp.Pages;
 
 import java.util.HashMap;
 
@@ -8,11 +8,9 @@ public class HomePage {
 
   public static void setElements()
   {
-    elementLocators.put("email_field", "//input[@type=\"email\"]");
-    elementLocators.put("password_field", "//input[@type=\"password\"]");
-    elementLocators.put("sign_in_button", "//button[@type=\"submit\"]");
-    elementLocators.put("", "");
-    elementLocators.put("", "");
+    elementLocators.put("search_field", "//*[@id=\"search\"]");
+    elementLocators.put("search_submit", "//*[@id=\"search-icon-legacy\"]");
+    elementLocators.put("search_result1_image", "//*[@id=\"img\"]");
     elementLocators.put("", "");
 
   }

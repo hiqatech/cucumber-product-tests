@@ -1,4 +1,4 @@
-package products.DropBox.Pages;
+package products.GitHub.Pages;
 
 import java.util.HashMap;
 

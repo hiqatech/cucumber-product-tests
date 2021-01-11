@@ -1,4 +1,4 @@
-package products.Linkedin.Pages;
+package products.WhatsUp.Pages;
 
 import java.util.HashMap;
 

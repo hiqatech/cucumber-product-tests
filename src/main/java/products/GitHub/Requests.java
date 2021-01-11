@@ -1,4 +1,4 @@
-package products.Linkedin;
+package products.GitHub;
 
 import org.json.simple.JSONObject;
 

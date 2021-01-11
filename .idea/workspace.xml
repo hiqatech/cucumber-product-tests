@@ -29,69 +29,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="983d1cbe-fde2-4eed-903b-2c0518f63612" name="Default" comment="app fix">
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/setup/ConfigWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/report/extent-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/extent.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_aventstack_extentreports_3_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_owasp_java_html_sanitizer_owasp_java_html_sanitizer_20181114_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vimalselvam_cucumber_extentsreport_3_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_configuration_commons_configuration_1_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_10_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_masterthought_cucumber_reporting_4_4_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_masterthought_maven_cucumber_reporting_4_4_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_plugins_maven_gpg_plugin_1_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_velocity_velocity_1_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_utils_3_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_23.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jsoup_jsoup_1_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_bson_3_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_3_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_core_3_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__velocity_tools_velocity_tools_1_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProductTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProductTests.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/RunnerHooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/RunnerHooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/util/DataHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/util/DataHelp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/WebDrivers/chromeDriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/WebDrivers/chromeDriver.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/extent-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CukesRunTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GoogleDrive/ETL/FeatureETL.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DropBox/ETL/FeatureETL.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GoogleDrive/Web/Process.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DropBox/Web/Process.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Apps/linkedIn/com.whatsapp_v2.16.107-451191_Android-2.1.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Common/App/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/WebDrivers/chromeDriver.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/extent-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/products/DropBox/Pages/HomePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/products/DropBox/Pages/MyPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/products/DropBox/Requests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/products/Linkedin/Pages/HomePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/products/Linkedin/Pages/LogInPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/products/Linkedin/Requests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/products/YouTube/Pages/HomePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/products/YouTube/Pages/SearchPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/products/YouTube/SpecSteps.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/remotewebdriver/KillDrivers.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/remotewebdriver/StartSeleniumHub.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/remotewebdriver/StartSeleniumNode1.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/remotewebdriver/selenium-server-standalone-3.141.59.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cucumber-reports/evidence1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/CukesRunTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/GoogleDrive/ETL/FeatureETL.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/GoogleDrive/Web/Process.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/LinkedIn/App/FeatureApp.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/LinkedIn/Service/FeatureREST.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/YouTube/Web/Home.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/YouTube/Web/Search.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllPages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllPages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllProducts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllRequests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllRequests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllURLs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllURLs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/util/DataGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/util/DataGen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/products/DropBox/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/products/DropBox/Pages/MyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/MyPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/products/DropBox/Requests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/GitHub/Requests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/products/Linkedin/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/WhatsUp/Pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/products/Linkedin/Pages/LogInPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/WhatsUp/Pages/LogInPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/products/Linkedin/Requests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/WhatsUp/Requests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Apps/linkedIn/com.whatsapp_v2.16.107-451191_Android-2.1.apk" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Apps/WhatsUp/com.whatsapp_v2.16.107-451191_Android-2.1.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/WebDrivers/chromeDriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/webdrivers/chromeDriver.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/DropBox/ETL/FeatureETL.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GitHub/ETL/FeatureETL.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/DropBox/Web/Process.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/LinkedIn/App/FeatureApp.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/WhatsUp/App/FeatureApp.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/LinkedIn/Service/FeatureREST.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/WhatsUp/Service/FeatureREST.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +149,7 @@
       <recent name="Test.SetUp" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Maven.cucumber-product-tests [clean,test...]">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -204,28 +162,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: DropBox Web - I can run my process" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: GitHub Web - I can run my process" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="1.2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/DropBox/Web/Process.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" />
       <option name="GLUE" value="common.setup common.cucumber" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <module name="ProductTests" />
-      <option name="NAME_FILTER" value="^DropBox Web \- I can run my process$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^DropBox Web \- I can run my process$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: DropBox Web - I can run my process" />
+      <option name="NAME_FILTER" value="^GitHub Web \- I can run my process$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^GitHub Web \- I can run my process$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: GitHub Web - I can run my process" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -278,6 +234,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="cucumber-product-tests [clean,test...]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="test" />
+                <option value="-Dcucumber.options=--tags @GitHubWebRegression" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -296,9 +279,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Cucumber Java.Scenario: GitHub Web - I can run my process" />
+      <item itemvalue="Maven.cucumber-product-tests [clean,test...]" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: DropBox Web - I can run my process" />
+        <item itemvalue="Cucumber Java.Scenario: GitHub Web - I can run my process" />
       </list>
     </recent_temporary>
   </component>
@@ -314,6 +301,7 @@
       <option name="presentableId" value="Default" />
       <updated>1490606909192</updated>
       <workItem from="1610018097121" duration="7491000" />
+      <workItem from="1610360711554" duration="4338000" />
     </task>
     <task id="LOCAL-00001" summary="new changes with ui">
       <created>1555342640010</created>
