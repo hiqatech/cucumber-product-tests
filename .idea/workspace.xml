@@ -28,25 +28,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983d1cbe-fde2-4eed-903b-2c0518f63612" name="Default" comment="app fix">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProductTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProductTests.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllPages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllPages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/ConfigWriter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/RunnerHooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/Hooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/util/DataHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/util/DataHelp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/MyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/MyProfilePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" afterDir="false" />
-    </list>
+    <list default="true" id="983d1cbe-fde2-4eed-903b-2c0518f63612" name="Default" comment="app fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -297,7 +279,7 @@
       <option name="presentableId" value="Default" />
       <updated>1490606909192</updated>
       <workItem from="1610018097121" duration="7491000" />
-      <workItem from="1610360711554" duration="17591000" />
+      <workItem from="1610360711554" duration="17947000" />
     </task>
     <task id="LOCAL-00001" summary="new changes with ui">
       <created>1555342640010</created>
@@ -390,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610368641072</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="github login ok with 2 factor auth">
+      <created>1610494105513</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1610494105513</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,7 +424,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="update box" />
     <MESSAGE value="github login ok cucumber run" />
-    <option name="LAST_COMMIT_MESSAGE" value="github login ok cucumber run" />
+    <MESSAGE value="github login ok with 2 factor auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="github login ok with 2 factor auth" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
