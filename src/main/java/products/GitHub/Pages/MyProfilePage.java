@@ -2,15 +2,13 @@ package products.GitHub.Pages;
 
 import java.util.HashMap;
 
-public class MyPage {
+public class MyProfilePage {
 
     public static HashMap<String, String> elementLocators = new HashMap<String, String>();
 
     public static void setElements()
     {
-        elementLocators.put("search_field", "//*[@id=\"search\"]");
-        elementLocators.put("search_submit", "//*[@id=\"search-icon-legacy\"]");
-        elementLocators.put("search_result1_image", "//*[@id=\"img\"]");
+        elementLocators.put("my_profile_menu", "//summary[@aria-label=\"View profile and more\"]");
         elementLocators.put("", "");
 
     }

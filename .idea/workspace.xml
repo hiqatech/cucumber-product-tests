@@ -29,27 +29,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="983d1cbe-fde2-4eed-903b-2c0518f63612" name="Default" comment="app fix">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_4.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProductTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProductTests.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllPages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllPages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllRequests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllRequests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllURLs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllURLs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/util/DataGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/util/DataGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/products/DropBox/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/products/DropBox/Pages/MyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/MyPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/products/DropBox/Requests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/GitHub/Requests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/products/Linkedin/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/WhatsUp/Pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/products/Linkedin/Pages/LogInPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/WhatsUp/Pages/LogInPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/products/Linkedin/Requests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/WhatsUp/Requests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Apps/linkedIn/com.whatsapp_v2.16.107-451191_Android-2.1.apk" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Apps/WhatsUp/com.whatsapp_v2.16.107-451191_Android-2.1.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/WebDrivers/chromeDriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/webdrivers/chromeDriver.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/DropBox/ETL/FeatureETL.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GitHub/ETL/FeatureETL.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/DropBox/Web/Process.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/LinkedIn/App/FeatureApp.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/WhatsUp/App/FeatureApp.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/LinkedIn/Service/FeatureREST.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/WhatsUp/Service/FeatureREST.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/ConfigWriter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/RunnerHooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/Hooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/util/DataHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/util/DataHelp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/MyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/MyProfilePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +117,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -149,7 +145,7 @@
       <recent name="Test.SetUp" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.cucumber-product-tests [clean,test...]">
+  <component name="RunManager" selected="Cucumber Java.Scenario: GitHub Web - I can run my process">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -301,7 +297,7 @@
       <option name="presentableId" value="Default" />
       <updated>1490606909192</updated>
       <workItem from="1610018097121" duration="7491000" />
-      <workItem from="1610360711554" duration="4338000" />
+      <workItem from="1610360711554" duration="17591000" />
     </task>
     <task id="LOCAL-00001" summary="new changes with ui">
       <created>1555342640010</created>
@@ -387,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610046509673</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="github login ok cucumber run">
+      <created>1610368641072</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1610368641072</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +434,8 @@
     <MESSAGE value="update and add dropbox" />
     <MESSAGE value="update" />
     <MESSAGE value="update box" />
-    <option name="LAST_COMMIT_MESSAGE" value="update box" />
+    <MESSAGE value="github login ok cucumber run" />
+    <option name="LAST_COMMIT_MESSAGE" value="github login ok cucumber run" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -447,19 +451,9 @@
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java</url>
-          <line>134</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java</url>
-          <line>515</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="67" />
+          <url>file://$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java</url>
+          <line>223</line>
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

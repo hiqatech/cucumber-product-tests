@@ -12,6 +12,8 @@ public class HomePage {
     elementLocators.put("email_field", "//input[@id=\"login_field\"]");
     elementLocators.put("password_field", "//input[@id=\"password\"]");
     elementLocators.put("login_button", "//input[@type=\"submit\"]");
+    elementLocators.put("otp_number_field", "//input[@id=\"otp\"]");
+    elementLocators.put("otp_number_submit_button", "//button[@type=\"submit\"]");
     elementLocators.put("", "");
 
   }

@@ -2,7 +2,7 @@ package common.cucumber;
 
 import common.selenium.WebSteps;
 import common.setup.AllProducts;
-import common.setup.RunnerHooks;
+import common.setup.Hooks;
 import cucumber.api.java.en.Given;
 import org.junit.Assert;
 import org.openqa.selenium.OutputType;
@@ -104,6 +104,10 @@ public class IWebSteps extends WebSteps{
     { VerifyExecutedStep(WebSteps.waitToAppear(elementName, AllProducts.getElementSelector(elementName)));
         AssertExecutedStep(intoTheElement(act,entry, elementName, AllProducts.getElementSelector(elementName)));}
 
+    @Given("^I receive the OTPNumber to my phoneNumber$")
+    public static void IReceiveTheOTPNumber()
+    { AssertExecutedStep(WebSteps.receiveOTPNumber()); }
+
     @Given("^I should see the \"([^\"]*)\"$")
     public static void IShouldSeeTheElement(String elementName)
     {AssertExecutedStep(shouldSeeTheElement(elementName, AllProducts.getElementSelector(elementName)));}
@@ -126,7 +130,7 @@ public class IWebSteps extends WebSteps{
     public static void ITakeScreenShot(String fileName)
     {
         final byte[] screenshot = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
-        RunnerHooks.scenario.embed(screenshot, "image/jpg"); //stick it in the report
+        Hooks.scenario.embed(screenshot, "image/jpg"); //stick it in the report
         AssertExecutedStep(WebSteps.takeScreenShot(System.getProperty("reportPath") + "/" + fileName));
     }
 
@@ -143,7 +147,6 @@ public class IWebSteps extends WebSteps{
     {VerifyExecutedStep(WebSteps.waitToAppear(elementName, AllProducts.getElementSelector(elementName)));
         AssertExecutedStep(storeElementTextAsTextX(elementName, AllProducts.getElementSelector(elementName),attribute,textX));}
 
-
     public static void IStoreTheTextAsTheTextX(String text,String textX)
     {AssertExecutedStep(storeTextAsTextX(text,textX));}
 
@@ -151,12 +154,12 @@ public class IWebSteps extends WebSteps{
     public static void AssertExecutedStep(String result)
     {
         if (!result.toUpperCase().contains("PASS")) {
-            RunnerHooks.scenario.write(result);
+            Hooks.scenario.write("FAIL : " + result);
             //System.out.println(result);
             Assert.assertTrue(false);
         }
         else {
-            RunnerHooks.scenario.write("FAIL : " + result);
+            Hooks.scenario.write(result);
             //System.out.println(result);
         }
     }
@@ -164,7 +167,7 @@ public class IWebSteps extends WebSteps{
     public static void VerifyExecutedStep(String result)
     {
         if (!result.toUpperCase().contains("PASS")){
-            RunnerHooks.scenario.write(result);
+            Hooks.scenario.write("FAIL : " + result);
             //System.out.println(result);
         }
     }

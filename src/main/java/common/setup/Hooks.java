@@ -11,11 +11,15 @@ import static common.selenium.WebHelp.takeScreenShot;
 import static common.selenium.WebSteps.*;
 import static common.util.DataHelp.getTimeStamp;
 
-public class RunnerHooks {
+public class Hooks {
 
     public static boolean wantsToQuit = false;
     public static Scenario scenario;
     public static String myScenario;
+    public static String accountSID;
+    public static String authToken;
+    public static String phoneNumber;
+    public static String otpNumber;
 
     //------------------------------------------------------------------------//
 
@@ -26,6 +30,13 @@ public class RunnerHooks {
         System.setProperty("runDriver","chrome");
         System.setProperty("seleniumGrid","local"); //http://192.168.1.208:32001/wd/hub
         System.setProperty("runEnvironment","QA");
+        System.setProperty("account_sid","AC9bad98c469be29cdc854277ac5ef63cd");
+        System.setProperty("auth_token","0bf0d96ddf9a2f30d5454bfc6af037ff");
+        System.setProperty("phone_number","+18306421459");
+
+        accountSID= System.getProperty("account_sid");
+        authToken= System.getProperty("auth_token");
+        phoneNumber= System.getProperty("phone_number");
 
         this.scenario = scenario;
 

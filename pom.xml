@@ -124,12 +124,17 @@
       <artifactId>json-path</artifactId>
       <version>2.0.0</version>
     </dependency>
-
+    <!-- https://mvnrepository.com/artifact/com.twilio.sdk/twilio -->
+    <dependency>
+      <groupId>com.twilio.sdk</groupId>
+      <artifactId>twilio</artifactId>
+      <version>7.42.0</version>
+    </dependency>
   </dependencies>
 
 
   <build>
-
+    <!--
     <extensions>
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
@@ -149,9 +154,9 @@
         <filtering>true</filtering>
       </testResource>
     </testResources>
+    -->
 
     <plugins>
-
       <!-- compiler -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -162,7 +167,6 @@
           <target>${java.version}</target>
         </configuration>
       </plugin>
-
       <!-- surefire -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -170,11 +174,23 @@
         <version>${maven-surefire.version}</version>
         <configuration>
           <testFailureIgnore>true</testFailureIgnore>
+          <systemProperties>
+            <property>
+              <name>account_sid</name>
+              <value>AC9bad98c469be29cdc854277ac5ef63cd</value>
+            </property>
+            <property>
+              <name>auth_token</name>
+              <value>0bf0d96ddf9a2f30d5454bfc6af037ff</value>
+            </property>
+            <property>
+              <name>phone_number</name>
+              <value>+18306421459</value>
+            </property>
+          </systemProperties>
         </configuration>
       </plugin>
-
     </plugins>
-
   </build>
 
 </project>

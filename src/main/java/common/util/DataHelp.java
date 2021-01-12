@@ -13,7 +13,6 @@ public class DataHelp {
 
     public static List<String> storedTexts = Arrays.asList("","","","","","","","","","");
     public static HashMap<String,String> MyMap;
-
     public static String getTimeStamp(String format)
     {
         String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern(format));
@@ -184,6 +183,17 @@ public class DataHelp {
         }
         catch(Exception ex)
         {System.out.println(ex.toString()); return  ex.toString();}
+    }
+
+    public static boolean onlyDigits(String str)
+    {
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isDigit(str.charAt(i))) {
+                return true;
+            }
+            else return false;
+        }
+        return false;
     }
 
 }

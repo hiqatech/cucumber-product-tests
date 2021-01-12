@@ -1,5 +1,9 @@
 package common.selenium;
 
+import com.twilio.Twilio;
+import com.twilio.base.ResourceSet;
+import com.twilio.rest.api.v2010.account.Message;
+import common.setup.Hooks;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,6 +26,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+
 
 public class WebHelp {
 
@@ -53,7 +60,6 @@ public class WebHelp {
                     options.addArguments("--ssl-version-max=tls1");
                     options.addArguments("--ignore-certificate-errors");
                     options.addArguments("--disable-extensions");
-                    options.setExperimentalOption("useAutomationExtension", false);
                     options.addArguments("--start-maximized");
                     options.addArguments("--screenshot");
 
@@ -512,6 +518,7 @@ public class WebHelp {
 
     public static String safeInto(String act, String elementSelector, String text)
     {
+        sleep(1);
         try
         {   if(act.toUpperCase().equals("TYPE"))
             {
@@ -663,6 +670,20 @@ public class WebHelp {
         catch(Exception ex)
         {return  ex.toString();}
     }
+
+    public static String receiveOTPNumber(String accountSID, String authToken, String phoneNumber){
+        try {
+            Twilio.init(accountSID,authToken);
+            ResourceSet<Message> messages = Message.reader(accountSID).read();
+            Stream<Message> messagesString = StreamSupport.stream(messages.spliterator(),false);
+            String smsBody = String.valueOf(messagesString.filter(m-> m.getDirection().compareTo(Message.Direction.INBOUND)==0).filter(m -> m.getTo().equals(phoneNumber)).map(Message::getBody).findFirst());
+            return smsBody.replaceAll("[^-?0-9]+","").substring(0,6);
+        }
+        catch(Exception ex)
+        {return  ex.toString();}
+    }
+
+
 
 
 }
