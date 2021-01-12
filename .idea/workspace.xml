@@ -28,7 +28,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983d1cbe-fde2-4eed-903b-2c0518f63612" name="Default" comment="app fix" />
+    <list default="true" id="983d1cbe-fde2-4eed-903b-2c0518f63612" name="Default" comment="app fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +93,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550531635766" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/webdrivers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/files" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -103,11 +106,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ZolStaff\HiQATech\HiQATechJava\ProductTests\src\main\resources\files" />
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\main\resources\webdrivers" />
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\test\resources\features\GoogleDrive\Web" />
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\main\java\products\Linkedin" />
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\test\resources\features\YouTube\ETL" />
-      <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\main\resources\WebDrivers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\test\resources\features\GoogleDrive\ETL" />
@@ -279,7 +282,7 @@
       <option name="presentableId" value="Default" />
       <updated>1490606909192</updated>
       <workItem from="1610018097121" duration="7491000" />
-      <workItem from="1610360711554" duration="17947000" />
+      <workItem from="1610360711554" duration="18358000" />
     </task>
     <task id="LOCAL-00001" summary="new changes with ui">
       <created>1555342640010</created>
@@ -379,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610494105513</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="github login ok with 2 factor auth">
+      <created>1610494494069</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1610494494069</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

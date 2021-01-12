@@ -518,7 +518,7 @@ public class WebHelp {
 
     public static String safeInto(String act, String elementSelector, String text)
     {
-        sleep(1);
+        sleep(500);
         try
         {   if(act.toUpperCase().equals("TYPE"))
             {
