@@ -63,8 +63,12 @@ public class WebSteps extends WebHelp {
             return safeAct(act, elementSelector) + " : " + "I " + act + " the " + elementName + " with selector " + elementSelector + "\n";
     }
 
-    public static String downloadTheFile() {
-        return downloadFile() + " : " + "I download the file to my folder" + "\n";
+    public static String browserAction(String elementName) {
+        return browserAct(elementName) + " : " + "I click the " + elementName + "\n";
+    }
+
+    public static String sendEnterToWindow() {
+        return sendEnterKey() + " : " + "I send enter key to the window" + "\n";
     }
 
     public static String elementStatusShouldBe(String elementName, String elementSelector, String status) {

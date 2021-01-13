@@ -33,7 +33,7 @@ public class WebHelp {
 
     public static WebDriver webDriver;
     public static int waitTimeMax= 5000;
-    public static int waitTime = 250;
+    public static int waitTime = 500;
 
     public static String startMyWebDriver(String driver)
     {
@@ -52,7 +52,7 @@ public class WebHelp {
 
                     HashMap<String,Object> chromePrefs = new HashMap<String,Object>();
                     chromePrefs.put("download.prompt_for_download",false);
-                    chromePrefs.put("download.default_directory","C:\\" + System.getProperty("userId") + "\\Temp\\Documents\\");
+                    chromePrefs.put("download.default_directory",System.getProperty("downloadPath"));
 
                     ChromeOptions options = new ChromeOptions();
                     options.setExperimentalOption("prefs",chromePrefs);
@@ -385,6 +385,22 @@ public class WebHelp {
         {return  ex.toString();}
     }
 
+
+    public static String browserAct(String elementName)
+    {
+        try
+        {
+            elementName = elementName.toUpperCase();
+            if(elementName.contains("BACK"))
+                webDriver.navigate().back();
+            else if(elementName.equals("FORWARD"))
+                webDriver.navigate().forward();
+            return "PASS";
+        }
+        catch(Exception ex)
+        {return  ex.toString();}
+    }
+
     public static String readTextOfWebElement(String elementSelector)
     {
         try
@@ -443,7 +459,17 @@ public class WebHelp {
             return "PASS";
         }
         catch(Exception ex)
-        {return  ex.toString();}
+        {
+            if(ex.toString().contains("StaleElement")){
+                sleep(1000);
+                try {
+                    webElement.click();
+                    return "PASS";
+                }
+                catch (Exception exc)
+                {return exc.toString();}
+                }
+            return ex.toString();}
     }
 
     public static String tryToHover(WebElement webElement)
@@ -516,13 +542,13 @@ public class WebHelp {
         {return  ex.toString();}
     }
 
-    public static String downloadFile()
+    public static String sendEnterKey()
     {
         try
         { sleep(1000);
         Robot robot = new Robot();
-        robot.keyPress(KeyEvent.VK_TAB);
-        robot.keyRelease(KeyEvent.VK_TAB);
+        //robot.keyPress(KeyEvent.VK_TAB);
+        //robot.keyRelease(KeyEvent.VK_TAB);
         robot.keyPress(KeyEvent.VK_ENTER);
         robot.keyRelease(KeyEvent.VK_ENTER);
         return "PASS";
@@ -642,9 +668,9 @@ public class WebHelp {
     {
         try
         {
-            String path = System.getProperty("filePath") + fileName;
+            //String path = System.getProperty("uploadPath") + fileName;
             sleep(1000);
-            StringSelection string = new StringSelection(path);
+            StringSelection string = new StringSelection(fileName);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(string,null);
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_ENTER);
@@ -665,7 +691,7 @@ public class WebHelp {
     {
         try
         {
-            String path = System.getProperty("filePath") + fileName;
+            String path = System.getProperty("uploadPath") + fileName;
             webDriver.findElement(By.xpath(browserButtonSelector)).sendKeys(path);
             return "PASS";
         }

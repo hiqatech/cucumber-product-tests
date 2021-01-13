@@ -58,8 +58,9 @@ public class Hooks {
         System.setProperty("projectPath",System.getProperty("user.dir"));
         System.setProperty("systemTime", dateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
         System.setProperty("userID",System.getProperty("user.home").replace("C:\\Users\\",""));
-        System.setProperty("downloadPath",System.getProperty("user.home")+"\\Downloads");
-        System.setProperty("reportPath",System.getProperty("projectPath")+"\\target\\cucumber-reports");
+        System.setProperty("downloadPath",System.getProperty("user.home")+"\\Desktop\\");
+        System.setProperty("uploadPath",System.getProperty("user.home")+"\\Desktop\\");
+        System.setProperty("reportPath",System.getProperty("projectPath")+"\\target\\cucumber-reports\\");
         System.setProperty("filePath",System.getProperty("projectPath") + "\\src\\main\\resources\\files\\");
         System.setProperty("driverPath",System.getProperty("projectPath") + "\\src\\main\\resources\\webdrivers\\");
         System.setProperty("reportConfigPath",System.getProperty("projectPath") + "\\src\\main\\resources\\report\\extent-config.html");

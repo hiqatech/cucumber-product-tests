@@ -30,7 +30,6 @@
   <component name="ChangeListManager">
     <list default="true" id="983d1cbe-fde2-4eed-903b-2c0518f63612" name="Default" comment="app fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GitHub Web - I can run my process failed_2021-01-13-01-13-16-070" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" afterDir="false" />
@@ -288,7 +287,7 @@
       <option name="presentableId" value="Default" />
       <updated>1490606909192</updated>
       <workItem from="1610018097121" duration="7491000" />
-      <workItem from="1610360711554" duration="26873000" />
+      <workItem from="1610360711554" duration="33543000" />
     </task>
     <task id="LOCAL-00001" summary="new changes with ui">
       <created>1555342640010</created>
@@ -409,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610528034980</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="download from github ok">
+      <created>1610548315566</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1610548315566</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,7 +463,8 @@
     <MESSAGE value="github login ok with 2 factor auth" />
     <MESSAGE value="mycars excel added and sleep before entry" />
     <MESSAGE value="signin 2 works plus cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="signin 2 works plus cleanup" />
+    <MESSAGE value="download from github ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="download from github ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -474,7 +481,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java</url>
-          <line>231</line>
+          <line>235</line>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>

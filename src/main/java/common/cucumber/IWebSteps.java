@@ -47,9 +47,14 @@ public class IWebSteps extends WebSteps{
     {  VerifyExecutedStep(WebSteps.waitToAppear(elementName, AllProducts.getElementSelector(elementName)));
         AssertExecutedStep(actTheElement(act,elementName, AllProducts.getElementSelector(elementName)));}
 
-    @Given("^I download the file to my folder$")
-    public static void IDownloadTheFile()
-    {  AssertExecutedStep(downloadTheFile());}
+    @Given("^I click the \"([^\"]*)\"$")
+    public static void IActTheBrowser(String elementName)
+    {  AssertExecutedStep(browserAction(elementName));}
+
+
+    @Given("^I send enter keys to the popup window$")
+    public static void ISendEnterToWindow()
+    {  AssertExecutedStep(sendEnterToWindow());}
 
     @Given("^The \"([^\"]*)\" element status should be \"([^\"]*)\"$")
     public static void TheElementStatusShouldBe(String elementName, String status)
@@ -70,12 +75,12 @@ public class IWebSteps extends WebSteps{
     {VerifyExecutedStep(WebSteps.waitToAppear(elementName, AllProducts.getElementSelector(elementName)));
         AssertExecutedStep(WebSteps.clickFromDropDownBy(text,attribute,elementName, AllProducts.getElementSelector(elementName),optionName, AllProducts.getElementSelector(optionName)));}
 
-    @Given("^I upload the \"([^\"]*)\" file to the \"([^\"]*)\"$")
+    @Given("^I upload the \"([^\"]*)\" to the \"([^\"]*)\"$")
     public static void IUploadTheFile(String fileName, String elementName)
     {VerifyExecutedStep(WebSteps.waitToAppear(elementName, AllProducts.getElementSelector(elementName)));
         AssertExecutedStep(WebSteps.uploadFile(fileName,elementName, AllProducts.getElementSelector(elementName)));}
 
-    @Given("^I upload the \"([^\"]*)\" file to the \"([^\"]*)\" element with keys$")
+    @Given("^I upload the \"([^\"]*)\" to the \"([^\"]*)\" with keys$")
     public static void IUploadTheFileWithKeys(String fileName, String elementName)
     {VerifyExecutedStep(WebSteps.waitToAppear(elementName, AllProducts.getElementSelector(elementName)));
         AssertExecutedStep(WebSteps.uploadFileWithKey(fileName,elementName, AllProducts.getElementSelector(elementName)));}
