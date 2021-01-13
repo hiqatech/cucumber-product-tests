@@ -3,7 +3,6 @@ package common.selenium;
 import com.twilio.Twilio;
 import com.twilio.base.ResourceSet;
 import com.twilio.rest.api.v2010.account.Message;
-import common.setup.Hooks;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -52,7 +51,7 @@ public class WebHelp {
                     System.setProperty("webdriver.chrome.driver",chromeDriverPath);
 
                     HashMap<String,Object> chromePrefs = new HashMap<String,Object>();
-                    chromePrefs.put("profile.default_content_settings.popups",0);
+                    chromePrefs.put("download.prompt_for_download",false);
                     chromePrefs.put("download.default_directory","C:\\" + System.getProperty("userId") + "\\Temp\\Documents\\");
 
                     ChromeOptions options = new ChromeOptions();
@@ -512,6 +511,21 @@ public class WebHelp {
             else if(act.equals("CLEAR"))
             {webElement.clear(); return "PASS";}
             else {System.out.println(act + " action has not been defined"); return  "FAIL";}
+        }
+        catch(Exception ex)
+        {return  ex.toString();}
+    }
+
+    public static String downloadFile()
+    {
+        try
+        { sleep(1000);
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_TAB);
+        robot.keyRelease(KeyEvent.VK_TAB);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        return "PASS";
         }
         catch(Exception ex)
         {return  ex.toString();}

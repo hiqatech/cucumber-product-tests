@@ -29,12 +29,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="983d1cbe-fde2-4eed-903b-2c0518f63612" name="Default" comment="app fix">
-      <change afterPath="$PROJECT_DIR$/GitHub Web - I can run my process failed_2021-01-13-01-13-16-070" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GitHub Web - I can run my process failed_2021-01-13-01-13-16-070" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/Hooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Apps/WhatsUp/com.whatsapp_v2.16.107-451191_Android-2.1.apk" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/apps/whatsup/com.whatsapp_v2.16.107-451191_Android-2.1.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/files/MyCars.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/files/MyCars.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/MyProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/products/GitHub/Pages/MyProfilePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -287,7 +288,7 @@
       <option name="presentableId" value="Default" />
       <updated>1490606909192</updated>
       <workItem from="1610018097121" duration="7491000" />
-      <workItem from="1610360711554" duration="19083000" />
+      <workItem from="1610360711554" duration="26873000" />
     </task>
     <task id="LOCAL-00001" summary="new changes with ui">
       <created>1555342640010</created>
@@ -401,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610494989872</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="signin 2 works plus cleanup">
+      <created>1610528034980</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1610528034980</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,7 +456,8 @@
     <MESSAGE value="github login ok cucumber run" />
     <MESSAGE value="github login ok with 2 factor auth" />
     <MESSAGE value="mycars excel added and sleep before entry" />
-    <option name="LAST_COMMIT_MESSAGE" value="mycars excel added and sleep before entry" />
+    <MESSAGE value="signin 2 works plus cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="signin 2 works plus cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -465,7 +474,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java</url>
-          <line>223</line>
+          <line>231</line>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>

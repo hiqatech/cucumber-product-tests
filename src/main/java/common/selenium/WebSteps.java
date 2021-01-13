@@ -63,6 +63,10 @@ public class WebSteps extends WebHelp {
             return safeAct(act, elementSelector) + " : " + "I " + act + " the " + elementName + " with selector " + elementSelector + "\n";
     }
 
+    public static String downloadTheFile() {
+        return downloadFile() + " : " + "I download the file to my folder" + "\n";
+    }
+
     public static String elementStatusShouldBe(String elementName, String elementSelector, String status) {
         if (status.equalsIgnoreCase("SELECTED"))
             return isSelected(elementSelector, status) + " : " + "The " + elementName + " status should be " + status + " with selector " + elementSelector + "\n";
@@ -140,6 +144,10 @@ public class WebSteps extends WebHelp {
 
         if (entry.equals("OTPNumber"))
             entry = Hooks.otpNumber;
+        if (entry.equals("MyUserName"))
+            entry = Hooks.myUserName;
+        if (entry.equals("MyPassword"))
+            entry = Hooks.myPassword;
 
         entry = entry.replace("-", "").replace("/", "");
 

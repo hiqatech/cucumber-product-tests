@@ -20,6 +20,8 @@ public class Hooks {
     public static String authToken;
     public static String phoneNumber;
     public static String otpNumber;
+    public static String myUserName;
+    public static String myPassword;
 
     //------------------------------------------------------------------------//
 
@@ -33,10 +35,14 @@ public class Hooks {
         System.setProperty("account_sid","AC9bad98c469be29cdc854277ac5ef63cd");
         System.setProperty("auth_token","c6d4a5c59d6155c6b09627757a21ec6a");
         System.setProperty("phone_number","+18306421459");
+        System.setProperty("my_username","hiqatech");
+        System.setProperty("my_password","Strid@b52");
 
         accountSID= System.getProperty("account_sid");
         authToken= System.getProperty("auth_token");
         phoneNumber= System.getProperty("phone_number");
+        myUserName= System.getProperty("my_username");
+        myPassword= System.getProperty("my_password");
 
         this.scenario = scenario;
 
@@ -86,7 +92,7 @@ public class Hooks {
     {
         if(screnario.isFailed())
         {
-            takeScreenShot(myScenario + " failed_" + getTimeStamp("YYYY-MM-DD-HH-mm-ss-SSS"));
+            takeScreenShot(System.getProperty("reportPath") + myScenario + " failed_" + getTimeStamp("YYYY-MM-DD-HH-mm-ss-SSS"));
             stopWebDriver();
             stopAndroidDriver();
             stopIOSDriver();

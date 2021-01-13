@@ -47,6 +47,10 @@ public class IWebSteps extends WebSteps{
     {  VerifyExecutedStep(WebSteps.waitToAppear(elementName, AllProducts.getElementSelector(elementName)));
         AssertExecutedStep(actTheElement(act,elementName, AllProducts.getElementSelector(elementName)));}
 
+    @Given("^I download the file to my folder$")
+    public static void IDownloadTheFile()
+    {  AssertExecutedStep(downloadTheFile());}
+
     @Given("^The \"([^\"]*)\" element status should be \"([^\"]*)\"$")
     public static void TheElementStatusShouldBe(String elementName, String status)
     {VerifyExecutedStep(WebSteps.waitToAppear(elementName, AllProducts.getElementSelector(elementName)));
