@@ -31,7 +31,7 @@ public class Hooks {
         System.setProperty("seleniumGrid","local"); //http://192.168.1.208:32001/wd/hub
         System.setProperty("runEnvironment","QA");
         System.setProperty("account_sid","AC9bad98c469be29cdc854277ac5ef63cd");
-        System.setProperty("auth_token","0bf0d96ddf9a2f30d5454bfc6af037ff");
+        System.setProperty("auth_token","c6d4a5c59d6155c6b09627757a21ec6a");
         System.setProperty("phone_number","+18306421459");
 
         accountSID= System.getProperty("account_sid");

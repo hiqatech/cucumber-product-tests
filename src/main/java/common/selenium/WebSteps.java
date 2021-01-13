@@ -64,9 +64,9 @@ public class WebSteps extends WebHelp {
     }
 
     public static String elementStatusShouldBe(String elementName, String elementSelector, String status) {
-        if (status.toUpperCase().equals("SELECTED"))
+        if (status.equalsIgnoreCase("SELECTED"))
             return isSelected(elementSelector, status) + " : " + "The " + elementName + " status should be " + status + " with selector " + elementSelector + "\n";
-        else if (status.toUpperCase().equals("CHECKED"))
+        else if (status.equalsIgnoreCase("CHECKED"))
             return isChecked(elementSelector, status) + " : " + "The " + elementName + " status should be " + status + " with selector " + elementSelector + "\n";
         else return " status is not a implemented to assert";
     }
@@ -147,11 +147,11 @@ public class WebSteps extends WebHelp {
     }
 
     public static String shouldSeeTheElement(String elementName, String elementSelector) {
-        return waitToAppear(elementName, elementSelector) + " : " + elementName + " should be visible with selector " + elementSelector + "\n";
+        return waitToAppear(elementName, elementSelector) + " : The " + elementName + " should be visible with selector " + elementSelector + "\n";
     }
 
     public static String shouldNotSeeTheElement(String elementName, String elementSelector) {
-        return waitToDisappear(elementName, elementSelector) + " : " + elementName + " should not be visible with selector " + elementSelector + "\n";
+        return waitToDisappear(elementName, elementSelector) + " : The " + elementName + " should not be visible with selector " + elementSelector + "\n";
     }
 
     public static String elementTextShouldBe(String elementName, String elementSelector, String attribute, String condition, String text) {
@@ -172,10 +172,10 @@ public class WebSteps extends WebHelp {
 
         String result = "FAIL";
 
-        if (condition.toUpperCase().equals("EQUAL")) {
+        if (condition.equalsIgnoreCase("EQUAL")) {
             if (currentText.equals(text))
                 result = "PASS";
-        } else if (condition.toUpperCase().equals("CONTAIN")) {
+        } else if (condition.equalsIgnoreCase("CONTAIN")) {
             if (currentText.contains(text))
                 result = "PASS";
         } else
@@ -203,10 +203,10 @@ public class WebSteps extends WebHelp {
 
         String result = "PASS";
 
-        if (condition.toUpperCase().equals("EQUAL")) {
+        if (condition.equalsIgnoreCase("EQUAL")) {
             if (currentText.equals(text))
                 result = "FAIL";
-        } else if (condition.toUpperCase().equals("CONTAIN")) {
+        } else if (condition.equalsIgnoreCase("CONTAIN")) {
             if (currentText.contains(text))
                 result = "FAIL";
         } else
@@ -249,7 +249,7 @@ public class WebSteps extends WebHelp {
         String otpNumber = receiveOTPNumber(Hooks.accountSID, Hooks.authToken, Hooks.phoneNumber);
         if(onlyDigits(otpNumber)){
         Hooks.otpNumber = otpNumber;
-        return "PASS : Receive the OTPNumber " + "\n";
+        return "PASS : I receive the OTPNumber to my phone number" + "\n";
         }
         else return  otpNumber + " : "+"Receive the OTPNumber " +"\n";
     }

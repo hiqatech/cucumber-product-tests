@@ -29,8 +29,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="983d1cbe-fde2-4eed-903b-2c0518f63612" name="Default" comment="app fix">
+      <change afterPath="$PROJECT_DIR$/GitHub Web - I can run my process failed_2021-01-13-01-13-16-070" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebHelp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/Hooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Apps/WhatsUp/com.whatsapp_v2.16.107-451191_Android-2.1.apk" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/apps/whatsup/com.whatsapp_v2.16.107-451191_Android-2.1.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/files/MyCars.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/files/MyCars.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,11 +118,11 @@
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\test\resources\features\YouTube\ETL" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\ZolStaff\HiQATech\HiQATechJava\ProductTests\src\main\resources\apps\whatsup" />
+      <recent name="E:\ZolStaff\HiQATech\HiQATechJava\ProductTests\src\main\resources" />
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\test\resources\features\GoogleDrive\ETL" />
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\test\resources\features\GoogleDrive" />
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\main\resources\remotewebdriver" />
-      <recent name="C:\Dev\Tests\cucumber-product-tests\src\test\resources\features" />
-      <recent name="C:\Dev\Tests\cucumber-product-tests\src\test\" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="LinkedIn" />
@@ -282,7 +287,7 @@
       <option name="presentableId" value="Default" />
       <updated>1490606909192</updated>
       <workItem from="1610018097121" duration="7491000" />
-      <workItem from="1610360711554" duration="18358000" />
+      <workItem from="1610360711554" duration="19083000" />
     </task>
     <task id="LOCAL-00001" summary="new changes with ui">
       <created>1555342640010</created>
@@ -389,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610494494069</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="mycars excel added and sleep before entry">
+      <created>1610494989872</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1610494989872</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,7 +447,8 @@
     <MESSAGE value="update box" />
     <MESSAGE value="github login ok cucumber run" />
     <MESSAGE value="github login ok with 2 factor auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="github login ok with 2 factor auth" />
+    <MESSAGE value="mycars excel added and sleep before entry" />
+    <option name="LAST_COMMIT_MESSAGE" value="mycars excel added and sleep before entry" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

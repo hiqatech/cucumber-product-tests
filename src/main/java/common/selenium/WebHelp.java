@@ -70,9 +70,9 @@ public class WebHelp {
                     capabilities.setCapability("chrome.switches", Arrays.asList("--screenshots"));
                     capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
                     capabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
-                    if(!System.getProperty("seleniumGrid").toUpperCase().equals("LOCAL"))
+                    if(!System.getProperty("seleniumGrid").equalsIgnoreCase("LOCAL"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
-                    else if(System.getProperty("seleniumGrid").toUpperCase().equals("LOCAL"))
+                    else if(System.getProperty("seleniumGrid").equalsIgnoreCase("LOCAL"))
                         webDriver = new ChromeDriver(options);
                     else System.out.println("seleniumGrid" + " has not been defined.");
 
@@ -88,9 +88,9 @@ public class WebHelp {
                     capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
                     capabilities.setJavascriptEnabled(true);
 
-                    if(System.getProperty("runEnvironment").toUpperCase().equals("REMOTE"))
+                    if(System.getProperty("runEnvironment").equalsIgnoreCase("REMOTE"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
-                    else if(System.getProperty("runEnvironment").toUpperCase().equals("LOCAL"))
+                    else if(System.getProperty("runEnvironment").equalsIgnoreCase("LOCAL"))
                         webDriver = new InternetExplorerDriver();
                     else System.out.println(System.getProperty("runEnvironment") + " has not been defined yet.");
 
@@ -102,9 +102,9 @@ public class WebHelp {
                     String firefoxDriverPath = driverPath + "geckodriver.exe";
                     System.setProperty("webdriver.gecko.driver",firefoxDriverPath);
 
-                    if(System.getProperty("runEnvironment").toUpperCase().equals("REMOTE"))
+                    if(System.getProperty("runEnvironment").equalsIgnoreCase("REMOTE"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
-                    else if(System.getProperty("runEnvironment").toUpperCase().equals("LOCAL"))
+                    else if(System.getProperty("runEnvironment").equalsIgnoreCase("LOCAL"))
                         webDriver = new FirefoxDriver();
                     else System.out.println(System.getProperty("runEnvironment") + " has not been defined yet.");
 
@@ -193,6 +193,7 @@ public class WebHelp {
         double startTime = 0;
         while (startTime < waitTimeMax)
         {
+            sleep(waitTime);
             if(isDisplayed(elementSelector).equals("PASS"))
                 return  "PASS";
             else
@@ -467,21 +468,21 @@ public class WebHelp {
             {keyActions("PAGEUP");}
             String result = "";
             int trying = 0;
-            if(act.toUpperCase().equals("CLICK"))
+            if(act.equalsIgnoreCase("CLICK"))
                 result = tryToClick(webElement);
-            else if(act.toUpperCase().equals("SELECT"))
+            else if(act.equalsIgnoreCase("SELECT"))
                 result = tryToSelect(webElement);
             result = tryToClick(webElement);
             while(trying < 70)
             {
-                if(result.toUpperCase().equals("PASS"))
+                if(result.equalsIgnoreCase("PASS"))
                     break;
                 else
                 {
                     keyActions("ARROWDOWN");
-                    if(act.toUpperCase().equals("CLICK"))
+                    if(act.equalsIgnoreCase("CLICK"))
                         result = tryToClick(webElement);
-                    else if(act.toUpperCase().equals("SELECT"))
+                    else if(act.equalsIgnoreCase("SELECT"))
                         result = tryToSelect(webElement);
                     trying = trying + 1;
                 }
@@ -500,11 +501,11 @@ public class WebHelp {
             act = act.toUpperCase();
             WebElement webElement = getWebElement(elementSelector);
 
-            if(act.toUpperCase().equals("HOVER"))
+            if(act.equalsIgnoreCase("HOVER"))
                 return tryToHover(webElement);
-            if(act.toUpperCase().equals("CLICK"))
+            if(act.equalsIgnoreCase("CLICK"))
                 return tryToClick(webElement);
-            else if(act.toUpperCase().equals("SELECT"))
+            else if(act.equalsIgnoreCase("SELECT"))
                 return tryToSelect(webElement);
             else if(act.equals("HIT"))
                 {webElement.sendKeys(Keys.ENTER); return "PASS";}
@@ -518,16 +519,15 @@ public class WebHelp {
 
     public static String safeInto(String act, String elementSelector, String text)
     {
-        sleep(500);
         try
-        {   if(act.toUpperCase().equals("TYPE"))
+        {   if(act.equalsIgnoreCase("TYPE"))
             {
                 safeAct("click", elementSelector);
                 WebElement webElement = getWebElement(elementSelector);
                 webElement.sendKeys(text);
                 return "PASS";
             }
-            else if(act.toUpperCase().equals("ENTER"))
+            else if(act.equalsIgnoreCase("ENTER"))
             {
                 safeAct("select",elementSelector);
                 WebElement webElement = getWebElement(elementSelector);
@@ -673,6 +673,7 @@ public class WebHelp {
 
     public static String receiveOTPNumber(String accountSID, String authToken, String phoneNumber){
         try {
+            sleep(10000);
             Twilio.init(accountSID,authToken);
             ResourceSet<Message> messages = Message.reader(accountSID).read();
             Stream<Message> messagesString = StreamSupport.stream(messages.spliterator(),false);
