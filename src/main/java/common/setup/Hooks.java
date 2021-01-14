@@ -28,32 +28,18 @@ public class Hooks {
     @Before
     public void setup(Scenario scenario) throws Exception
     {
-        // local use, comment before push
-        System.setProperty("runDriver","chrome");
-        System.setProperty("seleniumGrid","local"); //http://192.168.1.208:32001/wd/hub
-        System.setProperty("runEnvironment","QA");
-        System.setProperty("account_sid","AC9bad98c469be29cdc854277ac5ef63cd");
-        System.setProperty("auth_token","c6d4a5c59d6155c6b09627757a21ec6a");
-        System.setProperty("phone_number","+18306421459");
-        System.setProperty("my_username","hiqatech");
-        System.setProperty("my_password","Strid@b52");
-
-        accountSID= System.getProperty("account_sid");
-        authToken= System.getProperty("auth_token");
-        phoneNumber= System.getProperty("phone_number");
-        myUserName= System.getProperty("my_username");
-        myPassword= System.getProperty("my_password");
-
         this.scenario = scenario;
 
-        if(wantsToQuit)
-            throw new RuntimeException("Test FAIL : Cucumber wants to quit");
+        LocalDateTime dateTime = LocalDateTime.now();
 
         myScenario = scenario.getName();
         System.setProperty("scenario",myScenario);
         System.setProperty("product",myScenario.substring(0,myScenario.indexOf("-")).replace(" ",""));
 
-        LocalDateTime dateTime = LocalDateTime.now();
+        // local use, comment before push
+        System.setProperty("runDriver","chrome");
+        System.setProperty("seleniumGrid","local"); //http://192.168.1.208:32001/wd/hub
+        System.setProperty("runEnvironment","QA");
 
         System.setProperty("projectPath",System.getProperty("user.dir"));
         System.setProperty("systemTime", dateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
@@ -64,6 +50,26 @@ public class Hooks {
         System.setProperty("filePath",System.getProperty("projectPath") + "\\src\\main\\resources\\files\\");
         System.setProperty("driverPath",System.getProperty("projectPath") + "\\src\\main\\resources\\webdrivers\\");
         System.setProperty("reportConfigPath",System.getProperty("projectPath") + "\\src\\main\\resources\\report\\extent-config.html");
+
+        System.setProperty("account_sid","AC9bad98c469be29cdc854277ac5ef63cd");
+        System.setProperty("auth_token","c6d4a5c59d6155c6b09627757a21ec6a");
+        System.setProperty("phone_number","+18306421459");
+
+        if(System.getProperty("product").equals("GitHubWeb")){
+            System.setProperty("my_username","hiqatech");
+            System.setProperty("my_password","Strid@b52");}
+        else if(System.getProperty("product").equals("CognizantWeb")){
+            System.setProperty("my_username","668904@cognizant.com");
+            System.setProperty("my_password","Lidia@20");}
+
+        accountSID= System.getProperty("account_sid");
+        authToken= System.getProperty("auth_token");
+        phoneNumber= System.getProperty("phone_number");
+        myUserName= System.getProperty("my_username");
+        myPassword= System.getProperty("my_password");
+
+        if(wantsToQuit)
+            throw new RuntimeException("Test FAIL : Cucumber wants to quit");
 
         System.out.println("************************************************************************************");
 

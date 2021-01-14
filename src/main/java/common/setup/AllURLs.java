@@ -4,6 +4,7 @@ public class AllURLs {
 
     public static String YouTubeQA = "https://www.youtube.com";
     public static String GitHubQA = "https://www.github.com";
+    public static String CognizantQA = "https://onecognizant.cognizant.com";
 
     public static String getProductURL()
     {
@@ -12,12 +13,11 @@ public class AllURLs {
                 return YouTubeQA;
             else if (System.getProperty("product").contains("GitHub"))
                 return GitHubQA;
+            else if (System.getProperty("product").contains("Cognizant"))
+                return CognizantQA;
             else return "Product URL has not been defined on QA environment";
             }
-
         else return "Product URL has not been defined";
-
     }
-
 
 }

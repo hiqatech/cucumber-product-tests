@@ -13,6 +13,8 @@ public class AllProducts {
             return getYouTubeElementSelector(elementName);
         else if(System.getProperty("product").contains("GitHub"))
             return getGitHubElementSelector(elementName);
+        else if(System.getProperty("product").contains("Cognizant"))
+            return getCognizantElementSelector(elementName);
         else if(System.getProperty("product").contains("WhatsUp"))
             return getWhatsUpElementSelector(elementName);
         else {System.out.println("Product has not been defined in AllProducts");

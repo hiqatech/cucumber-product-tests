@@ -1,7 +1,5 @@
 package common.setup;
 
-import products.GitHub.Pages.MyProfilePage;
-
 public class AllPages {
 
     public static String getYouTubeElementSelector(String elementName)
@@ -31,11 +29,21 @@ public class AllPages {
         if(System.getProperty("activePage").equals("Home"))
             return products.GitHub.Pages.HomePage.getElementSelector(elementName);
         else if(System.getProperty("activePage").equals("MyProfile"))
-            return MyProfilePage.getElementSelector(elementName);
+            return products.GitHub.Pages.MyProfilePage.getElementSelector(elementName);
         else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
                 " Page has not been defined in the AllPages");
             return "";}
     }
 
+    public static String getCognizantElementSelector(String elementName)
+    {
+        if(System.getProperty("activePage").equals("Home"))
+            return products.Cognizant.Pages.HomePage.getElementSelector(elementName);
+        else if(System.getProperty("activePage").equals("MyProfile"))
+            return products.Cognizant.Pages.MyProfilePage.getElementSelector(elementName);
+        else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
+                " Page has not been defined in the AllPages");
+            return "";}
+    }
 
 }
