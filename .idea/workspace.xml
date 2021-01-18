@@ -29,16 +29,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="983d1cbe-fde2-4eed-903b-2c0518f63612" name="Default" comment="app fix">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL/SignIn.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProductTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProductTests.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/cucumber/IETLSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/cucumber/IETLSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/etl/ETLSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/etl/ETLSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/Hooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL/Process.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL/RunUpdate.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL/RunUpdate.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL/RunUpdate.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +274,7 @@
       <updated>1490606909192</updated>
       <workItem from="1610018097121" duration="7491000" />
       <workItem from="1610360711554" duration="62640000" />
-      <workItem from="1610979589171" duration="4888000" />
+      <workItem from="1610979589171" duration="5686000" />
     </task>
     <task id="LOCAL-00001" summary="new changes with ui">
       <created>1555342640010</created>
@@ -422,7 +416,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610656172124</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="updater is OK">
+      <created>1610984780561</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1610984780561</updated>
+    </task>
+    <task id="LOCAL-00022" summary="result fix">
+      <created>1610984948668</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1610984948668</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +481,9 @@
     <MESSAGE value="download from github ok" />
     <MESSAGE value="upload to github ok" />
     <MESSAGE value="cognizant sign in and search for app ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="cognizant sign in and search for app ok" />
+    <MESSAGE value="updater is OK" />
+    <MESSAGE value="result fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="result fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -495,17 +505,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/common/etl/ETLSteps.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/common/etl/ETLSteps.java</url>
-          <line>124</line>
-          <option name="timeStamp" value="82" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/common/etl/ETLSteps.java</url>
-          <line>155</line>
+          <line>153</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
       </breakpoints>

@@ -136,7 +136,7 @@ public class ETLSteps {
         return saveWorkbook(fileName,workbookName) + closeWorkbook(fileName, workbookName);
     }
 
-    public static String updateDatabaseWorkbook(String databaseWorkbookName,String updaterWorkbookName){
+    public static String updateDatabaseWorkbook(String databaseWorkbookName,String updaterWorkbookName, String myKey){
         Sheet databaseSheet = getWorkbookSheetAt0(databaseWorkbookName);
         Sheet updaterSheet = getWorkbookSheetAt0(updaterWorkbookName);
 
@@ -145,7 +145,7 @@ public class ETLSteps {
                 HashMap<String, String> updaterData = readWorkbookDataSet(updaterSheet, i);
                 for(int j=1; j<databaseSheet.getPhysicalNumberOfRows(); j++) {
                     HashMap<String, String> databaseData = readWorkbookDataSet(databaseSheet, j);
-                    if (databaseData.get("ID").equals(updaterData.get("ID"))) {
+                    if (databaseData.get(myKey).equals(updaterData.get(myKey))) {
                         for (String key:updaterData.keySet()
                              ) {
                             databaseData.put(key,updaterData.get(key));

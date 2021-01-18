@@ -40,9 +40,9 @@ public class IETLSteps {
         AssertExecutedStep(ETLSteps.saveWorkbook(file, workbook));
     }
 
-    @Given("^I update the \"([^\"]*)\" by the \"([^\"]*)\"$")
-    public void ICloseFileOnStreamIntoWorkbook(String workbookName1, String workbookName2) {
-        AssertExecutedStep(ETLSteps.updateDatabaseWorkbook(workbookName1,workbookName2));
+    @Given("^I update the \"([^\"]*)\" by the \"([^\"]*)\" by \"([^\"]*)\"$")
+    public void IUpdateTheDBFileByDBTheFile(String workbookName1, String workbookName2, String myKey) {
+        AssertExecutedStep(ETLSteps.updateDatabaseWorkbook(workbookName1,workbookName2, myKey));
     }
 
 
