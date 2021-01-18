@@ -76,9 +76,7 @@ public class ETLSteps {
             writer.close();
         }
         catch(Exception ex)
-        {
-            return "FAIL : " + ex.toString();
-        }
+        { return "FAIL : " + ex.toString(); }
         return "PASS : I compare the files and noted File1-File2 into " + file + " at " + path;
     }
 
@@ -159,13 +157,11 @@ public class ETLSteps {
                     }
                 }
             }
+            return "PASS : I update the " + databaseWorkbookName + " by the  " + updaterWorkbookName;
         }
         catch(Exception ex)
-        {
-            return "FAIL : Could not run update process " + ex.toString();
+        { return "FAIL : Could not run update process " + ex.toString(); }
         }
-        return "PASS : I update the " + databaseWorkbookName + " by the  " + updaterWorkbookName;
-    }
 
     static Sheet getWorkbookSheetAt0(String workbookName){
         Sheet sheet = null;
