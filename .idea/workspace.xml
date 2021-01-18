@@ -29,14 +29,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="983d1cbe-fde2-4eed-903b-2c0518f63612" name="Default" comment="app fix">
-      <change afterPath="$PROJECT_DIR$/src/main/java/products/Cognizant/Pages/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/products/Cognizant/Pages/MyProfilePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL/Process.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL/SignIn.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllPages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllPages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/AllURLs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/AllURLs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProductTests.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/cucumber/IETLSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/cucumber/IETLSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/cucumber/IWebSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/etl/ETLSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/etl/ETLSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/setup/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/setup/Hooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL/Process.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL/RunUpdate.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,24 +101,24 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550531635766" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/products/Cognizant" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ZolStaff\HiQATech\HiQATechJava\ProductTests\src\test\resources\features\Cognizant\WETL" />
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\ProductTests\src\main\java\products\Cognizant" />
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\ProductTests\src\test\resources\features\Cognizant" />
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\ProductTests\src\main\resources\files" />
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\main\resources\webdrivers" />
-      <recent name="E:\ZolStaff\HiQATech\HiQATechJava\cucumber-product-tests\src\test\resources\features\GoogleDrive\Web" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\ZolStaff\HiQATech\HiQATechJava\ProductTests\src\main\resources\apps\whatsup" />
@@ -136,7 +138,7 @@
       <recent name="Test.SetUp" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Cognizant Web - I can run my process">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Cognizant - I can run my process">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -149,46 +151,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Cognizant Web - I can run my process" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Cognizant - I can run my process" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="1.2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL/Process.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Cognizant/WETL/RunUpdate.feature" />
       <option name="GLUE" value="common.setup common.cucumber" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <module name="ProductTests" />
-      <option name="NAME_FILTER" value="^Cognizant Web \- I can run my process$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Cognizant Web \- I can run my process$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Cognizant Web - I can run my process" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: GitHub Web - I can run my process" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/GitHub/Web/Process.feature" />
-      <option name="GLUE" value="common.setup common.cucumber" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <module name="ProductTests" />
-      <option name="NAME_FILTER" value="^GitHub Web \- I can run my process$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^GitHub Web \- I can run my process$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: GitHub Web - I can run my process" />
+      <option name="NAME_FILTER" value="^Cognizant \- I can run my process$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Cognizant \- I can run my process$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Cognizant - I can run my process" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -287,14 +258,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Cucumber Java.Scenario: GitHub Web - I can run my process" />
+      <item itemvalue="Cucumber Java.Scenario: Cognizant - I can run my process" />
       <item itemvalue="Maven.cucumber-product-tests [clean,test...]" />
-      <item itemvalue="Cucumber Java.Scenario: Cognizant Web - I can run my process" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: Cognizant Web - I can run my process" />
-        <item itemvalue="Cucumber Java.Scenario: GitHub Web - I can run my process" />
+        <item itemvalue="Cucumber Java.Scenario: Cognizant - I can run my process" />
       </list>
     </recent_temporary>
   </component>
@@ -310,7 +279,8 @@
       <option name="presentableId" value="Default" />
       <updated>1490606909192</updated>
       <workItem from="1610018097121" duration="7491000" />
-      <workItem from="1610360711554" duration="38715000" />
+      <workItem from="1610360711554" duration="62640000" />
+      <workItem from="1610979589171" duration="4888000" />
     </task>
     <task id="LOCAL-00001" summary="new changes with ui">
       <created>1555342640010</created>
@@ -445,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610569706123</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="cognizant sign in and search for app ok">
+      <created>1610656172124</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1610656172124</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +472,8 @@
     <MESSAGE value="signin 2 works plus cleanup" />
     <MESSAGE value="download from github ok" />
     <MESSAGE value="upload to github ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="upload to github ok" />
+    <MESSAGE value="cognizant sign in and search for app ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="cognizant sign in and search for app ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -507,13 +485,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/common/etl/ETLSteps.java</url>
-          <line>38</line>
+          <line>49</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/common/selenium/WebSteps.java</url>
-          <line>235</line>
+          <line>239</line>
           <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/etl/ETLSteps.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/etl/ETLSteps.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/etl/ETLSteps.java</url>
+          <line>155</line>
+          <option name="timeStamp" value="84" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

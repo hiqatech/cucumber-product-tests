@@ -103,9 +103,13 @@ public class WebSteps extends WebHelp {
         return FileHelp.renameFile(fileName, newName) + " : " + "I rename the " + fileName + " file to the " + newName + "\n";
     }
 
-    public static String deleteFile(String fileName) {
-        fileName = DataHelp.getStoredText(fileName);
-        return FileHelp.deleteFile(fileName, System.getProperty("filePath")) + " : " + "I delete the " + fileName + "\n";
+    public static String deleteFile(String fileName, String path) {
+        if(path.contains("Downloads"))
+            path = System.getProperty("downloadPath");
+        else if(path.contains("Files"))
+            path = System.getProperty("filePath");
+
+        return FileHelp.deleteFile(fileName, path) + " : " + "I delete the " + fileName + "\n";
     }
 
     public static String selectFromDropDownBy(String text, String attribute, String elementName, String elementSelector) {

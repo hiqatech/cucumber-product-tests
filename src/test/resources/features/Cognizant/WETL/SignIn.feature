@@ -4,7 +4,7 @@
 Feature: Cognizant Asset Management Process Tests
 
   @CognizantWebRegression
-  Scenario:Cognizant Web - I can run my process
+  Scenario:Cognizant Web - I can signin
     Given I navigate to the Home page
     And I "enter" "MyUserName" into the "email_field"
     When I "click" the "next_button"
@@ -24,3 +24,20 @@ Feature: Cognizant Asset Management Process Tests
     When I "click" the "app_search_button"
     When I "click" the "search_result_first_image"
     And I wait "10" sec/s for "000"
+
+    Then I am on the "MyProfile" page
+    And I should see the "my_profile_menu"
+    And I "click" the "my_database_repository"
+    And I "click" the "code_menu"
+    #And I "click" the "my_cars_file"
+    #And I "click" the "download_button"
+    #And I send enter keys to the popup window
+    #And I wait "2" sec/s for "download"
+    #And I click the "browser_back_button"
+    #And I "click" the "my_repository_name"
+    And I "click" the "add_file_dropdown"
+    And I "click" the "upload_file_option"
+    And I upload the "MyCars1.xlsx" to the "choose_your_files_field"
+    And I wait "2" sec/s for "upload"
+    And I "click" the "commit_changes_button"
+    And I wait "10" sec/s for "checkup"

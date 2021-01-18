@@ -40,7 +40,6 @@ public class Hooks {
         System.setProperty("runDriver","chrome");
         System.setProperty("seleniumGrid","local"); //http://192.168.1.208:32001/wd/hub
         System.setProperty("runEnvironment","QA");
-
         System.setProperty("projectPath",System.getProperty("user.dir"));
         System.setProperty("systemTime", dateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
         System.setProperty("userID",System.getProperty("user.home").replace("C:\\Users\\",""));
@@ -76,11 +75,9 @@ public class Hooks {
         System.out.println("SystemTime : " + System.getProperty("systemTime"));
         System.out.println("Product Tests Starts");
         System.out.println("Scenario : " + myScenario);
-
         System.out.println("ProjectPath : " + System.getProperty("projectPath"));
         System.out.println("ReportPath : " + System.getProperty("reportPath"));
         System.out.println("FilePath : " + System.getProperty("filePath"));
-
         System.out.println("Environment : " + System.getProperty("runEnvironment"));
 
         if(scenario.getName().contains("Web"))

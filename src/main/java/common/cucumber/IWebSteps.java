@@ -89,9 +89,9 @@ public class IWebSteps extends WebSteps{
     public static void IRenameFileTo(String fileName, String textX)
     {AssertExecutedStep(renameFile(fileName,textX));}
 
-    @Given("^I delete the \"([^\"]*)\" file$")
-    public static void IDeleteFile(String fileName)
-    {AssertExecutedStep(deleteFile(fileName));}
+    @Given("^I delete the \"([^\"]*)\" from the \"([^\"]*)\"$")
+    public static void IDeleteFileFromThe(String fileName, String pathExp)
+    {AssertExecutedStep(deleteFile(fileName, pathExp));}
 
     @Given("^I select the \"([^\"]*)\" \"([^\"]*)\" from the \"([^\"]*)\"$")
     public static void ISelectTheElementBy(String text,String attribute,String dropDownName)
@@ -163,7 +163,7 @@ public class IWebSteps extends WebSteps{
     public static void AssertExecutedStep(String result)
     {
         if (!result.toUpperCase().contains("PASS")) {
-            Hooks.scenario.write("FAIL : " + result);
+            Hooks.scenario.write(result);
             //System.out.println(result);
             Assert.assertTrue(false);
         }
@@ -176,7 +176,7 @@ public class IWebSteps extends WebSteps{
     public static void VerifyExecutedStep(String result)
     {
         if (!result.toUpperCase().contains("PASS")){
-            Hooks.scenario.write("FAIL : " + result);
+            Hooks.scenario.write(result);
             //System.out.println(result);
         }
     }
