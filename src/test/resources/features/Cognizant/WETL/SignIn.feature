@@ -20,16 +20,27 @@ Feature: Cognizant Asset Management Process Tests
     #And I "click" the "stay_sign_in_yes_button"
     Then I am on the "MyProfile" page
     And I should see the "view_profile_menu"
-    And I "enter" "asset registration" into the "app_search_field"
+    And I "enter" "oneIt" into the "app_search_field"
     When I "click" the "app_search_button"
     When I "click" the "search_result_first_image"
     And I wait "10" sec/s for "000"
+    And I "enter" "material movement" into the "one_it_search_fileld"
+    When I "click" the "search_button"
+    When I "click" the "search_result_first_launch"
+    When I "click" the "mmo_closure"
+    When I "click" the "mmi_closure"
+    And I select the "Switzerland" "option" from the "location_dropdown"
+    When I "click" the "go_button"
+    When I "click" the "bulk_return_button"
+    And I upload the "MyCars1.xlsx" to the "upload_button"
+    And I wait "2" sec/s for "upload"
 
-    Then I am on the "MyProfile" page
-    And I should see the "my_profile_menu"
-    And I "click" the "my_database_repository"
-    And I "click" the "code_menu"
-    #And I "click" the "my_cars_file"
+    And I go to the share path
+    #https://cognizantonline.sharepoint.com/sites/UKEurope-IT/Shared%20Documents/Forms/AllItems.aspx?RootFolder=%2Fsites%2FUKEurope%2DIT%2FShared%20Documents%2FLocal%5FHAR%20%2D%20UKI%20%26%20CE%202021%2FLaptop%20%26%20Desktop%20%2D%20Local%5FHAR
+
+
+
+
     #And I "click" the "download_button"
     #And I send enter keys to the popup window
     #And I wait "2" sec/s for "download"
@@ -39,5 +50,3 @@ Feature: Cognizant Asset Management Process Tests
     And I "click" the "upload_file_option"
     And I upload the "MyCars1.xlsx" to the "choose_your_files_field"
     And I wait "2" sec/s for "upload"
-    And I "click" the "commit_changes_button"
-    And I wait "10" sec/s for "checkup"

@@ -1,8 +1,12 @@
 package common.setup;
 
+import com.vimalselvam.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.junit.AfterClass;
+
+import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -48,7 +52,7 @@ public class Hooks {
         System.setProperty("reportPath",System.getProperty("projectPath")+"\\target\\cucumber-reports\\");
         System.setProperty("filePath",System.getProperty("projectPath") + "\\src\\main\\resources\\files\\");
         System.setProperty("driverPath",System.getProperty("projectPath") + "\\src\\main\\resources\\webdrivers\\");
-        System.setProperty("reportConfigPath",System.getProperty("projectPath") + "\\src\\main\\resources\\report\\extent-config.html");
+        System.setProperty("reportConfigPath",System.getProperty("projectPath") + "\\src\\main\\resources\\report\\extent-config.xml");
 
         System.setProperty("account_sid","AC9bad98c469be29cdc854277ac5ef63cd");
         System.setProperty("auth_token","c6d4a5c59d6155c6b09627757a21ec6a");

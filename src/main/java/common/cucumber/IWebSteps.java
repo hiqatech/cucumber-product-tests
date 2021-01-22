@@ -1,5 +1,6 @@
 package common.cucumber;
 
+import com.vimalselvam.cucumber.listener.Reporter;
 import common.selenium.WebSteps;
 import common.setup.AllProducts;
 import common.setup.Hooks;
@@ -166,10 +167,12 @@ public class IWebSteps extends WebSteps{
             Hooks.scenario.write(result);
             //System.out.println(result);
             Assert.assertTrue(false);
+            Reporter.addStepLog("");
         }
         else {
             Hooks.scenario.write(result);
             //System.out.println(result);
+            Reporter.addStepLog("");
         }
     }
 
@@ -178,6 +181,7 @@ public class IWebSteps extends WebSteps{
         if (!result.toUpperCase().contains("PASS")){
             Hooks.scenario.write(result);
             //System.out.println(result);
+            Reporter.addStepLog("");
         }
     }
 

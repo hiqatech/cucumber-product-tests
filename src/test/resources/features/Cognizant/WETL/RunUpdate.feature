@@ -3,7 +3,7 @@
 
 Feature: Cognizant Asset Management Process Tests
 
-  @CognizantRegression
+  @CognizantETLRegression
   Scenario:Cognizant - I can run my process
     Given I open the "MyCars.xlsx" on "workbook1" from the "Downloads"
     And I open the "MyCarsUpdater.xlsx" on "workbook2" from the "Downloads"
