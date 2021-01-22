@@ -166,13 +166,13 @@ public class IWebSteps extends WebSteps{
         if (!result.toUpperCase().contains("PASS")) {
             Hooks.scenario.write(result);
             //System.out.println(result);
+            //Reporter.addStepLog("");
             Assert.assertTrue(false);
-            Reporter.addStepLog("");
         }
         else {
             Hooks.scenario.write(result);
             //System.out.println(result);
-            Reporter.addStepLog("");
+            //Reporter.addStepLog("");
         }
     }
 
@@ -181,7 +181,7 @@ public class IWebSteps extends WebSteps{
         if (!result.toUpperCase().contains("PASS")){
             Hooks.scenario.write(result);
             //System.out.println(result);
-            Reporter.addStepLog("");
+            //Reporter.addStepLog("");
         }
     }
 

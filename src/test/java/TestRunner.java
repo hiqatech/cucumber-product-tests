@@ -22,14 +22,13 @@ import java.io.File;
 
 public class TestRunner {
 
-    @AfterClass
-    public static void writeExtentReport() {
-        Reporter.loadXMLConfig(new File(System.getProperty("reportConfigPath")));
-        Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
-        Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
-        Reporter.setSystemInfo("Machine", "Windows 10" + "64 Bit");
-
-    }
+    //@AfterClass
+    //public static void writeExtentReport() {
+    //    Reporter.loadXMLConfig(new File(System.getProperty("reportConfigPath")));
+    //    Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
+    //    Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
+    //    Reporter.setSystemInfo("Machine", "Windows 10" + "64 Bit");
+    //}
 
     public String getReportConfigPath(){
         String reportConfigPath = System.getProperty("reportConfigPath");
