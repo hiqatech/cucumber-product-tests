@@ -3,10 +3,8 @@ package common.cucumber;
 import common.etl.ETLSteps;
 import cucumber.api.java.en.Given;
 
-import java.io.FileNotFoundException;
-
-import static common.cucumber.IWebSteps.AssertExecutedStep;
-import static common.cucumber.IWebSteps.VerifyExecutedStep;
+import static common.setup.Hooks.AssertExecutedStep;
+import static common.setup.Hooks.VerifyExecutedStep;
 
 public class IETLSteps {
 

@@ -1,12 +1,10 @@
 package common.setup;
 
-import com.vimalselvam.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import org.junit.AfterClass;
+import org.junit.Assert;
 
-import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -47,7 +45,7 @@ public class Hooks {
         System.setProperty("projectPath",System.getProperty("user.dir"));
         System.setProperty("systemTime", dateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
         System.setProperty("userID",System.getProperty("user.home").replace("C:\\Users\\",""));
-        System.setProperty("downloadPath",System.getProperty("user.home")+"\\Desktop\\");
+        System.setProperty("downloadPath",System.getProperty("user.home")+"\\Downloads\\");
         System.setProperty("uploadPath",System.getProperty("user.home")+"\\Desktop\\");
         System.setProperty("reportPath",System.getProperty("projectPath")+"\\target\\cucumber-reports\\");
         System.setProperty("filePath",System.getProperty("projectPath") + "\\src\\main\\resources\\files\\");
@@ -81,7 +79,6 @@ public class Hooks {
         System.out.println("Scenario : " + myScenario);
         System.out.println("ProjectPath : " + System.getProperty("projectPath"));
         System.out.println("ReportPath : " + System.getProperty("reportPath"));
-        System.out.println("FilePath : " + System.getProperty("filePath"));
         System.out.println("Environment : " + System.getProperty("runEnvironment"));
 
         if(scenario.getName().contains("Web"))
@@ -118,5 +115,32 @@ public class Hooks {
     }
 
     //-----------------------------------------------------------------------------//
+
+
+    public static void AssertExecutedStep(String result)
+    {
+        if (!result.toUpperCase().contains("PASS")) {
+            Hooks.scenario.write(result);
+            //System.out.println(result);
+            //Reporter.addStepLog("");
+            Assert.assertTrue(false);
+        }
+        else {
+            Hooks.scenario.write(result);
+            //System.out.println(result);
+            //Reporter.addStepLog("");
+        }
+    }
+
+    public static void VerifyExecutedStep(String result)
+    {
+        if (!result.toUpperCase().contains("PASS")){
+            Hooks.scenario.write(result);
+            //System.out.println(result);
+            //Reporter.addStepLog("");
+        }
+    }
+
+
 
 }

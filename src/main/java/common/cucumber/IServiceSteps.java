@@ -4,8 +4,6 @@ import com.jayway.restassured.response.Response;
 import common.service.ServiceHelp;
 import common.setup.AllProducts;
 import common.util.DataGen;
-import cucumber.api.DataTable;
-import cucumber.api.java.en.Given;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 

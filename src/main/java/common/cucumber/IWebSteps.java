@@ -1,13 +1,14 @@
 package common.cucumber;
 
-import com.vimalselvam.cucumber.listener.Reporter;
 import common.selenium.WebSteps;
 import common.setup.AllProducts;
 import common.setup.Hooks;
 import cucumber.api.java.en.Given;
-import org.junit.Assert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
+import static common.setup.Hooks.AssertExecutedStep;
+import static common.setup.Hooks.VerifyExecutedStep;
 
 public class IWebSteps extends WebSteps{
 
@@ -160,30 +161,6 @@ public class IWebSteps extends WebSteps{
     public static void IStoreTheTextAsTheTextX(String text,String textX)
     {AssertExecutedStep(storeTextAsTextX(text,textX));}
 
-
-    public static void AssertExecutedStep(String result)
-    {
-        if (!result.toUpperCase().contains("PASS")) {
-            Hooks.scenario.write(result);
-            //System.out.println(result);
-            //Reporter.addStepLog("");
-            Assert.assertTrue(false);
-        }
-        else {
-            Hooks.scenario.write(result);
-            //System.out.println(result);
-            //Reporter.addStepLog("");
-        }
-    }
-
-    public static void VerifyExecutedStep(String result)
-    {
-        if (!result.toUpperCase().contains("PASS")){
-            Hooks.scenario.write(result);
-            //System.out.println(result);
-            //Reporter.addStepLog("");
-        }
-    }
 
 
 }
