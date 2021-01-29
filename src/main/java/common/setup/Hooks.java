@@ -127,7 +127,7 @@ public class Hooks {
             Assert.assertTrue(false);
         }
         else {
-            Hooks.scenario.write(result.replace(",,,","") + "\n");
+            Hooks.scenario.write(result.replace(",,,",""));
             //System.out.println(result);
         }
     }
@@ -136,7 +136,7 @@ public class Hooks {
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")){
-            Hooks.scenario.write(getResultFailLog(result.replace(",,,","")));
+            Hooks.scenario.write(getResultFailLog(result));
             //System.out.println(result);
         }
     }
@@ -146,7 +146,6 @@ public class Hooks {
         String desc = Arrays.asList(result.split(" ,,, " )).get(1);
         result = "FAIL " + desc + " caused by : " + extString;
         return result;
-
     }
 
 }

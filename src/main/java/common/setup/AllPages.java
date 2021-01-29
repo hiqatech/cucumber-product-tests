@@ -10,7 +10,7 @@ public class AllPages {
             return products.YouTube.Pages.SearchPage.getElementSelector(elementName);
         else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
                                  " Page has not been defined in the AllPages");
-            return "";}
+            return "NoSuchAnElement";}
     }
 
     public static String getWhatsUpElementSelector(String elementName)
@@ -21,7 +21,7 @@ public class AllPages {
             return products.WhatsUp.Pages.HomePage.getElementSelector(elementName);
         else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
                                   " Page has not been defined in the AllPages");
-            return "";}
+            return "NoSuchAnElement";}
     }
 
     public static String getGitHubElementSelector(String elementName)
@@ -32,7 +32,7 @@ public class AllPages {
             return products.GitHub.Pages.MyProfilePage.getElementSelector(elementName);
         else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
                 " Page has not been defined in the AllPages");
-            return "";}
+            return "NoSuchAnElement";}
     }
 
     public static String getCognizantElementSelector(String elementName)
@@ -43,7 +43,7 @@ public class AllPages {
             return products.Cognizant.Pages.MyProfilePage.getElementSelector(elementName);
         else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
                 " Page has not been defined in the AllPages");
-            return "";}
+            return "NoSuchAnElement";}
     }
 
 }

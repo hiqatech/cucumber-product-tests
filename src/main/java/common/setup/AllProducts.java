@@ -18,14 +18,14 @@ public class AllProducts {
         else if(System.getProperty("product").contains("WhatsUp"))
             return getWhatsUpElementSelector(elementName);
         else {System.out.println("Product has not been defined in AllProducts");
-            return null;}
+            return "NoSuchAProduct";}
     }
 
     public static String getFullRequestURL(String requestName) {
         if (System.getProperty("product").contains("Linkedin")) {
             return getWhatsUpRequestURL(requestName); }
         else { System.out.println("Product has not defined yet in the test requests AllProducts \n");
-            return null;}
+            return "NoSuchAProduct";}
     }
 
     public static JSONObject getRequestBodyByRequestName(String requestName) {

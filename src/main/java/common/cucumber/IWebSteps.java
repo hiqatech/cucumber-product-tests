@@ -42,9 +42,12 @@ public class IWebSteps extends WebSteps{
     public static void ISwitchToTheWindow(int windowNumber)
     {AssertExecutedStep(WebSteps.switchToWindow(windowNumber));}
 
-    @Given("^I switch to the default content$")
-    public static void ISwitchToTheDefaultContent()
-    {AssertExecutedStep(WebSteps.switchToDefaultContent());}
+    @Given("^I switch to the \"([^\"]*)\" content$")
+    public static void ISwitchToTheFrameContent(String frameName)
+    {   if(frameName.equalsIgnoreCase("default"))
+            AssertExecutedStep(WebSteps.switchToDefaultContent());
+        else
+            AssertExecutedStep(WebSteps.switchToFrameContent(frameName,AllProducts.getElementSelector(frameName)));}
 
     @Given("^I \"([^\"]*)\" the \"([^\"]*)\"$")
     public static void IActTheElement(String act, String elementName)

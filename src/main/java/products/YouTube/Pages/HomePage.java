@@ -17,6 +17,7 @@ public class HomePage {
         elementLocators.put("search_result_2_title", "//*[contains(text(),'TOP 6 Things To Do')]");
         elementLocators.put("menu", "//div[@id='container']//yt-icon[@id='guide-icon']");
         elementLocators.put("menu1", "//span[contains(text(),'Home')]");
+        elementLocators.put("popup", "//*[@id=\"iframe\"]");
         elementLocators.put("", "");
     }
 
