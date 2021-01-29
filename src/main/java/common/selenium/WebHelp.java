@@ -1,5 +1,6 @@
 package common.selenium;
 
+import com.cucumber.listener.Reporter;
 import com.twilio.Twilio;
 import com.twilio.base.ResourceSet;
 import com.twilio.rest.api.v2010.account.Message;
@@ -34,6 +35,7 @@ public class WebHelp {
     public static WebDriver webDriver;
     public static int waitTimeMax= 5000;
     public static int waitTime = 500;
+    public static int timeOut = 40;
 
     public static String startMyWebDriver(String driver)
     {
@@ -112,8 +114,8 @@ public class WebHelp {
 
             }
 
-            webDriver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
-            webDriver.manage().timeouts().setScriptTimeout(20,TimeUnit.SECONDS);
+            webDriver.manage().timeouts().pageLoadTimeout(timeOut,TimeUnit.SECONDS);
+            webDriver.manage().timeouts().setScriptTimeout(timeOut,TimeUnit.SECONDS);
 
             webDriver.manage().window().maximize();
 
@@ -528,7 +530,7 @@ public class WebHelp {
 
             if(act.equalsIgnoreCase("HOVER"))
                 return tryToHover(webElement);
-            if(act.equalsIgnoreCase("CLICK"))
+            else if(act.equalsIgnoreCase("CLICK"))
                 return tryToClick(webElement);
             else if(act.equalsIgnoreCase("SELECT"))
                 return tryToSelect(webElement);
@@ -589,6 +591,7 @@ public class WebHelp {
             File source = ts.getScreenshotAs(OutputType.FILE);
             File destination = new File(dest);
             FileUtils.copyFile(source,destination);
+            //Reporter.addScreenCaptureFromPath(destination.getPath());
             return "PASS";
         }
         catch(Exception ex)

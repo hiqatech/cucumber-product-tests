@@ -1,5 +1,6 @@
 package common.setup;
 
+import com.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -7,6 +8,8 @@ import org.junit.Assert;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
 
 import static common.app.App.*;
 import static common.selenium.WebHelp.takeScreenShot;
@@ -18,6 +21,7 @@ public class Hooks {
     public static boolean wantsToQuit = false;
     public static Scenario scenario;
     public static String myScenario;
+    public static String stepLog;
     public static String accountSID;
     public static String authToken;
     public static String phoneNumber;
@@ -93,25 +97,22 @@ public class Hooks {
     }
 
     @After
-    public static void tearDown(Scenario screnario) throws Exception
+    public static void tearDown(Scenario screnario)
     {
         if(screnario.isFailed())
         {
             takeScreenShot(System.getProperty("reportPath") + myScenario + " failed_" + getTimeStamp("YYYY-MM-DD-HH-mm-ss-SSS"));
-            stopWebDriver();
-            stopAndroidDriver();
-            stopIOSDriver();
-
             System.out.println("Test Failed !");
-            }
-
-        else{
-            System.out.println("Test Passed !");
         }
+        else System.out.println("Test Passed !");
+        closeAllDrivers();
+        System.out.println("************************************************************************************");
+    }
+
+    public static void closeAllDrivers(){
         stopWebDriver();
         stopAndroidDriver();
         stopIOSDriver();
-        System.out.println("************************************************************************************");
     }
 
     //-----------------------------------------------------------------------------//
@@ -119,28 +120,33 @@ public class Hooks {
 
     public static void AssertExecutedStep(String result)
     {
+        stepLog = result;
         if (!result.toUpperCase().contains("PASS")) {
-            Hooks.scenario.write(result);
+            Hooks.scenario.write(getResultFailLog(result));
             //System.out.println(result);
-            //Reporter.addStepLog("");
             Assert.assertTrue(false);
         }
         else {
-            Hooks.scenario.write(result);
+            Hooks.scenario.write(result.replace(",,,","") + "\n");
             //System.out.println(result);
-            //Reporter.addStepLog("");
         }
     }
 
     public static void VerifyExecutedStep(String result)
     {
+        stepLog = result;
         if (!result.toUpperCase().contains("PASS")){
-            Hooks.scenario.write(result);
+            Hooks.scenario.write(getResultFailLog(result.replace(",,,","")));
             //System.out.println(result);
-            //Reporter.addStepLog("");
         }
     }
 
+    public static String getResultFailLog(String result){
+        String extString = Arrays.asList(result.split(" ,,, " )).get(0);
+        String desc = Arrays.asList(result.split(" ,,, " )).get(1);
+        result = "FAIL " + desc + " caused by : " + extString;
+        return result;
 
+    }
 
 }

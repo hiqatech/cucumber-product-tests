@@ -7,23 +7,25 @@ import cucumber.api.java.en.Given;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import static common.setup.Hooks.AssertExecutedStep;
-import static common.setup.Hooks.VerifyExecutedStep;
+import static common.setup.Hooks.*;
 
 public class IWebSteps extends WebSteps{
 
-
+    @Given("^I start the \"([^\"]*)\" driver")
     public static void IStartTheWebDriver(String driver)
     {AssertExecutedStep(startWebDriver(driver));}
 
-
+    @Given("^I stop the webdriver")
     public static void IStopTheWebDriver()
     {AssertExecutedStep(WebSteps.stopWebDriver());}
 
+    @Given("^I navigate to the \"([^\"]*)\" url")
+    public static void INavigateToTheUrl(String url)
+    {AssertExecutedStep(navigateToUrl(url));}
+
     @Given("^I navigate to the Home page")
     public static void INavigateToTheHomePage()
-    { System.out.println("************************************************************************************\n");
-        AssertExecutedStep(navigateToHomePage(System.getProperty("mainURL")));
+    { AssertExecutedStep(navigateToHomePage(System.getProperty("mainURL")));
         AssertExecutedStep(onThePage("Home"));
     }
 
@@ -50,9 +52,8 @@ public class IWebSteps extends WebSteps{
         AssertExecutedStep(actTheElement(act,elementName, AllProducts.getElementSelector(elementName)));}
 
     @Given("^I click the \"([^\"]*)\"$")
-    public static void IActTheBrowser(String elementName)
-    {  AssertExecutedStep(browserAction(elementName));}
-
+    public static void IActTheBrowser(String act)
+    {  AssertExecutedStep(browserAction(act));}
 
     @Given("^I send enter keys to the popup window$")
     public static void ISendEnterToWindow()

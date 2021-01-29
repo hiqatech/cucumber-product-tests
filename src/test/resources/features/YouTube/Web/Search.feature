@@ -3,9 +3,17 @@
 
 Feature: YouTube Search Tests
 
+  Background:
+    Given I start the "default" driver
+    And I navigate to the "my_app" url
+
   @YouTubeWebSmoke
   Scenario:YouTubeWeb - I can find and play my music
-    Given I navigate to the Home page
+    #Given I navigate to the Home page
+    And I wait "10" sec/s for "signin window"
+    And I "select" the "no_thanks_button"
+    And I wait "10" sec/s for "agree window"
+    And I "select" the "i_agree_button"
     And I "type" "Dash Berlin - With you" into the "search_field"
     When I "click" the "search_submit"
     And I wait "4" sec/s for "search"
