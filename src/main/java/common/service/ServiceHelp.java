@@ -28,7 +28,7 @@ public class ServiceHelp {
         String requestKey = entry.getKey();
         String requestValue = entry.getValue();
 
-        if (bodyKey.equals(requestKey))
+        if (bodyKey.equalsIgnoreCase(requestKey))
           requestBody.put(bodyKey,requestValue);
       }
     }
@@ -47,7 +47,7 @@ public class ServiceHelp {
       System.out.println(" service is: " + service+ "\n full request url is: " + fullRequestUrl +
                          "\n request type is: " + requestType + "\n");
 
-    if (requestType.equals("GET"))
+    if (requestType.equalsIgnoreCase("GET"))
     {
       response =
       //RestAssured.with().config(config).
@@ -63,7 +63,7 @@ public class ServiceHelp {
 
       return response;
     }
-    else if (requestType.equals("POST"))
+    else if (requestType.equalsIgnoreCase("POST"))
     {
       response =
       given().
@@ -77,7 +77,7 @@ public class ServiceHelp {
                                                      extract().response();
       return response;
     }
-    else if (requestType.equals("PUT"))
+    else if (requestType.equalsIgnoreCase("PUT"))
     {
       response =
       given().

@@ -27,7 +27,7 @@ public class WebSteps extends WebHelp {
     }
 
     public static String navigateToUrl(String url) {
-        if(url.equalsIgnoreCase("my_app"))
+        if(url.equalsIgnoreCase("app_home"))
             url = AllURLs.getProductURL();
         return navigateTo(url) + " ,,, : " + "I navigate to the " + url + " URL" + "\n";
     }
@@ -45,19 +45,16 @@ public class WebSteps extends WebHelp {
         return switchToWindow(windowNumber) + " ,,, : " + "I switch to the " + windowNumber + " window" + "\n";
     }
 
-    public static String switchToDefaultContent() {
-        return switchToDefaultContent() + " ,,, : " + "I switch to the default content" + "\n";
-    }
-
     public static String switchToFrameContent(String frameName,String frameSelector) {
+        if(frameName.equalsIgnoreCase("default")) frameSelector = frameName;
         return switchToFrame(frameSelector) + " ,,, : " + "I switch to the "  + frameName + " content" + "\n";
     }
 
-    public static String waitToAppear(String elementName, String elementSelector) {
+    public static String waitForElementToAppear(String elementName, String elementSelector) {
         return waitToAppear(elementSelector) + " ,,, : Visibility of element " + elementName + " with selector " + elementSelector + "\n";
     }
 
-    public static String waitToDisappear(String elementName, String elementSelector) {
+    public static String waitForElementToDisappear(String elementName, String elementSelector) {
         return waitToDisappear(elementSelector) + " ,,, : UnVisibility of element " + elementName + " with selector " + elementSelector + "\n";
     }
 
@@ -132,10 +129,10 @@ public class WebSteps extends WebHelp {
         int nth = Integer.parseInt(dateToSet.substring(4, 6));
         daySelector = daySelector.replace("DD", String.valueOf(nth));
 
-        waitToAppear("day_button", daySelector);
+        waitForElementToAppear("day_button", daySelector);
         result = result + selectNthElement(daySelector, String.valueOf(nth - 1)) + " ,,, : " + "I select the " + dateToSet + " with selector " + daySelector + "\n";
 
-        waitToAppear("done_button", doneButtonSelector);
+        waitForElementToAppear("done_button", doneButtonSelector);
         return result + safeAct("select", doneButtonSelector) + " ,,, : " + "I select the " + doneButtonSelector + " with selector " + datePickerSelector + "\n";
     }
 
@@ -151,11 +148,11 @@ public class WebSteps extends WebHelp {
             for (int i = 0; i < 10; i++)
                 keyActions("ArrowLeft");
         }
-        else if (entry.equals("OTPNumber"))
+        else if (entry.equalsIgnoreCase("OTPNumber"))
             entry = Hooks.otpNumber;
-        else if (entry.equals("MyUserName"))
+        else if (entry.equalsIgnoreCase("MyUserName"))
             entry = Hooks.myUserName;
-        else if (entry.equals("MyPassword"))
+        else if (entry.equalsIgnoreCase("MyPassword"))
             entry = Hooks.myPassword;
 
         entry = entry.replace("-", "").replace("/", "");
@@ -164,11 +161,11 @@ public class WebSteps extends WebHelp {
     }
 
     public static String shouldSeeTheElement(String elementName, String elementSelector) {
-        return waitToAppear(elementName, elementSelector) + " ,,, : The " + elementName + " should be visible with selector " + elementSelector + "\n";
+        return waitToAppear(elementSelector) + " ,,, : The " + elementName + " should be visible with selector " + elementSelector + "\n";
     }
 
     public static String shouldNotSeeTheElement(String elementName, String elementSelector) {
-        return waitToDisappear(elementName, elementSelector) + " ,,, : The " + elementName + " should not be visible with selector " + elementSelector + "\n";
+        return waitToDisappear(elementSelector) + " ,,, : The " + elementName + " should not be visible with selector " + elementSelector + "\n";
     }
 
     public static String elementTextShouldBe(String elementName, String elementSelector, String attribute, String condition, String text) {
@@ -178,9 +175,9 @@ public class WebSteps extends WebHelp {
             DataHelp.getStoredText(text);
 
         String currentText = "null";
-        if (attribute.equals("TEXT"))
+        if (attribute.equalsIgnoreCase("TEXT"))
             currentText = readTextOfWebElement(elementSelector);
-        else if (attribute.equals("VALUE") || attribute.equals("HREF") || attribute.equals("PLACEHOLDER"))
+        else if (attribute.equalsIgnoreCase("VALUE") || attribute.equalsIgnoreCase("HREF") || attribute.equalsIgnoreCase("PLACEHOLDER"))
             currentText = readAttributeOfWebElement(elementSelector, attribute.toLowerCase());
         else return "FAIL" + " : " + "The " + attribute + " attribute test of element has not been implemented" + "\n";
 
@@ -190,7 +187,7 @@ public class WebSteps extends WebHelp {
         String result = "FAIL";
 
         if (condition.equalsIgnoreCase("EQUAL")) {
-            if (currentText.equals(text))
+            if (currentText.equalsIgnoreCase(text))
                 result = "PASS";
         } else if (condition.equalsIgnoreCase("CONTAIN")) {
             if (currentText.contains(text))
@@ -208,9 +205,9 @@ public class WebSteps extends WebHelp {
             DataHelp.getStoredText(text);
 
         String currentText = "null";
-        if (attribute.equals("TEXT"))
+        if (attribute.equalsIgnoreCase("TEXT"))
             currentText = readTextOfWebElement(elementSelector);
-        else if (attribute.equals("VALUE") || attribute.equals("HREF") || attribute.equals("PLACEHOLDER"))
+        else if (attribute.equalsIgnoreCase("VALUE") || attribute.equalsIgnoreCase("HREF") || attribute.equalsIgnoreCase("PLACEHOLDER"))
             currentText = readAttributeOfWebElement(elementSelector, attribute.toLowerCase());
         else return "FAIL" + " : " + "The " + attribute + " attribute has not been implemented" + "\n";
 
@@ -220,7 +217,7 @@ public class WebSteps extends WebHelp {
         String result = "PASS";
 
         if (condition.equalsIgnoreCase("EQUAL")) {
-            if (currentText.equals(text))
+            if (currentText.equalsIgnoreCase(text))
                 result = "FAIL";
         } else if (condition.equalsIgnoreCase("CONTAIN")) {
             if (currentText.contains(text))
@@ -232,7 +229,7 @@ public class WebSteps extends WebHelp {
 
     }
 
-    public static String takeScreenShot(String dest) {
+    public static String takeAScreenShot(String dest) {
         return takeScreenShot(dest) + " ,,, : " + "I take screenshot and save to " + dest + "\n";
     }
 
@@ -246,9 +243,9 @@ public class WebSteps extends WebHelp {
 
     public static String storeElementTextAsTextX(String elementName, String attribute, String elementSelector, String textX) {
         String currentText = "null";
-        if (attribute.equals("TEXT"))
+        if (attribute.equalsIgnoreCase("TEXT"))
             currentText = readTextOfWebElement(elementSelector);
-        else if (attribute.equals("VALUE") || attribute.equals("HREF") || attribute.equals("PLACEHOLDER"))
+        else if (attribute.equalsIgnoreCase("VALUE") || attribute.equalsIgnoreCase("HREF") || attribute.equalsIgnoreCase("PLACEHOLDER"))
             currentText = readAttributeOfWebElement(elementSelector, attribute.toLowerCase());
         else return "FAIL" + " ,,, : " + "The " + attribute + " attribute has not been implemented" + "\n";
 

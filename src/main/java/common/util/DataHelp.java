@@ -52,9 +52,9 @@ public class DataHelp {
                 text = storedTexts.get(index);
             }
 
-            if(!(addition.equals("add")))
+            if(!(addition.equalsIgnoreCase("add")))
                 text = text + addition;
-            if(!(extension.equals("ext")))
+            if(!(extension.equalsIgnoreCase("ext")))
                 text = text + extension;
 
             return text;

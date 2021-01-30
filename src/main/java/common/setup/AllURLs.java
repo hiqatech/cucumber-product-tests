@@ -8,7 +8,7 @@ public class AllURLs {
 
     public static String getProductURL()
     {
-        if (System.getProperty("runEnvironment").equals("QA")){
+        if (System.getProperty("runEnvironment").equalsIgnoreCase("QA")){
             if (System.getProperty("product").contains("YouTube"))
                 return YouTubeQA;
             else if (System.getProperty("product").contains("GitHub"))

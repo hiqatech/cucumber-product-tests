@@ -1,9 +1,9 @@
 package common.selenium;
 
-import com.cucumber.listener.Reporter;
 import com.twilio.Twilio;
 import com.twilio.base.ResourceSet;
 import com.twilio.rest.api.v2010.account.Message;
+import common.setup.Hooks;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -35,7 +35,7 @@ public class WebHelp {
     public static WebDriver webDriver;
     public static int waitTimeMax= 5000;
     public static int waitTime = 500;
-    public static int timeOut = 40;
+    public static int timeOut = 60;
 
     public static String startMyWebDriver(String driver)
     {
@@ -143,7 +143,7 @@ public class WebHelp {
     {
         try
         {
-            if(!URL.isEmpty() && !URL.equals("") && !(URL == null))
+            if(!URL.isEmpty() && !URL.equalsIgnoreCase("") && !(URL == null))
                 webDriver.navigate().to(URL);
             return "PASS";
         }
@@ -153,7 +153,7 @@ public class WebHelp {
 
     public static Boolean verifyNotNull(String text)
     {
-        if(!text.isEmpty() && !text.equals("") && !(text == null))
+        if(!text.isEmpty() && !text.equalsIgnoreCase("") && !(text == null))
         return true;
         else return false;
     }
@@ -195,7 +195,7 @@ public class WebHelp {
         while (startTime < waitTimeMax)
         {
             sleep(waitTime);
-            if(isDisplayed(elementSelector).equals("PASS"))
+            if(isDisplayed(elementSelector).equalsIgnoreCase("PASS"))
                 return  "PASS";
             else
                 {
@@ -211,7 +211,7 @@ public class WebHelp {
         double startTime = 0;
         while (startTime < waitTimeMax)
         {
-            if(!isDisplayed(elementSelector).equals("PASS"))
+            if(!isDisplayed(elementSelector).equalsIgnoreCase("PASS"))
                 return  "PASS";
             else
             {
@@ -227,6 +227,8 @@ public class WebHelp {
         try
         {
             webDriver.switchTo().defaultContent();
+            if(frameSelector.equalsIgnoreCase("default"))
+                return "PASS";
             if(verifyNotNull(frameSelector)) {
                 waitToAppear(frameSelector);
                 WebElement frame = webDriver.findElement(By.xpath(frameSelector));
@@ -377,9 +379,9 @@ public class WebHelp {
         try
         {
             action = action.toUpperCase();
-            if(action.equals("ACCEPT"))
+            if(action.equalsIgnoreCase("ACCEPT"))
                 webDriver.switchTo().alert().accept();
-            else if(action.equals("DISMISS"))
+            else if(action.equalsIgnoreCase("DISMISS"))
                 webDriver.switchTo().alert().dismiss();
             return "PASS";
         }
@@ -395,7 +397,7 @@ public class WebHelp {
             elementName = elementName.toUpperCase();
             if(elementName.contains("BACK"))
                 webDriver.navigate().back();
-            else if(elementName.equals("FORWARD"))
+            else if(elementName.equalsIgnoreCase("FORWARD"))
                 webDriver.navigate().forward();
             return "PASS";
         }
@@ -431,9 +433,9 @@ public class WebHelp {
         {
             status = status.toUpperCase();
             WebElement webElement = getWebElement(elementSelector);
-            if(webElement.isSelected() && status.equals("CHECKED"))
+            if(webElement.isSelected() && status.equalsIgnoreCase("CHECKED"))
                 return "PASS";
-            else if(!webElement.isSelected() && status.equals("UNCHECKED"))
+            else if(!webElement.isSelected() && status.equalsIgnoreCase("UNCHECKED"))
                 return  "PASS";
             else return "ERROR";
         }
@@ -534,9 +536,9 @@ public class WebHelp {
                 return tryToClick(webElement);
             else if(act.equalsIgnoreCase("SELECT"))
                 return tryToSelect(webElement);
-            else if(act.equals("HIT"))
+            else if(act.equalsIgnoreCase("HIT"))
                 {webElement.sendKeys(Keys.ENTER); return "PASS";}
-            else if(act.equals("CLEAR"))
+            else if(act.equalsIgnoreCase("CLEAR"))
             {webElement.clear(); return "PASS";}
             else {System.out.println(act + " action has not been defined"); return  "FAIL";}
         }
@@ -591,7 +593,10 @@ public class WebHelp {
             File source = ts.getScreenshotAs(OutputType.FILE);
             File destination = new File(dest);
             FileUtils.copyFile(source,destination);
-            //Reporter.addScreenCaptureFromPath(destination.getPath());
+
+            final byte[] screenshot = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
+            Hooks.scenario.embed(screenshot, "image/jpg");
+
             return "PASS";
         }
         catch(Exception ex)
@@ -604,11 +609,11 @@ public class WebHelp {
         {
             WebElement webElement = getWebElement(elementSelector);
             Select select = new Select(webElement);
-            if(what.equals("text"))
+            if(what.equalsIgnoreCase("text"))
             select.selectByVisibleText(text);
-            else if(what.equals("index"))
+            else if(what.equalsIgnoreCase("index"))
                 select.selectByIndex(Integer.parseInt(text));
-            else if(what.equals("value"))
+            else if(what.equalsIgnoreCase("value"))
                 select.selectByValue(text);
             return "PASS";
         }
@@ -627,14 +632,14 @@ public class WebHelp {
             for(WebElement option : options)
             {
                 String currenText = "null";
-                if(attribute.equals("text"))
+                if(attribute.equalsIgnoreCase("text"))
                     currenText = option.getText();
-                if(attribute.equals("value"))
+                if(attribute.equalsIgnoreCase("value"))
                     currenText = option.getAttribute("value");
-                if(attribute.equals("placeholder"))
+                if(attribute.equalsIgnoreCase("placeholder"))
                     currenText = option.getAttribute("placeholder");
 
-                if(currenText.equals(text))
+                if(currenText.equalsIgnoreCase(text))
                 {
                     tryToSelect(option);
                     break;
@@ -652,12 +657,12 @@ public class WebHelp {
         {
             status = status.toUpperCase();
             WebElement webElement = getWebElement(elementSelector);
-            if(status.equals("SELECTED"))
+            if(status.equalsIgnoreCase("SELECTED"))
                 if(webElement.isSelected())
                     return "PASS";
                 else return "FALSE";
 
-            else if(status.equals("UNSELECTED"))
+            else if(status.equalsIgnoreCase("UNSELECTED"))
                 if(!webElement.isSelected())
                     return "PASS";
                 else return "FALSE";
@@ -720,7 +725,7 @@ public class WebHelp {
             Twilio.init(accountSID,authToken);
             ResourceSet<Message> messages = Message.reader(accountSID).read();
             Stream<Message> messagesString = StreamSupport.stream(messages.spliterator(),false);
-            String smsBody = String.valueOf(messagesString.filter(m-> m.getDirection().compareTo(Message.Direction.INBOUND)==0).filter(m -> m.getTo().equals(phoneNumber)).map(Message::getBody).findFirst());
+            String smsBody = String.valueOf(messagesString.filter(m-> m.getDirection().compareTo(Message.Direction.INBOUND)==0).filter(m -> m.getTo().equalsIgnoreCase(phoneNumber)).map(Message::getBody).findFirst());
             return smsBody.replaceAll("[^-?0-9]+","").substring(0,6);
         }
         catch(Exception ex)

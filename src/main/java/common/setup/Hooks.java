@@ -1,6 +1,5 @@
 package common.setup;
 
-import com.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -9,7 +8,6 @@ import org.junit.Assert;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.List;
 
 import static common.app.App.*;
 import static common.selenium.WebHelp.takeScreenShot;
@@ -43,9 +41,11 @@ public class Hooks {
         System.setProperty("product",myScenario.substring(0,myScenario.indexOf("-")).replace(" ",""));
 
         // local use, comment before push
-        System.setProperty("runDriver","chrome");
-        System.setProperty("seleniumGrid","local"); //http://192.168.1.208:32001/wd/hub
+        System.setProperty("runDriver","Chrome");
+        System.setProperty("seleniumGrid","Local"); //http://192.168.1.208:32001/wd/hub
         System.setProperty("runEnvironment","QA");
+        //
+
         System.setProperty("projectPath",System.getProperty("user.dir"));
         System.setProperty("systemTime", dateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
         System.setProperty("userID",System.getProperty("user.home").replace("C:\\Users\\",""));
@@ -60,10 +60,10 @@ public class Hooks {
         System.setProperty("auth_token","c6d4a5c59d6155c6b09627757a21ec6a");
         System.setProperty("phone_number","+18306421459");
 
-        if(System.getProperty("product").equals("GitHubWeb")){
+        if(System.getProperty("product").equalsIgnoreCase("GitHubWeb")){
             System.setProperty("my_username","hiqatech");
             System.setProperty("my_password","Strid@b52");}
-        else if(System.getProperty("product").equals("CognizantWeb")){
+        else if(System.getProperty("product").equalsIgnoreCase("CognizantWeb")){
             System.setProperty("my_username","668904@cognizant.com");
             System.setProperty("my_password","Lidia@20");}
 
@@ -84,13 +84,6 @@ public class Hooks {
         System.out.println("ProjectPath : " + System.getProperty("projectPath"));
         System.out.println("ReportPath : " + System.getProperty("reportPath"));
         System.out.println("Environment : " + System.getProperty("runEnvironment"));
-
-        if(scenario.getName().contains("Web"))
-            startWebDriver(System.getProperty("runDriver"));
-        else if(scenario.getName().contains("Android"))
-            startAndroidDriver();
-        else if(scenario.getName().contains("IOS"))
-            startIOSDriver();
 
         System.out.println("************************************************************************************");
 

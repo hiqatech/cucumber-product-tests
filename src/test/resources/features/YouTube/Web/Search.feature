@@ -5,7 +5,7 @@ Feature: YouTube Search Tests
 
   Background:
     Given I start the "default" driver
-    And I navigate to the "my_app" url
+    And I navigate to the "app_home" url
     When I am on the "Home" page
 
   @YouTubeWebSmoke
@@ -16,6 +16,7 @@ Feature: YouTube Search Tests
     And I wait "10" sec/s for "agree window"
     And I switch to the "popup" content
     And I "select" the "i_agree_button"
+    And I wait "10" sec/s for "default window"
     And I switch to the "default" content
     And I "type" "Dash Berlin - With you" into the "search_field"
     When I "click" the "search_submit"

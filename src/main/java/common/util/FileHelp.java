@@ -32,7 +32,7 @@ public class FileHelp {
             Boolean found = false;
             for(File fileX : listOfFiles)
             {
-                if(fileX.getName().equals(expectedName))
+                if(fileX.getName().equalsIgnoreCase(expectedName))
                     found = true;{
                     fileX.delete();}
             }
@@ -57,7 +57,7 @@ public class FileHelp {
             for(File fileX : listOfFiles)
             {
                 for(String nameX : storedTexts) {
-                    if (nameX.equals(fileName))
+                    if (nameX.equalsIgnoreCase(fileName))
                     {
                         found = true;
                         fileX.delete();

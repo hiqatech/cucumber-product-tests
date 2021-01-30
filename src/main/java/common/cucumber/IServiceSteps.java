@@ -31,7 +31,7 @@ public class IServiceSteps {
     String fullRequestURL = AllProducts.getFullRequestURL(requestName);
     JSONObject requestBody = new JSONObject();
 
-    if(!(requestType.equals("GET")))
+    if(!(requestType.equalsIgnoreCase("GET")))
     {
       requestBody = AllProducts.getRequestBodyByRequestName(requestName);
       requestBody = ServiceHelp.setRequestValues(requestBody, requestMap);
@@ -60,7 +60,7 @@ public class IServiceSteps {
       String expectedKey = entry.getKey();
       String expectedValue = entry.getValue();
 
-      if (expectedKey.contains("validate") && expectedValue.equals("email_address")) {
+      if (expectedKey.contains("validate") && expectedValue.equalsIgnoreCase("email_address")) {
         ArrayList<String> emailAddresses = new ArrayList<String>();
         emailAddresses = currentResponse.jsonPath().get("email");
 

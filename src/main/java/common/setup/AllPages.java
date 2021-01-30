@@ -4,9 +4,9 @@ public class AllPages {
 
     public static String getYouTubeElementSelector(String elementName)
     {
-        if(System.getProperty("activePage").equals("Home"))
+        if(System.getProperty("activePage").equalsIgnoreCase("Home"))
             return products.YouTube.Pages.HomePage.getElementSelector(elementName);
-        else if(System.getProperty("activePage").equals("Search"))
+        else if(System.getProperty("activePage").equalsIgnoreCase("Search"))
             return products.YouTube.Pages.SearchPage.getElementSelector(elementName);
         else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
                                  " Page has not been defined in the AllPages");
@@ -15,9 +15,9 @@ public class AllPages {
 
     public static String getWhatsUpElementSelector(String elementName)
     {
-        if(System.getProperty("activePage").equals("Home"))
+        if(System.getProperty("activePage").equalsIgnoreCase("Home"))
             return products.WhatsUp.Pages.LogInPage.getElementSelector(elementName);
-        else if(System.getProperty("activePage").equals("Search"))
+        else if(System.getProperty("activePage").equalsIgnoreCase("Search"))
             return products.WhatsUp.Pages.HomePage.getElementSelector(elementName);
         else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
                                   " Page has not been defined in the AllPages");
@@ -26,9 +26,9 @@ public class AllPages {
 
     public static String getGitHubElementSelector(String elementName)
     {
-        if(System.getProperty("activePage").equals("Home"))
+        if(System.getProperty("activePage").equalsIgnoreCase("Home"))
             return products.GitHub.Pages.HomePage.getElementSelector(elementName);
-        else if(System.getProperty("activePage").equals("MyProfile"))
+        else if(System.getProperty("activePage").equalsIgnoreCase("MyProfile"))
             return products.GitHub.Pages.MyProfilePage.getElementSelector(elementName);
         else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
                 " Page has not been defined in the AllPages");
@@ -37,9 +37,9 @@ public class AllPages {
 
     public static String getCognizantElementSelector(String elementName)
     {
-        if(System.getProperty("activePage").equals("Home"))
+        if(System.getProperty("activePage").equalsIgnoreCase("Home"))
             return products.Cognizant.Pages.HomePage.getElementSelector(elementName);
-        else if(System.getProperty("activePage").equals("MyProfile"))
+        else if(System.getProperty("activePage").equalsIgnoreCase("MyProfile"))
             return products.Cognizant.Pages.MyProfilePage.getElementSelector(elementName);
         else {System.out.println( System.getProperty("product") + " " + System.getProperty("activePage") +
                 " Page has not been defined in the AllPages");

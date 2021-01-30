@@ -44,14 +44,14 @@ public class ETLHelp {
     public static String diffFilesAndWriteInto(String diff, String file, String path){
 
         int size = 0;
-        if(diff.equals("file1-file2")) {
+        if(diff.equalsIgnoreCase("file1-file2")) {
             for (Object bs : al2) {
                 al1.remove(bs);
             }
             size =al1.size();
             al3 = al1;
         }
-        else if(diff.equals("file2-file1")) {
+        else if(diff.equalsIgnoreCase("file2-file1")) {
             for (Object bs : al1) {
                 al2.remove(bs);
             }
@@ -133,7 +133,7 @@ public class ETLHelp {
                 HashMap<String, String> updaterData = readWorkbookDataSet(updaterSheet, i);
                 for(int j=1; j<databaseSheet.getPhysicalNumberOfRows(); j++) {
                     HashMap<String, String> databaseData = readWorkbookDataSet(databaseSheet, j);
-                    if (databaseData.get(myKey).equals(updaterData.get(myKey))) {
+                    if (databaseData.get(myKey).equalsIgnoreCase(updaterData.get(myKey))) {
                         for (String key:updaterData.keySet()
                         ) {
                             databaseData.put(key,updaterData.get(key));
