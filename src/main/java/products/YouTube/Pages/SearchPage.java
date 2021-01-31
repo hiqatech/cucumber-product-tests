@@ -15,6 +15,7 @@ public class SearchPage {
         elementLocators.put("search_result_3rd" , "//ytd-section-list-renderer/div[2]/ytd-item-section-renderer/div[3]/ytd-video-renderer[3]");
         elementLocators.put("search_result_4nd" , "//ytd-section-list-renderer/div[2]/ytd-item-section-renderer/div[3]/ytd-video-renderer[4]");
         elementLocators.put("search_result1_image", "//*[@id=\"img\"]");
+        elementLocators.put("skip_ad_button" , "//*[contains(text(),'Skip Ad')]");
         elementLocators.put("", "");
 
     }

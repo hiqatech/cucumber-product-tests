@@ -591,7 +591,7 @@ public class WebHelp {
         {
             TakesScreenshot ts = (TakesScreenshot)webDriver;
             File source = ts.getScreenshotAs(OutputType.FILE);
-            File destination = new File(dest);
+            File destination = new File(dest + ".jpg");
             FileUtils.copyFile(source,destination);
 
             final byte[] screenshot = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);

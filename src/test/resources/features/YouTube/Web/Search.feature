@@ -25,6 +25,7 @@ Feature: YouTube Search Tests
     Then I should see the "search_result_1st"
     And I takes screenshot as "search_and_play_evidence_1"
     Then I "select" the "search_result_1st"
-    And I wait "9" sec/s for "play"
+    And I "select" the "i_agree_button"
+    And I wait "24" sec/s for "play"
 
     #And I have fun :)
