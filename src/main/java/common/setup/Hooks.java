@@ -115,12 +115,12 @@ public class Hooks {
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")) {
-            Hooks.scenario.write(getResultFailLog(result));
+            Hooks.scenario.log(getResultFailLog(result));
             //System.out.println(result);
             Assert.assertTrue(false);
         }
         else {
-            Hooks.scenario.write(result.replace(",,,",""));
+            Hooks.scenario.log(result.replace(",,,",""));
             //System.out.println(result);
         }
     }
@@ -129,7 +129,7 @@ public class Hooks {
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")){
-            Hooks.scenario.write(getResultFailLog(result));
+            Hooks.scenario.log(getResultFailLog(result));
             //System.out.println(result);
         }
     }
