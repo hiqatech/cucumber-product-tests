@@ -2,7 +2,7 @@ package common.cucumber;
 
 import common.selenium.WebSteps;
 import common.setup.AllProducts;
-import cucumber.api.java.en.Given;
+import io.cucumber.java.en.Given;
 
 import static common.setup.Hooks.*;
 
