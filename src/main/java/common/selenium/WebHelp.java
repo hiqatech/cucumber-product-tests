@@ -64,13 +64,13 @@ public class WebHelp {
                     options.addArguments("--start-maximized");
                     options.addArguments("--screenshot");
 
-                    capabilities = DesiredCapabilities.chrome();
-                    capabilities.setCapability("chrome.switches", Arrays.asList("--disable-extensions"));
-                    capabilities.setCapability("chrome.switches", Arrays.asList("--ignore-certificate-errors"));
-                    capabilities.setCapability("chrome.switches", Arrays.asList("--start-maximized"));
-                    capabilities.setCapability("chrome.switches", Arrays.asList("--screenshots"));
-                    capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
-                    capabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
+                    //capabilities = DesiredCapabilities.chrome();
+                    //capabilities.setCapability("chrome.switches", Arrays.asList("--disable-extensions"));
+                    //capabilities.setCapability("chrome.switches", Arrays.asList("--ignore-certificate-errors"));
+                    //capabilities.setCapability("chrome.switches", Arrays.asList("--start-maximized"));
+                    //capabilities.setCapability("chrome.switches", Arrays.asList("--screenshots"));
+                    //capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
+                    //capabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
                     if(!System.getProperty("seleniumGrid").equalsIgnoreCase("LOCAL"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
                     else if(System.getProperty("seleniumGrid").equalsIgnoreCase("LOCAL"))
