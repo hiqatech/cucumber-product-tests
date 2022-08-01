@@ -595,7 +595,7 @@ public class WebHelp {
             FileUtils.copyFile(source,destination);
 
             final byte[] screenshot = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
-            Hooks.scenario.embed(screenshot, "image/jpg");
+            Hooks.scenario.attach(screenshot, "image/jpg");
 
             return "PASS";
         }
