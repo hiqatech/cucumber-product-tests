@@ -22,7 +22,6 @@
     <maven.compiler.source>18</maven.compiler.source>
     <maven.compiler.target>18</maven.compiler.target>
     <maven-surefire.version>2.22.2</maven-surefire.version>
-    <appium.version>7.3.0</appium.version>
   </properties>
 
   <dependencies>
@@ -100,7 +99,7 @@
     <dependency>
       <groupId>io.appium</groupId>
       <artifactId>java-client</artifactId>
-      <version>${appium.version}</version>
+      <version>7.3.1</version>
     </dependency>
     <dependency>
       <groupId>com.jayway.restassured</groupId>
