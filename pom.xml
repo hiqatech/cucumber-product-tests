@@ -16,20 +16,13 @@
       <name>kiszols</name>
     </developer>
   </developers>
-
-  <properties>
-        
-    </properties>
          
   <properties>
-
     <java.version>18</java.version>
     <maven.compiler.source>18</maven.compiler.source>
     <maven.compiler.target>18</maven.compiler.target>
     <maven-surefire.version>2.22.2</maven-surefire.version>
     <appium.version>7.3.0</appium.version>
-    <cucumber-reporting.version>4.4.0</cucumber-reporting.version>
-
   </properties>
 
   <dependencies>
@@ -44,9 +37,14 @@
       <version>${maven-surefire.version}</version>
     </dependency>
     <dependency>
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <version>1.18.22</version>
+     </dependency>
+     <dependency>
          <groupId>io.cucumber</groupId>
          <artifactId>cucumber-java</artifactId>
-         <version>7.3.2</version>
+         <version>7.3.3</version>
          <scope>test</scope>
      </dependency>
      <dependency>
@@ -58,9 +56,14 @@
      <dependency>
          <groupId>io.cucumber</groupId>
          <artifactId>cucumber-junit</artifactId>
-         <version>7.3.2</version>
+         <version>7.3.3</version>
          <scope>test</scope>
-     </dependenc
+     </dependency>
+     <dependency>
+         <groupId>io.cucumber</groupId>
+         <artifactId>cucumber-picocontainer</artifactId>
+         <version>7.3.2</version>
+     </dependency>
      <dependency>
          <groupId>junit</groupId>
          <artifactId>junit</artifactId>
