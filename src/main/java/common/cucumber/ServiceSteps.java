@@ -13,7 +13,7 @@ import java.util.Map;
 
 import static common.service.ServiceHelp.sendRequest;
 
-public class IServiceSteps {
+public class ServiceSteps {
 
   public static Response currentResponse;
 
