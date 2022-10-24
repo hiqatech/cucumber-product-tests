@@ -1,4 +1,5 @@
-package common.setup;
+package com.setup;
+
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -9,10 +10,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
-import static common.app.App.*;
-import static common.selenium.WebHelp.takeScreenShot;
-import static common.selenium.WebSteps.*;
-import static common.util.DataHelp.getTimeStamp;
+import static com.selenium.WebActs.stopWebDriver;
+import static com.selenium.WebHelp.takeScreenShot;
+import static com.util.DataHelp.getTimeStamp;
 
 public class Hooks {
 
@@ -20,10 +20,6 @@ public class Hooks {
     public static Scenario scenario;
     public static String myScenario;
     public static String stepLog;
-    public static String accountSID;
-    public static String authToken;
-    public static String phoneNumber;
-    public static String otpNumber;
     public static String myUserName;
     public static String myPassword;
 
@@ -56,23 +52,6 @@ public class Hooks {
         System.setProperty("driverPath",System.getProperty("projectPath") + "\\src\\main\\resources\\webdrivers\\");
         System.setProperty("reportConfigPath",System.getProperty("projectPath") + "\\src\\main\\resources\\report\\extent-config.xml");
 
-        System.setProperty("account_sid","AC9bad98c469be29cdc854277ac5ef63cd");
-        System.setProperty("auth_token","c6d4a5c59d6155c6b09627757a21ec6a");
-        System.setProperty("phone_number","+18306421459");
-
-        if(System.getProperty("product").equalsIgnoreCase("GitHubWeb")){
-            System.setProperty("my_username","hiqatech");
-            System.setProperty("my_password","Strid@b52");}
-        else if(System.getProperty("product").equalsIgnoreCase("CognizantWeb")){
-            System.setProperty("my_username","668904@cognizant.com");
-            System.setProperty("my_password","Lidia@20");}
-
-        accountSID= System.getProperty("account_sid");
-        authToken= System.getProperty("auth_token");
-        phoneNumber= System.getProperty("phone_number");
-        myUserName= System.getProperty("my_username");
-        myPassword= System.getProperty("my_password");
-
         if(wantsToQuit)
             throw new RuntimeException("Test FAIL : Cucumber wants to quit");
 
@@ -90,9 +69,9 @@ public class Hooks {
     }
 
     @After
-    public static void tearDown(Scenario screnario)
+    public static void tearDown(Scenario scenario)
     {
-        if(screnario.isFailed())
+        if(scenario.isFailed())
         {
             takeScreenShot(System.getProperty("reportPath") + myScenario + " failed_" + getTimeStamp("YYYY-MM-DD-HH-mm-ss-SSS"));
             System.out.println("Test Failed !");
@@ -104,8 +83,6 @@ public class Hooks {
 
     public static void closeAllDrivers(){
         stopWebDriver();
-        stopAndroidDriver();
-        stopIOSDriver();
     }
 
     //-----------------------------------------------------------------------------//
@@ -116,12 +93,12 @@ public class Hooks {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")) {
             Hooks.scenario.log(getResultFailLog(result));
-            //System.out.println(result);
+            System.out.println(result);
             Assert.assertTrue(false);
         }
         else {
             Hooks.scenario.log(result.replace(",,,",""));
-            //System.out.println(result);
+            System.out.println(result);
         }
     }
 
