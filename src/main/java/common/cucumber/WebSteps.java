@@ -1,14 +1,13 @@
-package common.cucumber;
+package com.stepdefs;
 
-import common.selenium.WebSteps;
-import common.setup.AllProducts;
+import com.selenium.WebActs;
+import com.setup.AllProducts;
 import io.cucumber.java.en.Given;
+import static com.setup.Hooks.*;
 
-import static common.setup.Hooks.*;
+public class WebSteps extends WebActs {
 
-public class IWebSteps extends WebSteps{
-
-@Given("I start the {string} driver")
+    @Given("I start the {string} driver")
     public static void IStartTheWebDriver(String driver) {
         AssertExecutedStep(startWebDriver(driver));
     }
@@ -182,5 +181,4 @@ public class IWebSteps extends WebSteps{
     public static void IStoreTheTextAsTheTextX(String text, String textX) {
         AssertExecutedStep(storeTextAsTextX(text, textX));
     }
-
 }
