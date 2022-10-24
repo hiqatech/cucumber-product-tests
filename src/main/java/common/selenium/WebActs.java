@@ -7,7 +7,7 @@ import common.util.FileHelp;
 
 import static common.util.DataHelp.onlyDigits;
 
-public class WebSteps extends WebHelp {
+public class WebActs extends WebHelp {
 
     public static String startWebDriver(String driver) {
         System.setProperty("mainURL", AllURLs.getProductURL());
