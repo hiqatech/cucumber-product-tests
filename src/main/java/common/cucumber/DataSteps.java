@@ -6,7 +6,7 @@ import io.cucumber.java.en.Given;
 import static common.setup.Hooks.AssertExecutedStep;
 import static common.setup.Hooks.VerifyExecutedStep;
 
-public class IETLSteps {
+public class DataSteps extends ETLSteps{
 
     @Given("I read the {} file from {}")
     public void IReadFileFrom(String file, String path){
