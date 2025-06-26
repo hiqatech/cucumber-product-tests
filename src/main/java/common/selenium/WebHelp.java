@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -64,7 +64,7 @@ public class WebHelp {
                     options.addArguments("--start-maximized");
                     options.addArguments("--screenshot");
 
-                    if(!System.getProperty("seleniumGrid").equalsIgnoreCase("LOCAL"))
+                    if(!System.getProperty("seleniumGrid").equalsIgnoreCase("REMOTE"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
                     else if(System.getProperty("seleniumGrid").equalsIgnoreCase("LOCAL"))
                         webDriver = new ChromeDriver(options);
@@ -72,10 +72,10 @@ public class WebHelp {
 
                     break;
 
-                case "IE" :
+                case "Edge" :
 
-                    String ieDriverPath = driverPath + "IEDriverServer.exe";
-                    System.setProperty("webdriver.ie.driver",ieDriverPath);
+                    String edgeDriverPath = driverPath + "IEDriverServer.exe";
+                    System.setProperty("webdriver.edge.driver",edgeDriverPath);
 
                     capabilities = DesiredCapabilities.internetExplorer();
                     capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
@@ -85,7 +85,7 @@ public class WebHelp {
                     if(System.getProperty("runEnvironment").equalsIgnoreCase("REMOTE"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
                     else if(System.getProperty("runEnvironment").equalsIgnoreCase("LOCAL"))
-                        webDriver = new InternetExplorerDriver();
+                        webDriver = new EdgeDriver();
                     else System.out.println(System.getProperty("runEnvironment") + " has not been defined yet.");
 
                     break;
