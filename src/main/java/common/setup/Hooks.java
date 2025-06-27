@@ -37,8 +37,7 @@ public class Hooks {
 
         // local use, comment before push
         System.setProperty("runDriver","Edge");
-        System.setProperty("seleniumGrid","Local"); //http://192.168.1.208:32001/wd/hub
-        System.setProperty("runEnvironment","QA");
+        System.setProperty("runEnvironment","LocalQA");
         //
 
         System.setProperty("projectPath",System.getProperty("user.dir"));
@@ -91,12 +90,12 @@ public class Hooks {
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")) {
-            Hooks.scenario.log(getResultFailLog(result));
+            //Hooks.scenario.log(getResultFailLog(result));
             System.out.println(result);
             Assert.assertTrue(false);
         }
         else {
-            Hooks.scenario.log(result.replace(",,,",""));
+            //Hooks.scenario.log(result.replace(",,,",""));
             System.out.println(result);
         }
     }
@@ -105,8 +104,8 @@ public class Hooks {
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")){
-            Hooks.scenario.log(getResultFailLog(result));
-            //System.out.println(result);
+            //Hooks.scenario.log(getResultFailLog(result));
+            System.out.println(result);
         }
     }
 

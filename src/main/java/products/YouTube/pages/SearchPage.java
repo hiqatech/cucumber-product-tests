@@ -1,4 +1,4 @@
-package products.YouTube.Pages;
+package products.YouTube.pages;
 
 import java.util.HashMap;
 

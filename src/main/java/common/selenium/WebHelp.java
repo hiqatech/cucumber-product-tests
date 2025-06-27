@@ -65,15 +65,15 @@ public class WebHelp {
 
                     capabilities = new DesiredCapabilities();
 
-                    if(!System.getProperty("seleniumGrid").equalsIgnoreCase("REMOTE"))
+                    if(!System.getProperty("runEnvironment").contains("Remote"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
-                    else if(System.getProperty("seleniumGrid").equalsIgnoreCase("LOCAL"))
+                    else if(System.getProperty("runEnvironment").contains("Local"))
                         webDriver = new ChromeDriver(options);
                     else System.out.println("seleniumGrid" + " has not been defined.");
 
                     break;
 
-                case "Edge" :
+                case "EDGE" :
 
                     String edgeDriverPath = driverPath + "msedgedriver.exe";
                     System.setProperty("webdriver.edge.driver",edgeDriverPath);
@@ -81,9 +81,9 @@ public class WebHelp {
                     capabilities = new DesiredCapabilities();
                     capabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS,true);
 
-                    if(System.getProperty("runEnvironment").equalsIgnoreCase("REMOTE"))
+                    if(System.getProperty("runEnvironment").contains("Remote"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
-                    else if(System.getProperty("runEnvironment").equalsIgnoreCase("LOCAL"))
+                    else if(System.getProperty("runEnvironment").contains("Local"))
                         webDriver = new EdgeDriver();
                     else System.out.println(System.getProperty("runEnvironment") + " has not been defined yet.");
 
@@ -95,9 +95,9 @@ public class WebHelp {
                     String firefoxDriverPath = driverPath + "geckodriver.exe";
                     System.setProperty("webdriver.gecko.driver",firefoxDriverPath);
 
-                    if(System.getProperty("runEnvironment").equalsIgnoreCase("REMOTE"))
+                    if(System.getProperty("runEnvironment").contains("Remote"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
-                    else if(System.getProperty("runEnvironment").equalsIgnoreCase("LOCAL"))
+                    else if(System.getProperty("runEnvironment").contains("Local"))
                         webDriver = new FirefoxDriver();
                     else System.out.println(System.getProperty("runEnvironment") + " has not been defined yet.");
 

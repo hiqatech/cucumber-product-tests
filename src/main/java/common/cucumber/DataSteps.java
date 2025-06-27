@@ -18,7 +18,7 @@ public class DataSteps extends ETLSteps{
         VerifyExecutedStep(ETLSteps.diffMyFilesAndWriteInto(diff,file,path));
     }
 
-    @Given("I open the {}" on {}" from the {}")
+    @Given("I open the {} on {} from the {}")
     public void IOpenFileOnWorkbook(String file, String workbook, String path) {
         AssertExecutedStep(ETLSteps.openMyWorkbook(file,workbook, path));
     }
@@ -33,7 +33,7 @@ public class DataSteps extends ETLSteps{
         AssertExecutedStep(ETLSteps.saveAndCloseMyWorkbook(file, workbook));
     }
 
-    @Given("I save the {}" on {}")
+    @Given("I save the {} on {}")
     public void ISaveFileOnWorkbook(String file, String workbook) {
         AssertExecutedStep(ETLSteps.saveMyWorkbook(file, workbook));
     }

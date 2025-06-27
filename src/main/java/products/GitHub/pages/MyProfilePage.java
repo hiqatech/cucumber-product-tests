@@ -1,4 +1,4 @@
-package products.GitHub.Pages;
+package products.GitHub.pages;
 
 import java.util.HashMap;
 

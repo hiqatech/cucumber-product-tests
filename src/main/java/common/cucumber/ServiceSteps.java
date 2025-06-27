@@ -1,6 +1,5 @@
 package common.cucumber;
 
-import com.jayway.restassured.response.Response;
 import common.service.ServiceHelp;
 import common.setup.AllProducts;
 import common.util.DataGen;
@@ -11,11 +10,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static common.service.ServiceHelp.sendRequest;
+
 
 public class ServiceSteps {
 
-  public static Response currentResponse;
+  //public static Response currentResponse;
 
   public static void CreateRequest(HashMap<String,String> requestMap){
     String randomIntString = null;
@@ -36,7 +35,7 @@ public class ServiceSteps {
       requestBody = AllProducts.getRequestBodyByRequestName(requestName);
       requestBody = ServiceHelp.setRequestValues(requestBody, requestMap);
     }
-    currentResponse = sendRequest(serviceName,fullRequestURL,requestType,requestBody);
+    //currentResponse = sendRequest(serviceName,fullRequestURL,requestType,requestBody);
 
   }
 
@@ -49,9 +48,9 @@ public class ServiceSteps {
 
     ArrayList<HashMap> responseArrayList = new ArrayList<HashMap>();
     try {
-      responseArrayList = currentResponse.jsonPath().get();
+      //responseArrayList = currentResponse.jsonPath().get();
     } catch (Exception ex) {
-      responseMap = currentResponse.jsonPath().get();
+      //responseMap = currentResponse.jsonPath().get();
       responseArrayList.add(responseMap);
     }
 
@@ -62,7 +61,7 @@ public class ServiceSteps {
 
       if (expectedKey.contains("validate") && expectedValue.equalsIgnoreCase("email_address")) {
         ArrayList<String> emailAddresses = new ArrayList<String>();
-        emailAddresses = currentResponse.jsonPath().get("email");
+        //emailAddresses = currentResponse.jsonPath().get("email");
 
         for (int iterator = 0; iterator != emailAddresses.size(); iterator++) {
           Assert.assertTrue(DataGen.isValidEmailAddress(emailAddresses.get(iterator)));

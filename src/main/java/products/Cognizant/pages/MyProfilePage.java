@@ -1,16 +1,17 @@
-package products.WhatsUp.Pages;
+package products.Cognizant.pages;
 
 import java.util.HashMap;
 
-public class LogInPage {
+public class MyProfilePage {
 
     public static HashMap<String, String> elementLocators = new HashMap<String, String>();
 
     public static void setElements()
     {
-        elementLocators.put("search_field", "//*[@id=\"search\"]");
-        elementLocators.put("search_submit", "//*[@id=\"search-icon-legacy\"]");
-        elementLocators.put("search_result1_image", "//*[@id=\"img\"]");
+        elementLocators.put("view_profile_menu", "//p[@id=\"userPhoto\"]");
+        elementLocators.put("app_search_field", "//input[@id=\"txtPlatformBarSearch\"]");
+        elementLocators.put("app_search_button", "//input[@id=\"btnsearch\"]");
+        elementLocators.put("search_result_first_image", "//div[@class=\"inActive\"]/img[1]");
         elementLocators.put("", "");
 
     }

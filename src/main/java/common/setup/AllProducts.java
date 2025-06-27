@@ -9,6 +9,8 @@ public class AllProducts {
 
     public static String getElementSelector(String elementName)
     {
+        if(System.getProperty("product").contains("Banking"))
+            return getBankingElementSelector(elementName);
         if(System.getProperty("product").contains("YouTube"))
             return getYouTubeElementSelector(elementName);
         else if(System.getProperty("product").contains("GitHub"))

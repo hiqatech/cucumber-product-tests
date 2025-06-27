@@ -14,9 +14,10 @@ import static common.setup.Hooks.VerifyExecutedStep;
 
 public class WebSteps {
 
-    @Given("I setup the {string} product")
-    public static void ISetProductEnv(String product){
+    @Given("I setup the {string} on {string}")
+    public static void ISetProductEnv(String product,String environment){
         System.setProperty("product",product);
+        System.setProperty("runEnvironment",environment);
         System.setProperty("baseURL", AllURLs.getProductURL());
         AllPages.setAllProductsPageElements();
     }

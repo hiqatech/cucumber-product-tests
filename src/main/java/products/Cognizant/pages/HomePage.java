@@ -1,4 +1,4 @@
-package products.Cognizant.Pages;
+package products.Cognizant.pages;
 
 import java.util.HashMap;
 

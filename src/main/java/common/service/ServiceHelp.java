@@ -4,39 +4,33 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import static com.jayway.restassured.RestAssured.given;
 import org.json.simple.JSONObject;
-import com.jayway.restassured.RestAssured;
-import com.jayway.restassured.config.ConnectionConfig;
-import com.jayway.restassured.config.RestAssuredConfig;
-import com.jayway.restassured.response.Response;
 
 public class ServiceHelp {
 
-  public static RestAssuredConfig config = RestAssured.config().connectionConfig(new ConnectionConfig().closeIdleConnectionsAfterEachResponseAfter(10, TimeUnit.MILLISECONDS));
+  //public static RestAssuredConfig config = RestAssured.config().connectionConfig(new ConnectionConfig().closeIdleConnectionsAfterEachResponseAfter(10, TimeUnit.MILLISECONDS));
 
-  public static JSONObject setRequestValues(JSONObject requestBody, HashMap<String,String> requestMap)
-  {
+  public static JSONObject setRequestValues(JSONObject requestBody, HashMap<String, String> requestMap) {
 
     for (Object key : requestBody.keySet()) {
-      String bodyKey = (String)key;
+      String bodyKey = (String) key;
 
       //System.out.println("key: "+ bodyKey + " value: " + bodyValue);
 
-      for (Map.Entry<String,String> entry : requestMap.entrySet())
-      {
+      for (Map.Entry<String, String> entry : requestMap.entrySet()) {
         String requestKey = entry.getKey();
         String requestValue = entry.getValue();
 
         if (bodyKey.equalsIgnoreCase(requestKey))
-          requestBody.put(bodyKey,requestValue);
+          requestBody.put(bodyKey, requestValue);
       }
     }
 
-    return  requestBody;
+    return requestBody;
   }
 
-  public static Response sendRequest(String service, String fullRequestUrl, String requestType, JSONObject requestBody)
+
+  /*public static Response sendRequest(String service, String fullRequestUrl, String requestType, JSONObject requestBody)
   {
     Response response=null;
 
@@ -98,6 +92,6 @@ public class ServiceHelp {
   }
 
 
-
+   */
 
 }

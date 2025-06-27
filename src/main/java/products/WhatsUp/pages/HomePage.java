@@ -1,4 +1,4 @@
-package products.WhatsUp.Pages;
+package products.WhatsUp.pages;
 
 import java.util.HashMap;
 
