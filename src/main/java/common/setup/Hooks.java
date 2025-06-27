@@ -1,4 +1,4 @@
-package com.setup;
+package common.setup;
 
 
 import io.cucumber.java.After;
@@ -10,9 +10,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
-import static com.selenium.WebActs.stopWebDriver;
-import static com.selenium.WebHelp.takeScreenShot;
-import static com.util.DataHelp.getTimeStamp;
+import static common.selenium.WebHelp.*;
+import static common.util.DataHelp.getTimeStamp;
 
 public class Hooks {
 
@@ -37,7 +36,7 @@ public class Hooks {
         System.setProperty("product",myScenario.substring(0,myScenario.indexOf("-")).replace(" ",""));
 
         // local use, comment before push
-        System.setProperty("runDriver","Chrome");
+        System.setProperty("runDriver","Edge");
         System.setProperty("seleniumGrid","Local"); //http://192.168.1.208:32001/wd/hub
         System.setProperty("runEnvironment","QA");
         //
@@ -82,7 +81,7 @@ public class Hooks {
     }
 
     public static void closeAllDrivers(){
-        stopWebDriver();
+        stopMyWebDriver();
     }
 
     //-----------------------------------------------------------------------------//

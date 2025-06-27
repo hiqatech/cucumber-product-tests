@@ -46,4 +46,12 @@ public class AllPages {
             return "NoSuchAnElement";}
     }
 
+    public static void setAllProductsPageElements(){
+        Deposit.setElements();
+        Home.setElements();
+        Login.setElements();
+        Transactions.setElements();
+        UserHome.setElements();
+    }
+
 }

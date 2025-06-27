@@ -8,26 +8,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import cucumber.api.DataTable;
-import gherkin.formatter.model.DataTableRow;
 import java.util.Random;
 
 public class DataGen {
 
   public static HashMap<String,String> MyMap = null;
-
-  public static HashMap<String, String> dataToMap(DataTable table, int valueColumn)
-  {
-    HashMap<String,String> verticalMap = new HashMap<String, String>();
-    HashMap<String,String> horizontalMap = new HashMap<String, String>();
-
-    for (DataTableRow row : table.getGherkinRows())
-    {
-      verticalMap.put(row.getCells().get(0),row.getCells().get(valueColumn));
-    }
-    return verticalMap;
-
-  }
 
   public static void printMap(HashMap<String,String> map) {
     StringBuilder sb = new StringBuilder();

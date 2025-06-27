@@ -8,8 +8,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -22,7 +22,6 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -37,12 +36,12 @@ public class WebHelp {
     public static int waitTime = 500;
     public static int timeOut = 60;
 
-    public static String startMyWebDriver(String driver)
+    public static String startMyWebDriver()
     {
         try
         {
             DesiredCapabilities capabilities ;
-            driver = driver.toUpperCase();
+            String driver = System.getProperty("runDriver").toUpperCase();
             String driverPath = System.getProperty("driverPath");
 
             switch(driver)
@@ -64,6 +63,8 @@ public class WebHelp {
                     options.addArguments("--start-maximized");
                     options.addArguments("--screenshot");
 
+                    capabilities = new DesiredCapabilities();
+
                     if(!System.getProperty("seleniumGrid").equalsIgnoreCase("REMOTE"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
                     else if(System.getProperty("seleniumGrid").equalsIgnoreCase("LOCAL"))
@@ -74,13 +75,11 @@ public class WebHelp {
 
                 case "Edge" :
 
-                    String edgeDriverPath = driverPath + "IEDriverServer.exe";
+                    String edgeDriverPath = driverPath + "msedgedriver.exe";
                     System.setProperty("webdriver.edge.driver",edgeDriverPath);
 
-                    capabilities = DesiredCapabilities.internetExplorer();
-                    capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
-                    capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
-                    capabilities.setJavascriptEnabled(true);
+                    capabilities = new DesiredCapabilities();
+                    capabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS,true);
 
                     if(System.getProperty("runEnvironment").equalsIgnoreCase("REMOTE"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
@@ -92,7 +91,7 @@ public class WebHelp {
 
                 case "FIREFOX" :
 
-                    capabilities = DesiredCapabilities.firefox();
+                    capabilities = new DesiredCapabilities();
                     String firefoxDriverPath = driverPath + "geckodriver.exe";
                     System.setProperty("webdriver.gecko.driver",firefoxDriverPath);
 
@@ -106,9 +105,6 @@ public class WebHelp {
                     System.out.println("webDriver " + driver + " has not been defined yet");
 
             }
-
-            webDriver.manage().timeouts().pageLoadTimeout(timeOut,TimeUnit.SECONDS);
-            webDriver.manage().timeouts().setScriptTimeout(timeOut,TimeUnit.SECONDS);
 
             webDriver.manage().window().maximize();
 
@@ -588,7 +584,7 @@ public class WebHelp {
             FileUtils.copyFile(source,destination);
 
             final byte[] screenshot = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
-            Hooks.scenario.attach(screenshot, "image/jpg");
+            Hooks.scenario.attach(screenshot, "","image/jpg");
 
             return "PASS";
         }

@@ -1,9 +1,6 @@
 package common.util;
 
-import cucumber.api.DataTable;
-import gherkin.formatter.model.DataTableRow;
 import org.apache.commons.io.output.ByteArrayOutputStream;
-
 import java.beans.XMLEncoder;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -95,21 +92,6 @@ public class DataHelp {
         }
         catch(Exception ex)
         {System.out.println(ex.toString()); return  ex.toString();}
-    }
-
-
-
-    public static HashMap<String,String> dataToMap(DataTable table, int valueColumn)
-    {
-        HashMap<String,String> verticalMap = new HashMap<>();
-        HashMap<String,String> horizontalMap = new HashMap<>();
-
-        for(DataTableRow row : table.getGherkinRows())
-        {
-            verticalMap.put(row.getCells().get(0),row.getCells().get(valueColumn));
-        }
-
-        return verticalMap;
     }
 
     public static void printMap(HashMap<String,String> map)
