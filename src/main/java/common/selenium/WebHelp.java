@@ -41,13 +41,20 @@ public class WebHelp {
         try
         {
             DesiredCapabilities capabilities ;
-            String driver = System.getProperty("runDriver").toUpperCase();
+            if(System.getProperty("runEnvironment").contains("Chrome"))
+                System.setProperty("runDriver","Chrome");
+            else if(System.getProperty("runEnvironment").contains("Edge"))
+                System.setProperty("runDriver","Edge");
+            else if(System.getProperty("runEnvironment").contains("Firefox"))
+                System.setProperty("runDriver","Firefox");
+
+            String driver = System.getProperty("runDriver");
             String driverPath = System.getProperty("driverPath");
 
             switch(driver)
             {
 
-                case "CHROME":
+                case "Chrome":
                     String chromeDriverPath = driverPath + "chromedriver.exe";
                     System.setProperty("webdriver.chrome.driver",chromeDriverPath);
 
@@ -65,7 +72,7 @@ public class WebHelp {
 
                     capabilities = new DesiredCapabilities();
 
-                    if(!System.getProperty("runEnvironment").contains("Remote"))
+                    if(System.getProperty("runEnvironment").contains("Remote"))
                         webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
                     else if(System.getProperty("runEnvironment").contains("Local"))
                         webDriver = new ChromeDriver(options);
@@ -73,7 +80,7 @@ public class WebHelp {
 
                     break;
 
-                case "EDGE" :
+                case "Edge" :
 
                     String edgeDriverPath = driverPath + "msedgedriver.exe";
                     System.setProperty("webdriver.edge.driver",edgeDriverPath);
@@ -89,7 +96,7 @@ public class WebHelp {
 
                     break;
 
-                case "FIREFOX" :
+                case "Firefox" :
 
                     capabilities = new DesiredCapabilities();
                     String firefoxDriverPath = driverPath + "geckodriver.exe";
@@ -523,12 +530,17 @@ public class WebHelp {
                 return tryToHover(webElement);
             else if(act.equalsIgnoreCase("CLICK"))
                 return tryToClick(webElement);
+            else if(act.equalsIgnoreCase("CHECK"))
+                return tryToClick(webElement);
             else if(act.equalsIgnoreCase("SELECT"))
                 return tryToSelect(webElement);
             else if(act.equalsIgnoreCase("HIT"))
                 {webElement.sendKeys(Keys.ENTER); return "PASS";}
             else if(act.equalsIgnoreCase("CLEAR"))
-            {webElement.clear(); return "PASS";}
+                {webElement.clear(); return "PASS";}
+            else if (act.equalsIgnoreCase("RIGHTCLICK"))
+                {Actions actions = new Actions(webDriver);
+                    actions.contextClick(webElement).perform();return "PASS";}
             else {System.out.println(act + " action has not been defined"); return  "FAIL";}
         }
         catch(Exception ex)

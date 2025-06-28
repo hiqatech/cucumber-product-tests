@@ -4,6 +4,7 @@ package common.setup;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.Given;
 import org.junit.Assert;
 
 import java.time.LocalDateTime;
@@ -35,11 +36,6 @@ public class Hooks {
         System.setProperty("scenario",myScenario);
         System.setProperty("product",myScenario.substring(0,myScenario.indexOf("-")).replace(" ",""));
 
-        // local use, comment before push
-        System.setProperty("runDriver","Edge");
-        System.setProperty("runEnvironment","LocalQA");
-        //
-
         System.setProperty("projectPath",System.getProperty("user.dir"));
         System.setProperty("systemTime", dateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
         System.setProperty("userID",System.getProperty("user.home").replace("C:\\Users\\",""));
@@ -60,8 +56,6 @@ public class Hooks {
         System.out.println("Scenario : " + myScenario);
         System.out.println("ProjectPath : " + System.getProperty("projectPath"));
         System.out.println("ReportPath : " + System.getProperty("reportPath"));
-        System.out.println("Environment : " + System.getProperty("runEnvironment"));
-
         System.out.println("************************************************************************************");
 
     }
@@ -114,6 +108,39 @@ public class Hooks {
         String desc = Arrays.asList(result.split(" ,,, " )).get(1);
         result = "FAIL " + desc + " caused by : " + extString;
         return result;
+    }
+
+    public static void setProductEnv(String product,String environment){
+        System.setProperty("product",product);
+        System.setProperty("runEnvironment",environment);
+        System.setProperty("baseURL", AllURLs.getProductURL());
+        AllPages.setAllProductsPageElements();
+        System.out.println("product : " + System.getProperty("product"));
+        System.out.println("runEnvironment : " + System.getProperty("runEnvironment"));
+        System.out.println("baseURL : " + System.getProperty("baseURL"));
+    }
+
+    public static void setProduct(String product){
+        System.setProperty("product",product);
+        System.setProperty("baseURL", AllURLs.getProductURL());
+        AllPages.setAllProductsPageElements();
+        System.out.println("product : " + System.getProperty("product"));
+        System.out.println("baseURL : " + System.getProperty("baseURL"));
+    }
+
+    public static void setEnv(String environment){
+        System.setProperty("runEnvironment",environment);
+        System.out.println("runEnvironment : " + System.getProperty("runEnvironment"));
+    }
+
+    public static void setGrid(String grid){
+        System.setProperty("runEnvironment",System.getProperty("runEnvironment") + grid);
+        System.out.println("runEnvironment : " + System.getProperty("runEnvironment"));
+      }
+
+    public static void setBrowser(String browser){
+        System.setProperty("System.setProperty",browser);
+        System.out.println("browser : " + System.getProperty("browser"));
     }
 
 }

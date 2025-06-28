@@ -4,7 +4,7 @@
 Feature: Banking Web Deposit Tests
 
   Background:
-    Given I setup the "BankingWeb" on "LocalQA"
+    Given I setup the "BankingWeb" on "LocalQAChrome"
     And I navigate to the Home page
     And I login with the "Ron Weasly" user
     And I navigate to the "Deposit" page

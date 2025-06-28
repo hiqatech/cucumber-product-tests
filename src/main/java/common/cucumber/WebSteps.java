@@ -9,17 +9,33 @@ import common.selenium.WebHelp;
 import common.setup.AllProducts;
 import common.setup.AllURLs;
 
-import static common.setup.Hooks.AssertExecutedStep;
-import static common.setup.Hooks.VerifyExecutedStep;
+import static common.setup.Hooks.*;
 
-public class WebSteps {
+ public class WebSteps {
 
     @Given("I setup the {string} on {string}")
     public static void ISetProductEnv(String product,String environment){
-        System.setProperty("product",product);
-        System.setProperty("runEnvironment",environment);
-        System.setProperty("baseURL", AllURLs.getProductURL());
-        AllPages.setAllProductsPageElements();
+        setProductEnv(product, environment);
+    }
+
+    @Given("I setup the {string} product")
+    public static void ISetProduct(String product){
+        setProduct(product);
+    }
+
+    @Given("I setup the {string} environment")
+    public static void ISetEnv(String environment){
+        setEnv(environment);
+    }
+
+    @Given("I setup the {string} grid")
+    public static void ISetGrid(String grid){
+        setGrid(grid);
+    }
+
+    @Given("I setup the {string} browser")
+    public static void ISetBrowser(String browser){
+        setBrowser(browser);
     }
 
     @Given("I wait {string} secs for {string}")
@@ -48,7 +64,7 @@ public class WebSteps {
     @Given("I navigate to the Home page")
     public static void INavigateToTheHomePage(){
     	IStartTheWebDriver();
-        AssertExecutedStep( WebHelp.navigateTo(System.getProperty("baseURL")) + " : " + "I navigate to the " + System.getProperty("mainURL") + " URL");
+        AssertExecutedStep( WebHelp.navigateTo(System.getProperty("baseURL")) + " : " + "I navigate to the " + System.getProperty("baseURL") + " URL");
         IAmOnThePage("Home");
     }
 
@@ -79,8 +95,6 @@ public class WebSteps {
     	VerifyExecutedStep(waitForElementToAppear(elementName));
         if (elementName.contains("alert")) {
 			AssertExecutedStep( WebHelp.handleAlert(act) + " : I " + act + " the alert");
-		} else if (elementName.contains("CheckBox")) {
-			//AssertExecutedStep( WebHelp.checkBox(act, AllProducts.getElementSelector(elementName)) + " : I " + act + " the " + elementName);
 		} else {
 			AssertExecutedStep( WebHelp.safeAct(act, AllProducts.getElementSelector(elementName)) + " : I " + act + " the " + elementName);
 		}
