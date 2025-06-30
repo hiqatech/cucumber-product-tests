@@ -1,16 +1,18 @@
 package common.setup;
 
-import org.json.simple.JSONObject;
+import org.json.JSONObject;
+import products.Booking.requests.bodies;
+import products.Booking.requests.paths;
 
 
 public class AllRequests {
 
-  public static String getWhatsUpRequestURL(String requestName) {
-      return products.WhatsUp.Requests.getRequestURL(requestName);
+  public static String getBookingURL(String requestName) {
+      return paths.getURL(requestName);
   }
 
-  public static JSONObject getWhatsUpRequestBody(String requestName) {
-      return products.WhatsUp.Requests.getRequestBody(requestName);
+  public static JSONObject getBookingBody(String requestName) {
+      return bodies.getBody(requestName);
   }
 
 }

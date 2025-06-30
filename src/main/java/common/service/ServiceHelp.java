@@ -1,32 +1,77 @@
 package common.service;
 
-import java.util.HashMap;
-import java.util.Map;
+import common.setup.AllRequests;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
-
-import org.json.simple.JSONObject;
 
 public class ServiceHelp {
 
-  public void WeatherMessageBody()
-  {
-    RestAssured.baseURI = "https://restapi.demoqa.com/utilities/weather/city";
-    RequestSpecification httpRequest = RestAssured.given();
-    Response response = httpRequest.get("/Hyderabad");
+  static String path = "";
+  static Response response;
+  static String token ;
 
-    ResponseBody body = response.getBody();
-    JsonPath jsonPathEvaluator = response.jsonPath();
 
-    String city = jsonPathEvaluator.get("City");
-
-    System.out.println("Response Body is: " + body.asString());
+  public static String setRequestFullURL(String url){
+    try{
+      path = System.getProperty("baseURL") + url;
+      return "PASS";
+      }
+    catch(Exception ex)
+      {return  ex.toString();}
   }
 
+  public static String setRequestBody(String url){
+    try{
+      AllRequests.getBookingBody(url);
+      return "PASS";
+    }
+    catch(Exception ex)
+      {return  ex.toString();}
+  }
+
+  public static String sendTheRequest(String type, String path) {
+    try {
+          RestAssured.baseURI = System.getProperty("baseURL");
+          RequestSpecification request = RestAssured.given();
+          if(type.equals("GET")) {
+            response = request.get(path);
+          }
+          System.out.println("Status received => " + response.getStatusLine());
+          System.out.println("Response=>" + response.prettyPrint());
+          return "PASS";
+    }
+    catch(Exception ex)
+      {return  ex.toString();}
+  }
+
+  public static String  getAuthTokenBy(String userName, String password) {
+    try{
+      RestAssured.baseURI = path;
+      RequestSpecification request = RestAssured.given();
+
+      request.header("Content-Type", "application/json");
+      response = request.body("{ \"userName\":\"" + userName + "\", \"password\":\"" + password + "\"}")
+            .post("/Account/v1/GenerateToken");
+
+      String jsonString = response.asString();
+      token = JsonPath.from(jsonString).get("token");
+      return "PASS";
+    }
+    catch(Exception ex)
+      {return  ex.toString();}
+  }
+
+  public static String getResponseStatusCode()
+  {
+    try{
+     return String.valueOf(response.getStatusCode());
+    }
+    catch(Exception ex)
+    {return  ex.toString();}
+  }
 
 
 }

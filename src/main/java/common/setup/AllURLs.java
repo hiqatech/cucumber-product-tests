@@ -2,25 +2,30 @@ package common.setup;
 
 public class AllURLs {
 
-    static String YouTubeQA = "https://www.youtube.com";
-    static String GitHubQA = "https://www.github.com";
-    static String CognizantQA = "https://onecognizant.cognizant.com";
     static String BankingQA = "https://www.globalsqa.com/angularJs-protractor/BankingProject";
+    static String BookingQA = "https://bookstore.toolsqa.com";
+
+    static String BankingUAT = "https://www.globalsqa.com/angularJs-protractor/BankingProject";
+    static String BookingUAT = "https://bookstore.toolsqa.com";
 
     public static String getProductURL()
     {
         if (System.getProperty("runEnvironment").contains("QA")){
-            if (System.getProperty("product").contains("YouTube"))
-                return YouTubeQA;
-            else if (System.getProperty("product").contains("GitHub"))
-                return GitHubQA;
-            else if (System.getProperty("product").contains("Cognizant"))
-                return CognizantQA;
+            if (System.getProperty("product").contains("Booking"))
+                return BookingQA;
             else if (System.getProperty("product").contains("Banking"))
                 return BankingQA;
             else return "Product URL has not been defined on QA environment";
             }
-        else return "Product URL has not been defined";
+        else if (System.getProperty("runEnvironment").contains("UAT")){
+            if (System.getProperty("product").contains("Booking"))
+                return BookingUAT;
+            else if (System.getProperty("product").contains("Banking"))
+                return BankingUAT;
+            else return "Product URL has not been defined on QA environment";
+        }
+        else
+            return "Product URL has not been defined";
     }
 
 }

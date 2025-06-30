@@ -232,62 +232,62 @@ import static common.setup.Hooks.*;
     }
 
     @Given("The {string} element {string} should be {string}")
-    public static void TheElementTextShouldBe(String elementName, String attribute, String text) {
+    public static void TheElementTextShouldBe(String elementName, String attribute, String expected) {
     	attribute = attribute.toUpperCase();
-        if (text.contains("Text")) {
-			DataHelp.getStoredText(text);
+        if (expected.contains("Text")) {
+			DataHelp.getStoredText(expected);
 		}
-        String currentText = "null";
+        String actual = "null";
 
 
         VerifyExecutedStep(waitForElementToAppear(elementName));
         if (attribute.equalsIgnoreCase("TEXT")) {
-			currentText = WebHelp.readTextOfWebElement(AllProducts.getElementSelector(elementName));
+			actual = WebHelp.readTextOfWebElement(AllProducts.getElementSelector(elementName));
 		} else if (attribute.equalsIgnoreCase("VALUE") || attribute.equalsIgnoreCase("HREF") || attribute.equalsIgnoreCase("PLACEHOLDER")) {
-			currentText = WebHelp.readAttributeOfWebElement(AllProducts.getElementSelector(elementName), attribute.toLowerCase());
+			actual = WebHelp.readAttributeOfWebElement(AllProducts.getElementSelector(elementName), attribute.toLowerCase());
 		} else {
 			AssertExecutedStep( "FAIL" + " : " + "The " + attribute + " attribute test of element has not been implemented");
 		}
 
-        if (!text.contains("http")) {
-			text = DataHelp.prepText(text);
+        if (!expected.contains("http")) {
+			expected = DataHelp.prepText(expected);
 		}
 
         String result = "FAIL";
-        if (currentText.equalsIgnoreCase(text))
+        if (actual.equalsIgnoreCase(expected))
             result = "PASS";
 
-        AssertExecutedStep( result + " : " + "The " + currentText + " " + attribute + " should be " + text + " in the " + elementName);
+        AssertExecutedStep( result + " : " + "The " + actual + " " + attribute + " should be " + expected + " in the " + elementName);
     }
 
     @Given("The {string} element {string} should not be {string}")
-    public static void TheElementTextShouldNotBe(String elementName, String attribute, String condition, String text) {
+    public static void TheElementTextShouldNotBe(String elementName, String attribute, String condition, String expected) {
     	attribute = attribute.toUpperCase();
-        if (text.contains("Text")) {
-            DataHelp.getStoredText(text);
+        if (expected.contains("Text")) {
+            DataHelp.getStoredText(expected);
 		}
-        String currentText = "null";
+        String actual = "null";
 
         VerifyExecutedStep(waitForElementToAppear(elementName));
         if (attribute.equalsIgnoreCase("TEXT")) {
-			currentText = WebHelp.readTextOfWebElement(AllProducts.getElementSelector(elementName));
+			actual = WebHelp.readTextOfWebElement(AllProducts.getElementSelector(elementName));
 		} else if (attribute.equalsIgnoreCase("VALUE") || attribute.equalsIgnoreCase("HREF") || attribute.equalsIgnoreCase("PLACEHOLDER")) {
-			currentText = WebHelp.readAttributeOfWebElement(AllProducts.getElementSelector(elementName), attribute.toLowerCase());
+			actual = WebHelp.readAttributeOfWebElement(AllProducts.getElementSelector(elementName), attribute.toLowerCase());
 		} else {
 			AssertExecutedStep( "FAIL" + " : " + "The " + attribute + " attribute has not been implemented");
 		}
 
-        if (!text.contains("http")) {
-			text = DataHelp.prepText(text);
+        if (!expected.contains("http")) {
+			expected = DataHelp.prepText(expected);
 		}
 
         String result = "PASS";
 
-        if (currentText.equalsIgnoreCase(text)) {
+        if (actual.equalsIgnoreCase(expected)) {
 				result = "FAIL";
 			}
 
-        AssertExecutedStep( result + " : " + "The " + currentText + " " + attribute + " should " + condition + " with text " + text + " in the " + elementName);
+        AssertExecutedStep( result + " : " + "The " + actual + " " + attribute + " should " + condition + " with text " + expected + " in the " + elementName);
     }
 
     @Given("I wait {string} secs for the {string}")
