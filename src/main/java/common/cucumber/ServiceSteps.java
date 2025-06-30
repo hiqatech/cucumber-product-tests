@@ -20,7 +20,7 @@ public class ServiceSteps {
 
   @Given("I send {string} request to {string}")
   public static void ISendTheRequest(String type, String path) {
-    AssertExecutedStep( ServiceHelp.sendTheRequest(type, path)  + " : " + "I send the " + type + " request to " + path);
+    AssertExecutedStep( ServiceHelp.sendRequestTo(type, path)  + " : " + "I send the " + type + " request to " + path);
   }
 
   @Given("The response status code {string} be {string}")

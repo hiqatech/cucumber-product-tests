@@ -2,16 +2,16 @@ package common.service;
 
 import common.setup.AllRequests;
 import io.restassured.RestAssured;
-import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class ServiceHelp {
 
-  static String path = "";
-  static Response response;
-  static String token ;
+  public static String path = "";
+  public static Response response;
+  public static String token ;
+  public static String jsonString ;
 
 
   public static String setRequestFullURL(String url){
@@ -32,7 +32,7 @@ public class ServiceHelp {
       {return  ex.toString();}
   }
 
-  public static String sendTheRequest(String type, String path) {
+  public static String sendRequestTo(String type, String path) {
     try {
           RestAssured.baseURI = System.getProperty("baseURL");
           RequestSpecification request = RestAssured.given();

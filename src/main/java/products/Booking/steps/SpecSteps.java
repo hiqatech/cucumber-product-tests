@@ -2,25 +2,26 @@ package products.Booking.steps;
 
 import java.util.List;
 import java.util.Map;
+
+import common.service.ServiceHelp;
 import org.junit.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+
+import static common.service.ServiceHelp.response;
+import static common.service.ServiceHelp.token;
+import static common.service.ServiceHelp.jsonString;
 
 public class SpecSteps {private static final String USER_ID = "9b5f49ab-eea9-45f4-9d66-bcf56a531b85";
     private static final String USERNAME = "TOOLSQA-Test";
     private static final String PASSWORD = "Test@@123";
     private static final String BASE_URL = "https://bookstore.toolsqa.com";
 
-    private static String token;
-    private static Response response;
-    private static String jsonString;
     private static String bookId;
-
 
     @Given("I am an authorized user")
     public void iAmAnAuthorizedUser() {
@@ -47,6 +48,14 @@ public class SpecSteps {private static final String USER_ID = "9b5f49ab-eea9-45f
         List<Map<String, String>> books = JsonPath.from(jsonString).get("books");
         Assert.assertTrue(books.size() > 0);
 
+        bookId = books.get(0).get("isbn");
+    }
+
+    @Given("I get the 1st book from the store available")
+    public void IGetThe1stBookFromTheStoreAvailable() {
+        jsonString = response.asString();
+        List<Map<String, String>> books = JsonPath.from(jsonString).get("books");
+        Assert.assertTrue(books.size() > 0);
         bookId = books.get(0).get("isbn");
     }
 

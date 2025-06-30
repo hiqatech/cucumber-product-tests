@@ -22,11 +22,9 @@ Feature: BookingREST Test
 
   @BookingRestSmoke
   Scenario:BookingRest - I add and remove books
-    Given I set the "" request path
     And I get the auth token by "TOOLSQA-Test" and "Test@@123"
-    Given I set the "" request path
-    When I send the "GET" request to ""
-    And A list of books are available
+    When I send "GET" request to "/BookStore/v1/Books"
+    And I get the 1st book from the store available
     When I add a book to my reading list
     Then The book is added
     When I remove a book from my reading list
