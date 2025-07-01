@@ -40,7 +40,6 @@ public class ServiceHelp {
             response = request.get(path);
           }
           System.out.println("Status received => " + response.getStatusLine());
-          System.out.println("Response=>" + response.prettyPrint());
           return "PASS";
     }
     catch(Exception ex)
@@ -49,7 +48,7 @@ public class ServiceHelp {
 
   public static String  getAuthTokenBy(String userName, String password) {
     try{
-      RestAssured.baseURI = path;
+      RestAssured.baseURI = System.getProperty("baseURL");
       RequestSpecification request = RestAssured.given();
 
       request.header("Content-Type", "application/json");
