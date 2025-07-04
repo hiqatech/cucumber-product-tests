@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
-
 import java.util.Random;
 
 public class DataGen {

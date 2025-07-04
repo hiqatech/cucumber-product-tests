@@ -9,7 +9,7 @@ Feature: Banking Web Deposit Tests
     And I login with the "Ron Weasly" user
     And I navigate to the "Deposit" page
 
-  @BankingWebSmoke
+  @BankingWebSmoke @Smoke
   Scenario:BankingWeb - I can deposit 100
     And I "enter" "100" into the "amount_field"
     And I "click" the "deposit_submit"

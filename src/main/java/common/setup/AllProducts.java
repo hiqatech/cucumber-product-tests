@@ -1,7 +1,6 @@
 package common.setup;
 
 import org.json.JSONObject;
-
 import static common.setup.AllPages.*;
 import static common.setup.AllRequests.*;
 

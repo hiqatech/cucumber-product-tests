@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Login {
 
-    static HashMap<String, String> elementLocators = new HashMap<String, String>();
+    static HashMap<String, String> elementLocators = new HashMap<>();
 
     public static void setElements()
     {
@@ -17,8 +17,7 @@ public class Login {
 
     public static String getElementSelector(String element_name)
     {
-        String elementLocator = elementLocators.get(element_name);
-        return elementLocator;
+        return elementLocators.get(element_name);
     }
 
 

@@ -2,11 +2,11 @@ package common.setup;
 
 public class AllURLs {
 
-    static String BankingQA = "https://www.globalsqa.com/angularJs-protractor/BankingProject";
-    static String BookingQA = "https://bookstore.toolsqa.com";
+    static final String BankingQA = "https://www.globalsqa.com/angularJs-protractor/BankingProject";
+    static final String BookingQA = "https://bookstore.toolsqa.com";
 
-    static String BankingUAT = "https://www.globalsqa.com/angularJs-protractor/BankingProject";
-    static String BookingUAT = "https://bookstore.toolsqa.com";
+    static final String BankingUAT = "https://www.globalsqa.com/angularJs-protractor/BankingProject";
+    static final String BookingUAT = "https://bookstore.toolsqa.com";
 
     public static String getProductURL()
     {

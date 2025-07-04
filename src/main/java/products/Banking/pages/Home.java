@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Home {
 
-    static HashMap<String, String> elementLocators = new HashMap<String, String>();
+    static HashMap<String, String> elementLocators = new HashMap<>();
 
     public static void setElements()
     {
@@ -13,8 +13,7 @@ public class Home {
 
     public static String getElementSelector(String element_name)
     {
-        String elementLocator = elementLocators.get(element_name);
-        return elementLocator;
+        return elementLocators.get(element_name);
     }
 
 }

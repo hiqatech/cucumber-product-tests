@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Map;
 
 import common.service.ServiceHelp;
-import org.junit.Assert;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.specification.RequestSpecification;
+import org.testng.Assert;
 
 public class SpecSteps {
 

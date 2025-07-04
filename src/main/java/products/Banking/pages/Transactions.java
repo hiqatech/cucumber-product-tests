@@ -23,8 +23,7 @@ public class Transactions {
 
     public static String getElementSelector(String element_name)
     {
-        String elementLocator = elementLocators.get(element_name);
-        return elementLocator;
+        return elementLocators.get(element_name);
     }
 
 }

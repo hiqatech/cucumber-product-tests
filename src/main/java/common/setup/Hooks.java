@@ -1,12 +1,12 @@
 package common.setup;
 
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.cucumber.java.en.Given;
-import org.junit.Assert;
+import org.apache.commons.io.FileUtils;
+import org.testng.Assert;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -58,6 +58,10 @@ public class Hooks {
         System.out.println("ReportPath : " + System.getProperty("reportPath"));
         System.out.println("************************************************************************************");
 
+        try { File screenshots = new File(System.getProperty("filePath") + "\\screenshots\\");
+            FileUtils.cleanDirectory(screenshots);}
+        catch (Exception ex){System.out.println(ex.toString());}
+
     }
 
     @After
@@ -98,7 +102,7 @@ public class Hooks {
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")){
-            //Hooks.scenario.log(getResultFailLog(result));
+           //Hooks.scenario.log(getResultFailLog(result));
             System.out.println(result);
         }
     }
@@ -142,5 +146,7 @@ public class Hooks {
         System.setProperty("System.setProperty",browser);
         System.out.println("browser : " + System.getProperty("browser"));
     }
+
+
 
 }

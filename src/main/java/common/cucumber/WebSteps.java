@@ -1,13 +1,12 @@
  package common.cucumber;
 
-import common.setup.AllPages;
 import common.util.DataBase;
-import io.cucumber.java.en.Given;
 import common.util.DataHelp;
 import common.util.FileHelp;
 import common.selenium.WebHelp;
 import common.setup.AllProducts;
 import common.setup.AllURLs;
+import io.cucumber.java.en.Given;
 
 import static common.setup.Hooks.*;
 
