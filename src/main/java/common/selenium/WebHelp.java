@@ -18,6 +18,8 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -583,18 +585,19 @@ public class WebHelp {
         {return  ex.toString();}
     }
 
-    public static String takeScreenShot(String dest)
+    public static String takeScreenShot(String screen)
     {
         try
         {
-            TakesScreenshot ts = (TakesScreenshot)webDriver;
-            File source = ts.getScreenshotAs(OutputType.FILE);
-            File destination = new File(dest + ".jpg");
-            FileUtils.copyFile(source,destination);
+            TakesScreenshot scrShot =((TakesScreenshot)webDriver);
+            File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+            String filePath = System.getProperty("filePath") + "\\screenshots\\"
+                    + getTimeStamp()  + "-" +  screen +".jpg";
+            File DestFile=new File(filePath);
+            FileUtils.copyFile(SrcFile,DestFile);
 
             final byte[] screenshot = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
             Hooks.scenario.attach(screenshot, "","image/jpg");
-
 
             return "PASS";
         }
@@ -716,6 +719,12 @@ public class WebHelp {
         }
         catch(Exception ex)
         {return  ex.toString();}
+    }
+
+    public static String getTimeStamp(){
+        String nano = String.valueOf(LocalDateTime.now().getNano());
+        String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+        return  date + "-" + nano;
     }
 
 }

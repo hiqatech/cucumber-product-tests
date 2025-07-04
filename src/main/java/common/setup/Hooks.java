@@ -6,6 +6,7 @@ import io.cucumber.java.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.testng.Assert;
 
+
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -20,8 +21,6 @@ public class Hooks {
     public static Scenario scenario;
     public static String myScenario;
     public static String stepLog;
-    public static String myUserName;
-    public static String myPassword;
 
     //------------------------------------------------------------------------//
 

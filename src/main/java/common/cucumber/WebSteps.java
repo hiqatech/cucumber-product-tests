@@ -223,11 +223,13 @@ import static common.setup.Hooks.*;
     @Given("I should see the {string}")
     public static void IShouldSeeTheElement(String elementName) {
         AssertExecutedStep( WebHelp.waitToAppear(AllProducts.getElementSelector(elementName)) + " : The " + elementName + " should not be visible with selector " + AllProducts.getElementSelector(elementName));
+        WebHelp.takeScreenShot(elementName);
     }
 
     @Given("I should not see the {string}")
     public static void IShouldNotSeeTheElement(String elementName) {
         AssertExecutedStep( WebHelp.waitToDisappear(AllProducts.getElementSelector(elementName)) + " : The " + elementName + " should not be visible with selector " + AllProducts.getElementSelector(elementName));
+        WebHelp.takeScreenShot(elementName);
     }
 
     @Given("The {string} element {string} should be {string}")
@@ -237,7 +239,6 @@ import static common.setup.Hooks.*;
 			DataHelp.getStoredText(expected);
 		}
         String actual = "null";
-
 
         VerifyExecutedStep(waitForElementToAppear(elementName));
         if (attribute.equalsIgnoreCase("TEXT")) {
@@ -257,6 +258,7 @@ import static common.setup.Hooks.*;
             result = "PASS";
 
         AssertExecutedStep( result + " : " + "The " + actual + " " + attribute + " should be " + expected + " in the " + elementName);
+        WebHelp.takeScreenShot(elementName);
     }
 
     @Given("The {string} element {string} should not be {string}")
@@ -287,6 +289,7 @@ import static common.setup.Hooks.*;
 			}
 
         AssertExecutedStep( result + " : " + "The " + actual + " " + attribute + " should " + condition + " with text " + expected + " in the " + elementName);
+        WebHelp.takeScreenShot(elementName);
     }
 
     @Given("I wait {string} secs for the {string}")

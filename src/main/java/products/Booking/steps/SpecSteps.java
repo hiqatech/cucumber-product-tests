@@ -21,14 +21,12 @@ public class SpecSteps {
 
     @Given("I am an authorized user")
     public void iAmAnAuthorizedUser() {
-
         RestAssured.baseURI = System.getProperty("baseURL");
         RequestSpecification request = RestAssured.given();
-
         request.header("Content-Type", "application/json");
         ServiceHelp.response = request.body("{ \"userName\":\"" + USERNAME + "\", \"password\":\"" + PASSWORD + "\"}")
                 .post("/Account/v1/GenerateToken");
-
+        System.out.println("Status received => " + ServiceHelp.response.getStatusLine());
         String jsonString = ServiceHelp.response.asString();
         ServiceHelp.token = JsonPath.from(jsonString).get("token");
         System.out.println("Token : " + ServiceHelp.token);
@@ -39,7 +37,7 @@ public class SpecSteps {
         RestAssured.baseURI = System.getProperty("baseURL");
         RequestSpecification request = RestAssured.given();
         ServiceHelp.response = request.get("/BookStore/v1/Books");
-
+        System.out.println("Status received => " + ServiceHelp.response.getStatusLine());
         ServiceHelp.jsonString = ServiceHelp.response.asString();
         List<Map<String, String>> books = JsonPath.from(ServiceHelp.jsonString).get("books");
         Assert.assertTrue(books.size() > 0);
@@ -66,13 +64,12 @@ public class SpecSteps {
         ServiceHelp.response = request.body("{ \"userId\": \"" + USER_ID + "\", " +
                         "\"collectionOfIsbns\": [ { \"isbn\": \"" + bookId + "\" } ]}")
                 .post("/BookStore/v1/Books");
-        System.out.println("StatusCode : " + ServiceHelp.response.getStatusCode());
-
+        System.out.println("Status received => " + ServiceHelp.response.getStatusLine());
     }
 
     @Then("The book is added")
     public void bookIsAdded() {
-        System.out.println("StatusCode : " + ServiceHelp.response.getStatusCode());
+        System.out.println("Status received => " + ServiceHelp.response.getStatusLine());
         Assert.assertEquals(201, ServiceHelp.response.getStatusCode());
     }
 
@@ -87,7 +84,7 @@ public class SpecSteps {
         ServiceHelp.response = request.body("{ \"isbn\": \"" + bookId + "\", \"userId\": \"" + USER_ID + "\"}")
                 .delete("/BookStore/v1/Book");
 
-        System.out.println("StatusCode : " + ServiceHelp.response.getStatusCode());
+        System.out.println("Status received => " + ServiceHelp.response.getStatusLine());
     }
 
     @Then("The book is removed")
