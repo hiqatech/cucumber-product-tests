@@ -22,15 +22,16 @@
         <selenium.version>4.33.0</selenium.version>
         <selenium-server.version>3.141.59</selenium-server.version>
         <appium.version>9.4.0</appium.version>
+        <rest-assured.version>4.4.0</rest-assured.version>
+        <json.version>20231013</json.version>
         <cucumber.version>7.16.1</cucumber.version>
         <testng.version>7.10.1</testng.version>
         <extent.version>5.1.1</extent.version>
         <extent.cucumber.adapter.version>1.14.0</extent.cucumber.adapter.version>
+        <lombok.version>1.18.22</lombok.version>
+        <commons.version>2.6</commons.version>
 
-        <defaultSuiteFiles>
-            ./src/test/resources/testng.xml,
-        </defaultSuiteFiles>
-        <suiteFile>${defaultSuiteFiles}</suiteFile>
+        <suiteFile>./src/test/resources/testng.xml,</suiteFile>
 
     </properties>
 
@@ -42,7 +43,6 @@
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
-
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
@@ -55,13 +55,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
-            <scope>compile</scope>
+            <scope>compile,test</scope>
         </dependency>
 
         <!-- Dependency Injection-->
@@ -71,7 +65,6 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-
 
         <!-- Extent Report -->
         <dependency>
@@ -86,13 +79,13 @@
             <artifactId>extentreports-cucumber7-adapter</artifactId>
             <version>${extent.cucumber.adapter.version}</version>
         </dependency>
-
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.6</version>
+            <version>${commons.version}</version>
         </dependency>
 
+        <!-- Drivers Dependency -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -108,28 +101,28 @@
             <artifactId>java-client</artifactId>
             <version>${appium.version}</version>
         </dependency>
-
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>4.4.0</version>
+            <version>${rest-assured.version}</version>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-schema-validator</artifactId>
-            <version>4.4.0</version>
+            <version>${rest-assured.version}</version>
             <scope>test</scope>
         </dependency>
-       <dependency>
+        <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
-            <version>20231013</version>
+            <version>${json.version}</version>
         </dependency>
 
+        <!-- Project Dependency -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
+            <version>${lombok.version}</version>
         </dependency>
 
     </dependencies>

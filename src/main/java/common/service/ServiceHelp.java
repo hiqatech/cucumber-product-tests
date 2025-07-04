@@ -57,6 +57,7 @@ public class ServiceHelp {
 
       String jsonString = response.asString();
       token = JsonPath.from(jsonString).get("token");
+      System.out.println("Token received => " + token);
       return "PASS";
     }
     catch(Exception ex)

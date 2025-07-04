@@ -4,7 +4,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(tags = "",
-        features = "src/test/resources/Features/Banking/Web/DepositTests.feature",
+        features = "src/test/resources/Features",
         glue = {"classpath:common/cucumber","classpath:common.setup","classpath:products"},
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 
