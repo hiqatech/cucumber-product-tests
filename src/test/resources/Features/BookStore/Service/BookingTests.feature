@@ -4,7 +4,7 @@
 Feature: BookingREST Test
 
   Background:
-    Given I setup the "BookingRest" on "QA"
+    Given I setup the "BookingService" on "QA"
 
   @BookingRestSmoke
   Scenario:BookingRest - I add and remove books

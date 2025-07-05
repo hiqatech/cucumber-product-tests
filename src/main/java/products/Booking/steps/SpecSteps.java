@@ -51,7 +51,7 @@ public class SpecSteps {
         List<Map<String, String>> books = JsonPath.from(ServiceHelp.jsonString).get("books");
         Assert.assertTrue(books.size() > 0);
         bookId = books.get(0).get("isbn");
-        System.out.println("BookID : " + bookId);
+        System.out.println("BookID received => " + bookId);
     }
 
     @When("I add a book to my reading list")
@@ -69,8 +69,7 @@ public class SpecSteps {
 
     @Then("The book is added")
     public void bookIsAdded() {
-        System.out.println("Status received => " + ServiceHelp.response.getStatusLine());
-        Assert.assertEquals(201, ServiceHelp.response.getStatusCode());
+       Assert.assertEquals(201, ServiceHelp.response.getStatusCode());
     }
 
     @When("I remove a book from my reading list")
