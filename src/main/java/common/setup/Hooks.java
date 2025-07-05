@@ -14,6 +14,7 @@ import java.util.Arrays;
 
 import static common.selenium.WebHelp.*;
 import static common.util.DataHelp.getTimeStamp;
+import static org.testng.AssertJUnit.fail;
 
 public class Hooks {
 
@@ -41,25 +42,23 @@ public class Hooks {
         System.setProperty("downloadPath",System.getProperty("user.home")+"\\Downloads\\");
         System.setProperty("uploadPath",System.getProperty("user.home")+"\\Desktop\\");
         System.setProperty("reportPath",System.getProperty("projectPath")+"\\target\\cucumber-reports\\");
-        System.setProperty("filePath",System.getProperty("projectPath") + "\\src\\main\\resources\\files\\");
+        System.setProperty("extentPath",System.getProperty("projectPath")+"\\test-output\\");
+        System.setProperty("screenshotPath",System.getProperty("projectPath")+"\\test-output\\ExtentReport\\screenshots\\");
+        System.setProperty("filePath",System.getProperty("projectPath") + "\\src\\test\\resources\\files\\");
         System.setProperty("driverPath",System.getProperty("projectPath") + "\\src\\main\\resources\\webdrivers\\");
-        System.setProperty("reportConfigPath",System.getProperty("projectPath") + "\\src\\main\\resources\\report\\extent-config.xml");
 
         if(wantsToQuit)
             throw new RuntimeException("Test FAIL : Cucumber wants to quit");
 
-        System.out.println("************************************************************************************");
+        print("************************************************************************************");
 
-        System.out.println("SystemTime : " + System.getProperty("systemTime"));
-        System.out.println("Product Tests Starts");
-        System.out.println("Scenario : " + myScenario);
-        System.out.println("ProjectPath : " + System.getProperty("projectPath"));
-        System.out.println("ReportPath : " + System.getProperty("reportPath"));
-        System.out.println("************************************************************************************");
-
-        try { File screenshots = new File(System.getProperty("filePath") + "\\screenshots\\");
-            FileUtils.cleanDirectory(screenshots);}
-        catch (Exception ex){System.out.println(ex.toString());}
+        print("SystemTime : " + System.getProperty("systemTime"));
+        print("Product Tests Starts");
+        print("Scenario : " + myScenario);
+        print("ProjectPath : " + System.getProperty("projectPath"));
+        print("ExtentPath : " + System.getProperty("extentPath"));
+        print("SchPath : " + System.getProperty("screenshotPath"));
+        print("************************************************************************************");
 
     }
 
@@ -69,11 +68,12 @@ public class Hooks {
         if(scenario.isFailed())
         {
             takeScreenShot(System.getProperty("reportPath") + myScenario + " failed_" + getTimeStamp("YYYY-MM-DD-HH-mm-ss-SSS"));
-            System.out.println("Test Failed !");
+            print("Test Failed !");
         }
-        else System.out.println("Test Passed !");
+        else print("Test Passed !");
         closeAllDrivers();
-        System.out.println("************************************************************************************");
+        print("************************************************************************************");
+        print("Product Tests Ends");
     }
 
     public static void closeAllDrivers(){
@@ -87,13 +87,13 @@ public class Hooks {
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")) {
-            //Hooks.scenario.log(getResultFailLog(result));
-            System.out.println(result);
-            Assert.assertTrue(false);
+            Hooks.scenario.log(getResultFailLog(result));
+            //print(result);
+            fail();
         }
         else {
             //Hooks.scenario.log(result.replace(",,,",""));
-            System.out.println(result);
+            //print(result);
         }
     }
 
@@ -101,8 +101,8 @@ public class Hooks {
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")){
-           //Hooks.scenario.log(getResultFailLog(result));
-            System.out.println(result);
+            Hooks.scenario.log(getResultFailLog(result));
+            //print(result);
         }
     }
 
@@ -118,34 +118,35 @@ public class Hooks {
         System.setProperty("runEnvironment",environment);
         System.setProperty("baseURL", AllURLs.getProductURL());
         AllPages.setAllProductsPageElements();
-        System.out.println("product : " + System.getProperty("product"));
-        System.out.println("runEnvironment : " + System.getProperty("runEnvironment"));
-        System.out.println("baseURL : " + System.getProperty("baseURL"));
+        print("product : " + System.getProperty("product"));
+        print("runEnvironment : " + System.getProperty("runEnvironment"));
+        print("baseURL : " + System.getProperty("baseURL"));
     }
 
     public static void setProduct(String product){
         System.setProperty("product",product);
         System.setProperty("baseURL", AllURLs.getProductURL());
         AllPages.setAllProductsPageElements();
-        System.out.println("product : " + System.getProperty("product"));
-        System.out.println("baseURL : " + System.getProperty("baseURL"));
+        print("product : " + System.getProperty("product"));
+        print("baseURL : " + System.getProperty("baseURL"));
     }
 
     public static void setEnv(String environment){
         System.setProperty("runEnvironment",environment);
-        System.out.println("runEnvironment : " + System.getProperty("runEnvironment"));
+        print("runEnvironment : " + System.getProperty("runEnvironment"));
     }
 
     public static void setGrid(String grid){
         System.setProperty("runEnvironment",System.getProperty("runEnvironment") + grid);
-        System.out.println("runEnvironment : " + System.getProperty("runEnvironment"));
+        print("runEnvironment : " + System.getProperty("runEnvironment"));
       }
 
     public static void setBrowser(String browser){
         System.setProperty("System.setProperty",browser);
-        System.out.println("browser : " + System.getProperty("browser"));
+        print("browser : " + System.getProperty("browser"));
     }
-
-
-
+    
+    public static void print(String note){
+        System.out.println(note);
+    }
 }
