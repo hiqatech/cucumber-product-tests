@@ -1,7 +1,5 @@
 package common.selenium;
 
-import common.setup.Hooks;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,23 +14,20 @@ import org.openqa.selenium.support.ui.Select;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.io.File;
 import java.net.URL;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
+
+import static common.setup.Hooks.print;
+import static common.setup.Hooks.scenario;
 
 
 public class WebHelp {
 
     public static WebDriver webDriver;
     public static int waitTimeMax= 5000;
-    public static int waitTime = 500;
+    public static int waitTime = 200;
     public static int timeOut = 60;
 
     public static String startMyWebDriver()
@@ -57,7 +52,7 @@ public class WebHelp {
                     String chromeDriverPath = driverPath + "chromedriver.exe";
                     System.setProperty("webdriver.chrome.driver",chromeDriverPath);
 
-                    HashMap<String,Object> chromePrefs = new HashMap<String,Object>();
+                    HashMap<String,Object> chromePrefs = new HashMap<>();
                     chromePrefs.put("download.prompt_for_download",false);
                     chromePrefs.put("download.default_directory",System.getProperty("downloadPath"));
 
@@ -138,7 +133,7 @@ public class WebHelp {
     {
         try
         {
-            if(!URL.isEmpty() && !URL.equalsIgnoreCase("") && !(URL == null))
+            if(!URL.isEmpty())
                 webDriver.navigate().to(URL);
             return "PASS";
         }
@@ -148,7 +143,7 @@ public class WebHelp {
 
     public static Boolean verifyNotNull(String text)
     {
-        if(!text.isEmpty() && !text.equalsIgnoreCase("") && !(text == null))
+        if(!text.isEmpty())
         return true;
         else return false;
     }
@@ -579,30 +574,21 @@ public class WebHelp {
                 action.sendKeys(text).perform();
                 return "PASS";
             }
-            else { System.out.println(act + " action has not been defined");return "ERROR";}
+            else { print(act + " action has not been defined");return "ERROR";}
         }
         catch(Exception ex)
         {return  ex.toString();}
     }
 
-    public static String takeScreenShot(String screen)
+    public static void takeScreenShot()
     {
         try
         {
-            TakesScreenshot scrShot =((TakesScreenshot)webDriver);
-            File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-            String filePath = System.getProperty("filePath") + "\\screenshots\\"
-                    + getTimeStamp()  + "-" +  screen +".jpg";
-            File DestFile=new File(filePath);
-            FileUtils.copyFile(SrcFile,DestFile);
-
             final byte[] screenshot = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
-            Hooks.scenario.attach(screenshot, "","image/jpg");
-
-            return "PASS";
+            scenario.attach(screenshot, "image/png", "");
         }
         catch(Exception ex)
-        {return  ex.toString();}
+        {print(ex.toString());}
     }
 
     public static String selectFromDropDownBy(String elementSelector,String what, String text)
@@ -641,6 +627,7 @@ public class WebHelp {
                 if(attribute.equalsIgnoreCase("placeholder"))
                     currenText = option.getAttribute("placeholder");
 
+                assert currenText != null;
                 if(currenText.equalsIgnoreCase(text))
                 {
                     tryToSelect(option);
@@ -719,12 +706,6 @@ public class WebHelp {
         }
         catch(Exception ex)
         {return  ex.toString();}
-    }
-
-    public static String getTimeStamp(){
-        String nano = String.valueOf(LocalDateTime.now().getNano());
-        String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
-        return  date + "-" + nano;
     }
 
 }

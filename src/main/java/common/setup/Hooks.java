@@ -1,19 +1,14 @@
 package common.setup;
 
+import common.selenium.WebHelp;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.apache.commons.io.FileUtils;
-import org.testng.Assert;
-
-
-import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 import static common.selenium.WebHelp.*;
-import static common.util.DataHelp.getTimeStamp;
 import static org.testng.AssertJUnit.fail;
 
 public class Hooks {
@@ -28,7 +23,7 @@ public class Hooks {
     @Before
     public void setup(Scenario scenario) throws Exception
     {
-        this.scenario = scenario;
+        Hooks.scenario = scenario;
 
         LocalDateTime dateTime = LocalDateTime.now();
 
@@ -42,9 +37,7 @@ public class Hooks {
         System.setProperty("downloadPath",System.getProperty("user.home")+"\\Downloads\\");
         System.setProperty("uploadPath",System.getProperty("user.home")+"\\Desktop\\");
         System.setProperty("reportPath",System.getProperty("projectPath")+"\\target\\cucumber-reports\\");
-        System.setProperty("extentPath",System.getProperty("projectPath")+"\\test-output\\");
-        System.setProperty("screenshotPath",System.getProperty("projectPath")+"\\test-output\\ExtentReport\\screenshots\\");
-        System.setProperty("filePath",System.getProperty("projectPath") + "\\src\\test\\resources\\files\\");
+        System.setProperty("extentPath",System.getProperty("projectPath")+"\\test-output\\ExtentReport");
         System.setProperty("driverPath",System.getProperty("projectPath") + "\\src\\main\\resources\\webdrivers\\");
 
         if(wantsToQuit)
@@ -57,7 +50,6 @@ public class Hooks {
         print("Scenario : " + myScenario);
         print("ProjectPath : " + System.getProperty("projectPath"));
         print("ExtentPath : " + System.getProperty("extentPath"));
-        print("SchPath : " + System.getProperty("screenshotPath"));
         print("************************************************************************************");
 
     }
@@ -67,7 +59,7 @@ public class Hooks {
     {
         if(scenario.isFailed())
         {
-            takeScreenShot(System.getProperty("reportPath") + myScenario + " failed_" + getTimeStamp("YYYY-MM-DD-HH-mm-ss-SSS"));
+            takeScreenShot();
             print("Test Failed !");
         }
         else print("Test Passed !");
@@ -87,12 +79,13 @@ public class Hooks {
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")) {
+            WebHelp.takeScreenShot();
             Hooks.scenario.log(getResultFailLog(result));
             //print(result);
             fail();
         }
         else {
-            //Hooks.scenario.log(result.replace(",,,",""));
+            Hooks.scenario.log(result.replace(",,,",""));
             //print(result);
         }
     }
@@ -101,6 +94,7 @@ public class Hooks {
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")){
+            WebHelp.takeScreenShot();
             Hooks.scenario.log(getResultFailLog(result));
             //print(result);
         }

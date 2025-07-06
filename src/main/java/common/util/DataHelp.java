@@ -12,8 +12,7 @@ public class DataHelp {
     public static HashMap<String,String> MyMap;
     public static String getTimeStamp(String format)
     {
-        String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern(format));
-        return timeStamp;
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(format));
     }
 
     public static String prepText(String text)
@@ -33,13 +32,13 @@ public class DataHelp {
             }
             else if(text.contains("+"))
             {
-                extension = text.substring(text.indexOf("+"),text.length());
+                extension = text.substring(text.indexOf("+"));
                 text = text.replace(extension,"");
                 extension = extension.replace("+","");
             }
-            else if(text.contains("+"))
+            else if(text.contains("-"))
             {
-                addition = text.substring(text.indexOf("+"),text.length());
+                addition = text.substring(text.indexOf("-"));
                 text = text.replace(addition,"");
             }
 
@@ -87,8 +86,7 @@ public class DataHelp {
     {
         try
         {
-            String ext = fileName.substring(fileName.indexOf("."),fileName.length());
-            return ext;
+            return fileName.substring(fileName.indexOf("."));
         }
         catch(Exception ex)
         {System.out.println(ex.toString()); return  ex.toString();}
@@ -139,8 +137,7 @@ public class DataHelp {
     {
         Random rand = new Random();
         int randomInt = rand.nextInt((max-min)+1)+min;
-        String randomIntString = Integer.toString(randomInt);
-        return randomIntString;
+        return Integer.toString(randomInt);
     }
 
     public static String getDynamicDate(String dateString , String pattern)
@@ -178,5 +175,10 @@ public class DataHelp {
         return false;
     }
 
+    public static String getTimeStamp(){
+        String nano = String.valueOf(LocalDateTime.now().getNano());
+        String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+        return  date + "-" + nano;
+    }
 }
 
