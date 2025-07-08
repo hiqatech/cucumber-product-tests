@@ -22,7 +22,7 @@ public class AllURLs {
                 return BookingUAT;
             else if (System.getProperty("product").contains("Banking"))
                 return BankingUAT;
-            else return "Product URL has not been defined on QA environment";
+            else return "Product URL has not been defined on UAT environment";
         }
         else
             return "Product URL has not been defined";
