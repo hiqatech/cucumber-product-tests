@@ -1,4 +1,4 @@
-name: GSCF-Cucumber-Tests
+name: Cucumber-Product-Tests
 on: [push]
 
 jobs:
