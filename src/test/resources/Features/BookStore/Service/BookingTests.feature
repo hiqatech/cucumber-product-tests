@@ -7,6 +7,12 @@ Feature: BookingREST Test
     Given I setup the "BookingService" on "QA"
 
   @BookingRestSmoke
+  Scenario:BookingRest - I get list of books
+    And I get the auth token by "TOOLSQA-Test" and "Test@@123"
+    When I send "GET" request to "/BookStore/v1/Books"
+    Then I get the 1st book from the store available
+
+  @BookingRestSmoke
   Scenario:BookingRest - I add and remove books
     And I get the auth token by "TOOLSQA-Test" and "Test@@123"
     When I send "GET" request to "/BookStore/v1/Books"

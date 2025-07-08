@@ -6,11 +6,15 @@ Feature: Banking Web Deposit Tests
   Background:
     Given I setup the "BankingWeb" on "LocalQAChrome"
     And I navigate to the Home page
-    And I login with the "Ron Weasly" user
-    And I navigate to the "Deposit" page
+
+  @BankingWebSmoke @Smoke
+  Scenario:BankingWeb - I can Login
+    And I login with the "Rony Weasly" user
 
   @BankingWebSmoke @Smoke
   Scenario:BankingWeb - I can deposit 100
+    And I login with the "Ron Weasly" user
+    And I navigate to the "Deposit" page
     And I "enter" "100" into the "amount_field"
     And I "click" the "deposit_submit"
     And I should see the "deposit_successful"
