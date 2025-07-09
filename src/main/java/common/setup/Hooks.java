@@ -40,16 +40,13 @@ public class Hooks {
         System.setProperty("extentPath",System.getProperty("projectPath")+"\\test-output\\ExtentReport");
         System.setProperty("driverPath",System.getProperty("projectPath") + "\\src\\main\\resources\\webdrivers\\");
 
-        if(wantsToQuit)
-            throw new RuntimeException("Test FAIL : Cucumber wants to quit");
-
         print("************************************************************************************");
-
-        print("SystemTime : " + System.getProperty("systemTime"));
         print("Product Tests Starts");
+        print("SystemTime : " + System.getProperty("systemTime"));
         print("Scenario : " + myScenario);
         print("ProjectPath : " + System.getProperty("projectPath"));
         print("ExtentPath : " + System.getProperty("extentPath"));
+        print("DriverPath : " + System.getProperty("driverPath"));
         print("************************************************************************************");
 
     }
