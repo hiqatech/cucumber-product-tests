@@ -47,8 +47,6 @@ public class Hooks {
         print("ProjectPath : " + System.getProperty("projectPath"));
         print("ExtentPath : " + System.getProperty("extentPath"));
         print("DriverPath : " + System.getProperty("driverPath"));
-        print("************************************************************************************");
-
     }
 
     @After
@@ -65,7 +63,6 @@ public class Hooks {
         closeAllDrivers();
         print("Product Tests Ends");
         print("************************************************************************************");
-
     }
 
     public static void closeAllDrivers(){

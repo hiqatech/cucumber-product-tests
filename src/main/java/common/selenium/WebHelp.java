@@ -121,7 +121,6 @@ public class WebHelp {
     {
         try
         {
-            webDriver.close();
             webDriver.quit();
             return  "PASS";
         }
