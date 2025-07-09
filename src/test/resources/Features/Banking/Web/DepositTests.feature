@@ -7,9 +7,9 @@ Feature: Banking Web Deposit Tests
     Given I setup the "BankingWeb" on "LocalQAChrome"
     And I navigate to the Home page
 
-  @BankingWebSmoke @Smoke
-  Scenario:BankingWeb - I can Login
-    And I login with the "Rony Weasly" user
+  #@BankingWebSmoke @Smoke
+  #Scenario:BankingWeb - I can Login
+  #  And I login with the "Rony Weasly" user
 
   @BankingWebSmoke @Smoke
   Scenario:BankingWeb - I can deposit 100

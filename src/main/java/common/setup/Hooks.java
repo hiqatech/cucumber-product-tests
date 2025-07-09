@@ -54,15 +54,18 @@ public class Hooks {
     @After
     public static void tearDown(Scenario scenario)
     {
+        print("----------------------------------------------------------------------------------");
         if(scenario.isFailed())
         {
             takeScreenShot();
             print("Test Failed !");
         }
         else print("Test Passed !");
+        print("-----------------------------------------------------------------------------------");
         closeAllDrivers();
-        print("************************************************************************************");
         print("Product Tests Ends");
+        print("************************************************************************************");
+
     }
 
     public static void closeAllDrivers(){
