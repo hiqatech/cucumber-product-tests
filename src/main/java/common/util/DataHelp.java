@@ -8,6 +8,31 @@ import java.util.*;
 
 public class DataHelp {
 
+
+    private static List<Map<String,String>> List1;
+    private static List<Map<String,String>> List2;
+
+    public static void setList(String listNumber, List<Map<String, String>> data) {
+        List<Map<String,String>> List = data;
+        System.out.println("Setting List1");
+        for (Map map : List) {
+            List<String> listHeaders = new ArrayList<String>(map.keySet());
+            List<String> listValues1 = new ArrayList<String>(map.values());
+            for (int i = 0; i < listHeaders.size(); i++) {
+                System.out.print(listHeaders.get(i) +
+                        " = " + listValues1.get(i) + " ");
+            }
+            System.out.println();
+        }
+
+        if(listNumber.equals("1"))
+            List1 = List;
+        else if(listNumber.equals("2"))
+            List2 = List;
+
+        System.out.println("------------------------");
+    }
+
     public static List<String> storedTexts = Arrays.asList("","","","","","","","","","");
     public static HashMap<String,String> MyMap;
     public static String getTimeStamp(String format)
