@@ -1,5 +1,6 @@
 package common.selenium;
 
+import common.setup.Hooks;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,6 +16,7 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.net.URL;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,13 +30,11 @@ public class WebHelp {
     public static WebDriver webDriver;
     public static int waitTimeMax= 5000;
     public static int waitTime = 200;
-    public static int timeOut = 60;
 
     public static String startMyWebDriver()
     {
-        try
-        {
-            DesiredCapabilities capabilities ;
+        try {
+            DesiredCapabilities capabilities;
             if(System.getProperty("runEnvironment").contains("Chrome"))
                 System.setProperty("runDriver","Chrome");
             else if(System.getProperty("runEnvironment").contains("Edge"))
@@ -42,71 +42,70 @@ public class WebHelp {
             else if(System.getProperty("runEnvironment").contains("Firefox"))
                 System.setProperty("runDriver","Firefox");
 
-            String driver = System.getProperty("runDriver");
-            String driverPath = System.getProperty("driverPath");
-
-            switch(driver)
-            {
+            switch (System.getProperty("runDriver")) {
 
                 case "Chrome":
-                    String chromeDriverPath = driverPath + "chromedriver.exe";
-                    System.setProperty("webdriver.chrome.driver",chromeDriverPath);
+                    String chromeDriverPath = System.getProperty("driverPath") + "chromedriver.exe";
+                    System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
-                    HashMap<String,Object> chromePrefs = new HashMap<>();
-                    chromePrefs.put("download.prompt_for_download",false);
-                    chromePrefs.put("download.default_directory",System.getProperty("downloadPath"));
+                    HashMap<String, Object> chromePrefs = new HashMap<>();
+                    chromePrefs.put("download.prompt_for_download", false);
+                    chromePrefs.put("download.default_directory", System.getProperty("downloadPath"));
 
                     ChromeOptions options = new ChromeOptions();
-                    options.setExperimentalOption("prefs",chromePrefs);
+                    options.setExperimentalOption("prefs", chromePrefs);
                     options.addArguments("--ssl-version-max=tls1");
                     options.addArguments("--ignore-certificate-errors");
                     options.addArguments("--disable-extensions");
+                    options.addArguments("--remote-allow-origins=*");
                     options.addArguments("--start-maximized");
                     options.addArguments("--screenshot");
 
                     capabilities = new DesiredCapabilities();
 
-                    if(System.getProperty("runEnvironment").contains("Remote"))
-                        webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
-                    else if(System.getProperty("runEnvironment").contains("Local"))
+                    if (System.getProperty("runEnvironment").contains("Remote"))
+                        webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")), capabilities);
+                    else if (System.getProperty("runEnvironment").contains("Local"))
                         webDriver = new ChromeDriver(options);
-                    else System.out.println("seleniumGrid" + " has not been defined.");
+                    else Hooks.print("seleniumGrid" + " has not been defined.");
 
                     break;
 
-                case "Edge" :
+                case "Edge":
 
-                    String edgeDriverPath = driverPath + "msedgedriver.exe";
-                    System.setProperty("webdriver.edge.driver",edgeDriverPath);
+                    String edgeDriverPath = System.getProperty("driverPath") + "msedgedriver.exe";
+                    System.setProperty("webdriver.edge.driver", edgeDriverPath);
 
                     capabilities = new DesiredCapabilities();
-                    capabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS,true);
+                    capabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 
-                    if(System.getProperty("runEnvironment").contains("Remote"))
-                        webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
-                    else if(System.getProperty("runEnvironment").contains("Local"))
+                    if (System.getProperty("runEnvironment").contains("Remote"))
+                        webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")), capabilities);
+                    else if (System.getProperty("runEnvironment").contains("Local"))
                         webDriver = new EdgeDriver();
-                    else System.out.println(System.getProperty("runEnvironment") + " has not been defined yet.");
+                    else Hooks.print(System.getProperty("runEnvironment") + " has not been defined yet.");
 
                     break;
 
-                case "Firefox" :
+                case "Firefox":
 
                     capabilities = new DesiredCapabilities();
-                    String firefoxDriverPath = driverPath + "geckodriver.exe";
-                    System.setProperty("webdriver.gecko.driver",firefoxDriverPath);
+                    String firefoxDriverPath = System.getProperty("driverPath") + "geckodriver.exe";
+                    System.setProperty("webdriver.gecko.driver", firefoxDriverPath);
 
-                    if(System.getProperty("runEnvironment").contains("Remote"))
-                        webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")),capabilities);
-                    else if(System.getProperty("runEnvironment").contains("Local"))
+                    if (System.getProperty("runEnvironment").contains("Remote"))
+                        webDriver = new RemoteWebDriver(new URL(System.getProperty("seleniumGrid")), capabilities);
+                    else if (System.getProperty("environment").contains("Local"))
                         webDriver = new FirefoxDriver();
-                    else System.out.println(System.getProperty("runEnvironment") + " has not been defined yet.");
+                    else Hooks.print(System.getProperty("environment") + " has not been defined yet.");
 
-                default :
-                    System.out.println("webDriver " + driver + " has not been defined yet");
+                default:
+                    Hooks.print("webDriver " + System.getProperty("runDriver") + " has not been defined yet");
 
             }
 
+            webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(9));
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
             webDriver.manage().window().maximize();
 
             return  "PASS";
@@ -587,7 +586,7 @@ public class WebHelp {
             scenario.attach(screenshot, "image/png", "");
         }
         catch(Exception ex)
-        {print(ex.toString());}
+        {}
     }
 
     public static String selectFromDropDownBy(String elementSelector,String what, String text)
