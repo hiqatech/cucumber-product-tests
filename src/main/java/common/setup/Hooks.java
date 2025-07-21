@@ -99,8 +99,14 @@ public class Hooks {
 
     public static String getResultFailLog(String result){
         String extString = Arrays.asList(result.split(" ,,, " )).get(0);
-        String desc = Arrays.asList(result.split(" ,,, " )).get(1);
-        result = "FAIL " + desc + " caused by : " + extString;
+        try{
+            String desc = Arrays.asList(result.split(" ,,, " )).get(1);
+            result = "FAIL " + desc + " caused by : " + extString;
+        }
+        catch (Exception ex) {
+            return result;
+        }
+
         return result;
     }
 
