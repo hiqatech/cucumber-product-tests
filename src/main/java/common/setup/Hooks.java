@@ -46,7 +46,6 @@ public class Hooks {
         print("Scenario : " + myScenario);
         print("ProjectPath : " + System.getProperty("projectPath"));
         print("ExtentPath : " + System.getProperty("extentPath"));
-        print("DriverPath : " + System.getProperty("driverPath"));
     }
 
     @After

@@ -23,7 +23,8 @@
         <compiler.source>18</compiler.source>
         <compiler.target>18</compiler.target>
         <maven-surefire.version>2.22.2</maven-surefire.version>
-        <selenium.version>4.33.0</selenium.version>
+
+        <selenium.version>4.34.0</selenium.version>
         <selenium-server.version>3.141.59</selenium-server.version>
         <appium.version>9.5.0</appium.version>
         <rest-assured.version>4.4.0</rest-assured.version>
@@ -34,9 +35,7 @@
         <extent.cucumber.adapter.version>1.14.0</extent.cucumber.adapter.version>
         <lombok.version>1.18.22</lombok.version>
         <commons.version>2.6</commons.version>
-
         <suiteFile>./src/test/resources/testng.xml,</suiteFile>
-
     </properties>
 
     <dependencies>
@@ -53,7 +52,6 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-
         <!-- TestNG Dependency -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -66,14 +64,6 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>compile</scope>
-        </dependency>
-
-        <!-- Dependency Injection-->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-picocontainer</artifactId>
-            <version>${cucumber.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- Extent Report -->
