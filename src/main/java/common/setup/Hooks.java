@@ -39,6 +39,7 @@ public class Hooks {
         System.setProperty("reportPath",System.getProperty("projectPath")+"\\target\\cucumber-reports\\");
         System.setProperty("extentPath",System.getProperty("projectPath")+"\\test-output\\ExtentReport");
         System.setProperty("driverPath",System.getProperty("projectPath") + "\\src\\main\\resources\\webdrivers\\");
+        System.setProperty("appDir",System.getProperty("projectPath") + "\\src\\main\\resources\\apps\\");
 
         print("************************************************************************************");
         print("Product Tests Starts");
