@@ -39,17 +39,17 @@ import static common.setup.Hooks.*;
 
     @Given("I wait {string} secs for {string}")
     public void IWaitSecSFor(int time, String what) {
-        AssertExecutedStep( WebHelp.sleep(time) + " : " + "I wait " + time + " for " + what);
+        AssertStep( WebHelp.sleep(time) + " : " + "I wait " + time + " for " + what);
     }
 
     @Given("I start the webdriver")
     public static void IStartTheWebDriver() {
-        AssertExecutedStep( WebHelp.startMyWebDriver() + " : " + "I start the Webdriver");
+        AssertStep( WebHelp.startMyWebDriver() + " : " + "I start the Webdriver");
     }
 
     @Given("I stop the webdriver")
     public static void IStopTheWebDriver() {
-      	VerifyExecutedStep( WebHelp.stopMyWebDriver() + " : " + "I stop the Webdriver");
+      	VerifyStep( WebHelp.stopMyWebDriver() + " : " + "I stop the Webdriver");
     }
 
     @Given("I navigate to the {string} url")
@@ -57,45 +57,43 @@ import static common.setup.Hooks.*;
         if(url.equalsIgnoreCase("app_home")) {
 			url = AllURLs.getProductURL();
 		}
-        AssertExecutedStep( WebHelp.navigateTo(url) + " : " + "I navigate to the " + url + " URL");
+        AssertStep( WebHelp.navigateTo(url) + " : " + "I navigate to the " + url + " URL");
     }
 
     @Given("I navigate to the Home page")
     public static void INavigateToTheHomePage(){
     	IStartTheWebDriver();
-        AssertExecutedStep( WebHelp.navigateTo(System.getProperty("baseURL")) + " : " + "I navigate to the " + System.getProperty("baseURL") + " URL");
+        AssertStep( WebHelp.navigateTo(System.getProperty("baseURL")) + " : " + "I navigate to the " + System.getProperty("baseURL") + " URL");
         IAmOnThePage("Home");
     }
 
     @Given("I navigate to the {string} element link")
     public static void INavigateToTheElementLink(String elementName) {
-    	VerifyExecutedStep(waitForElementToAppear(elementName));
-        AssertExecutedStep( WebHelp.navigateTo(WebHelp.readAttributeOfWebElement(AllProducts.getElementSelector(elementName), "HREF")) + " : " + "I navigate to the " + elementName + " link with selector " + AllProducts.getElementSelector(elementName));
+        AssertStep( WebHelp.navigateTo(WebHelp.readAttributeOfWebElement(AllProducts.getElementSelector(elementName), "HREF")) + " : " + "I navigate to the " + elementName + " link with selector " + AllProducts.getElementSelector(elementName));
     }
 
     @Given("I am on the {string} page")
     public static void IAmOnThePage(String pageName) {
         System.setProperty("activePage", pageName);
-        AssertExecutedStep( "PASS : I am on the " + pageName + " page ");
+        AssertStep( "PASS : I am on the " + pageName + " page ");
     }
 
     @Given("I switch to the {string}")
     public static void ISwitchToTheWindow(int windowNumber) {
-        AssertExecutedStep( WebHelp.switchToWindow(windowNumber) + " : " + "I switch to the " + windowNumber + " window");
+        AssertStep( WebHelp.switchToWindow(windowNumber) + " : " + "I switch to the " + windowNumber + " window");
     }
 
     @Given("I switch to the {string} content")
     public static void ISwitchToTheContent(String frameName) {
-        AssertExecutedStep( WebHelp.switchToFrame(AllProducts.getElementSelector(frameName)) + " : " + "I switch to the "  + frameName + " content");
+        AssertStep( WebHelp.switchToFrame(AllProducts.getElementSelector(frameName)) + " : " + "I switch to the "  + frameName + " content");
        }
 
     @Given("I {string} the {string}")
     public static void IActTheElement(String act, String elementName) {
-    	VerifyExecutedStep(waitForElementToAppear(elementName));
         if (elementName.contains("alert")) {
-			AssertExecutedStep( WebHelp.handleAlert(act) + " : I " + act + " the alert");
+			AssertStep( WebHelp.handleAlert(act) + " : I " + act + " the alert");
 		} else {
-			AssertExecutedStep( WebHelp.safeAct(act, AllProducts.getElementSelector(elementName)) + " : I " + act + " the " + elementName);
+			AssertStep( WebHelp.safeAct(act, AllProducts.getElementSelector(elementName)) + " : I " + act + " the " + elementName);
 		}
         if(elementName.contains("Tab") || elementName.contains("Search") ) {
 			IWaitSomeSecs("7",elementName);
@@ -104,23 +102,22 @@ import static common.setup.Hooks.*;
 
     @Given("I click the {string}")
     public static void IActTheBrowser(String act) {
-        AssertExecutedStep( WebHelp.browserAct(act) + " : " + "I click the" + act);
+        AssertStep( WebHelp.browserAct(act) + " : " + "I click the" + act);
     }
 
     @Given("I send enter keys to the popup window")
     public static void ISendEnterToWindow() {
-        AssertExecutedStep( WebHelp.sendEnterKey() + " : " + "I send enter key to the window");
+        AssertStep( WebHelp.sendEnterKey() + " : " + "I send enter key to the window");
     }
 
     @Given("The {string} element status should be {string}")
     public static void TheElementStatusShouldBe(String elementName, String status) {
-    	VerifyExecutedStep(waitForElementToAppear(elementName));
         if (status.equalsIgnoreCase("SELECTED")) {
-			AssertExecutedStep( WebHelp.isSelected(AllProducts.getElementSelector(elementName), status) + " : " + "The " + elementName + " status should be " + status);
+			AssertStep( WebHelp.isSelected(AllProducts.getElementSelector(elementName), status) + " : " + "The " + elementName + " status should be " + status);
 		} else if (status.equalsIgnoreCase("CHECKED")) {
-			AssertExecutedStep( WebHelp.isChecked(AllProducts.getElementSelector(elementName), status) + " : " + "The " + elementName + " status should be " + status);
+			AssertStep( WebHelp.isChecked(AllProducts.getElementSelector(elementName), status) + " : " + "The " + elementName + " status should be " + status);
 		} else {
-			AssertExecutedStep( " status is not a implemented to assert");
+			AssertStep( " status is not a implemented to assert");
 		}
     }
 
@@ -129,26 +126,24 @@ import static common.setup.Hooks.*;
         if (expectedFileName.contains("Text")) {
 			expectedFileName = DataHelp.prepText(expectedFileName);
 		}
-        AssertExecutedStep( FileHelp.checkDownLoad(expectedFileName) + " : " + "I should find the " + expectedFileName + " file ind the " + System.getProperty("downloadPath") + " folder");
+        AssertStep( FileHelp.checkDownLoad(expectedFileName) + " : " + "I should find the " + expectedFileName + " file ind the " + System.getProperty("downloadPath") + " folder");
     }
 
     @Given("I upload the {string} to the {string}")
     public static void IUploadTheFile(String fileName, String elementName) {
-    	VerifyExecutedStep(waitForElementToAppear(elementName));
         if (fileName.contains("Text")) {
 			fileName = DataHelp.storedTexts.get(Integer.parseInt(fileName.replaceAll("\\D+", "")));
 		}
-        AssertExecutedStep( WebHelp.uploadFile(AllProducts.getElementSelector(elementName), fileName) + " : " + "I upload the " + fileName + " file to the " + elementName);
+        AssertStep( WebHelp.uploadFile(AllProducts.getElementSelector(elementName), fileName) + " : " + "I upload the " + fileName + " file to the " + elementName);
     }
 
     @Given("I upload the {string} to the {string} with keys")
     public static void IUploadTheFileWithKeys(String fileName, String elementName) {
-    	VerifyExecutedStep(waitForElementToAppear(elementName));
         IActTheElement("select", elementName);
         if (fileName.contains("Text")) {
 			fileName = DataHelp.getStoredText(fileName);
 		}
-        AssertExecutedStep( WebHelp.uploadFileWithKey(fileName) + " : " + "I upload the " + fileName + " file to the " + elementName);
+        AssertStep( WebHelp.uploadFileWithKey(fileName) + " : " + "I upload the " + fileName + " file to the " + elementName);
     }
 
     @Given("I delete the {string} from the {string}")
@@ -158,14 +153,12 @@ import static common.setup.Hooks.*;
 		} else if(path.contains("Files")) {
 			path = System.getProperty("filePath");
 		}
-
-        AssertExecutedStep( FileHelp.deleteFile(fileName, path) + " : " + "I delete the " + fileName);
+        AssertStep( FileHelp.deleteFile(fileName, path) + " : " + "I delete the " + fileName);
     }
     
     @Given("I click the {string} {string} from the {string} options of the {string}")
     public static void IClickFromDropDownBy(String text, String attribute, String optionName, String elementName) {
-    	VerifyExecutedStep(waitForElementToAppear(elementName));
-    	AssertExecutedStep( WebHelp.clickFromDropDownBy(AllProducts.getElementSelector(elementName), AllProducts.getElementSelector(optionName), text, attribute) + " : " + "I select the " + text + " from the " + elementName);
+    	AssertStep( WebHelp.clickFromDropDownBy(AllProducts.getElementSelector(elementName), AllProducts.getElementSelector(optionName), text, attribute) + " : " + "I select the " + text + " from the " + elementName);
     }
 
     @Given("I select the {string} {string} from the {string}")
@@ -173,19 +166,17 @@ import static common.setup.Hooks.*;
     	if(text.contains("$")) {
 			text = DataBase.getTestData(text.replace("$", ""));
 		}
-    	VerifyExecutedStep(waitForElementToAppear(elementName));
-    	AssertExecutedStep( WebHelp.selectFromDropDownBy(AllProducts.getElementSelector(elementName), attribute, text) + " : " + "I select the " + text + " " + attribute + " from the " + elementName);
+    	AssertStep( WebHelp.selectFromDropDownBy(AllProducts.getElementSelector(elementName), attribute, text) + " : " + "I select the " + text + " " + attribute + " from the " + elementName);
     }
 
     @Given("I click the {string} {string} from the {string}")
     public static void IClickTheElementBy(String text, String attribute, String selection, String elementName) {
-    	VerifyExecutedStep(waitForElementToAppear(elementName));
-    	AssertExecutedStep( WebHelp.clickFromDropDownBy(AllProducts.getElementSelector(elementName), AllProducts.getElementSelector(selection), text, attribute) + " : " + "I select the " + text + " from the " + elementName);
+    	AssertStep( WebHelp.clickFromDropDownBy(AllProducts.getElementSelector(elementName), AllProducts.getElementSelector(selection), text, attribute) + " : " + "I select the " + text + " from the " + elementName);
     }
 
     @Given("I select the {string} date in the {string} datepicker")
     public static void ISelectTheDateInTheDatePicker(String date, String elementName) {
-    	VerifyExecutedStep(waitForElementToAppear(elementName));
+    	
     	String result = WebHelp.safeAct("select", AllProducts.getElementSelector(elementName)) + " : " + "I select the " + elementName;
 
         String dateToSet = DataHelp.getDynamicDate(date, "yyyyMMdd");
@@ -194,7 +185,7 @@ import static common.setup.Hooks.*;
         daySelector.replace("DD", String.valueOf(nth));
         String doneButtonSelector = AllProducts.getElementSelector("doneButtonSelector");
         result = result + WebHelp.selectNthElement(daySelector, String.valueOf(nth - 1)) + " : " + "I select the " + dateToSet + " with selector " + daySelector;
-        AssertExecutedStep( result + WebHelp.safeAct("select", doneButtonSelector) + " : " + "I select the " + doneButtonSelector);
+        AssertStep( result + WebHelp.safeAct("select", doneButtonSelector) + " : " + "I select the " + doneButtonSelector);
     }
 
     @Given("I {string} {string} into the {string}")
@@ -216,19 +207,18 @@ import static common.setup.Hooks.*;
             }
             entry = entry.replace("-", "").replace("/", "");
 
-            VerifyExecutedStep(waitForElementToAppear(elementName));
-            AssertExecutedStep( WebHelp.safeInto(act, AllProducts.getElementSelector(elementName), entry) + " : " + "I " + act + " the " + entry + " into the " + elementName);
+            AssertStep( WebHelp.safeInto(act, AllProducts.getElementSelector(elementName), entry) + " : " + "I " + act + " the " + entry + " into the " + elementName);
         }
 
     @Given("I should see the {string}")
     public static void IShouldSeeTheElement(String elementName) {
-        AssertExecutedStep( WebHelp.waitToAppear(AllProducts.getElementSelector(elementName)) + " : The " + elementName + " should not be visible with selector " + AllProducts.getElementSelector(elementName));
+        AssertStep( WebHelp.isDisplayed(AllProducts.getElementSelector(elementName)) + " : The " + elementName + " should be visible with selector " + AllProducts.getElementSelector(elementName));
         WebHelp.takeScreenShot();
     }
 
     @Given("I should not see the {string}")
     public static void IShouldNotSeeTheElement(String elementName) {
-        AssertExecutedStep( WebHelp.waitToDisappear(AllProducts.getElementSelector(elementName)) + " : The " + elementName + " should not be visible with selector " + AllProducts.getElementSelector(elementName));
+        AssertStep( WebHelp.isNotDisplayed(AllProducts.getElementSelector(elementName)) + " : The " + elementName + " should not be visible with selector " + AllProducts.getElementSelector(elementName));
         WebHelp.takeScreenShot();
     }
 
@@ -240,13 +230,12 @@ import static common.setup.Hooks.*;
 		}
         String actual = "null";
 
-        VerifyExecutedStep(waitForElementToAppear(elementName));
         if (attribute.equalsIgnoreCase("TEXT")) {
 			actual = WebHelp.readTextOfWebElement(AllProducts.getElementSelector(elementName));
 		} else if (attribute.equalsIgnoreCase("VALUE") || attribute.equalsIgnoreCase("HREF") || attribute.equalsIgnoreCase("PLACEHOLDER")) {
 			actual = WebHelp.readAttributeOfWebElement(AllProducts.getElementSelector(elementName), attribute.toLowerCase());
 		} else {
-			AssertExecutedStep( "FAIL" + " : " + "The " + attribute + " attribute test of element has not been implemented");
+			AssertStep( "FAIL" + " : " + "The " + attribute + " attribute test of element has not been implemented");
 		}
 
         if (!expected.contains("http")) {
@@ -257,7 +246,7 @@ import static common.setup.Hooks.*;
         if (actual.equalsIgnoreCase(expected))
             result = "PASS";
 
-        AssertExecutedStep( result + " : " + "The " + actual + " " + attribute + " should be " + expected + " in the " + elementName);
+        AssertStep( result + " : " + "The " + actual + " " + attribute + " should be " + expected + " in the " + elementName);
         WebHelp.takeScreenShot();
     }
 
@@ -269,13 +258,12 @@ import static common.setup.Hooks.*;
 		}
         String actual = "null";
 
-        VerifyExecutedStep(waitForElementToAppear(elementName));
         if (attribute.equalsIgnoreCase("TEXT")) {
 			actual = WebHelp.readTextOfWebElement(AllProducts.getElementSelector(elementName));
 		} else if (attribute.equalsIgnoreCase("VALUE") || attribute.equalsIgnoreCase("HREF") || attribute.equalsIgnoreCase("PLACEHOLDER")) {
 			actual = WebHelp.readAttributeOfWebElement(AllProducts.getElementSelector(elementName), attribute.toLowerCase());
 		} else {
-			AssertExecutedStep( "FAIL" + " : " + "The " + attribute + " attribute has not been implemented");
+			AssertStep( "FAIL" + " : " + "The " + attribute + " attribute has not been implemented");
 		}
 
         if (!expected.contains("http")) {
@@ -288,33 +276,32 @@ import static common.setup.Hooks.*;
 				result = "FAIL";
 			}
 
-        AssertExecutedStep( result + " : " + "The " + actual + " " + attribute + " should " + condition + " with text " + expected + " in the " + elementName);
+        AssertStep( result + " : " + "The " + actual + " " + attribute + " should " + condition + " with text " + expected + " in the " + elementName);
         WebHelp.takeScreenShot();
     }
 
     @Given("I wait {string} secs for the {string}")
     public static void IWaitSomeSecs(String wait, String waitFor) {
-    	VerifyExecutedStep(WebHelp.sleep(Integer.valueOf(wait) * 1000) + " : " + "Wait " + wait + " sec/s for " + waitFor);
+    	VerifyStep(WebHelp.sleep(Integer.valueOf(wait) * 1000) + " : " + "Wait " + wait + " sec/s for " + waitFor);
     }
 
     @Given("I hit {string} on the keyboard")
     public static void IHitOnTheKeyBoard(String key) {
-    	AssertExecutedStep(WebHelp.keyActions(key) + " : " + "I hit " + key + " on the keyboard");
+    	AssertStep(WebHelp.keyActions(key) + " : " + "I hit " + key + " on the keyboard");
     }
 
     @Given("I store the {string} element text as {string}")
     public static void IStoreTheElementTextAsTheTextX(String elementName, String attribute, String textX) {
     	 String currentText = "null";
 
-         VerifyExecutedStep(waitForElementToAppear(elementName));
          if (attribute.equalsIgnoreCase("TEXT")) {
  			currentText = WebHelp.readTextOfWebElement(AllProducts.getElementSelector(elementName));
  		} else if (attribute.equalsIgnoreCase("VALUE") || attribute.equalsIgnoreCase("HREF") || attribute.equalsIgnoreCase("PLACEHOLDER")) {
  			currentText = WebHelp.readAttributeOfWebElement(AllProducts.getElementSelector(elementName), attribute.toLowerCase());
  		} else {
- 			AssertExecutedStep( "FAIL" + " : " + "The " + attribute + " attribute has not been implemented");
+ 			AssertStep( "FAIL" + " : " + "The " + attribute + " attribute has not been implemented");
  		}
-         AssertExecutedStep( DataHelp.storeText(currentText, textX) + " : " + "Store the " + attribute + " of the " + elementName + " as " + textX);
+         AssertStep( DataHelp.storeText(currentText, textX) + " : " + "Store the " + attribute + " of the " + elementName + " as " + textX);
      }
 
     public static String waitForElementToAppear(String elementName) {

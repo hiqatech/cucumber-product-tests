@@ -72,7 +72,7 @@ public class Hooks {
     //-----------------------------------------------------------------------------//
 
 
-    public static void AssertExecutedStep(String result)
+    public static void AssertStep(String result)
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")) {
@@ -87,7 +87,7 @@ public class Hooks {
         }
     }
 
-    public static void VerifyExecutedStep(String result)
+    public static void VerifyStep(String result)
     {
         stepLog = result;
         if (!result.toUpperCase().contains("PASS")){
@@ -114,7 +114,6 @@ public class Hooks {
         System.setProperty("product",product);
         System.setProperty("runEnvironment",environment);
         System.setProperty("baseURL", AllURLs.getProductURL());
-        AllPages.setAllProductsPageElements();
         print("product : " + System.getProperty("product"));
         print("runEnvironment : " + System.getProperty("runEnvironment"));
         print("baseURL : " + System.getProperty("baseURL"));
@@ -123,7 +122,6 @@ public class Hooks {
     public static void setProduct(String product){
         System.setProperty("product",product);
         System.setProperty("baseURL", AllURLs.getProductURL());
-        AllPages.setAllProductsPageElements();
         print("product : " + System.getProperty("product"));
         print("baseURL : " + System.getProperty("baseURL"));
     }

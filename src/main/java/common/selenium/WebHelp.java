@@ -150,7 +150,7 @@ public class WebHelp {
     {
         try
         {
-            WebElement webElement  = getWebElement(elementSelector);
+            WebElement webElement  = webDriver.findElement(By.xpath(elementSelector));
             if(webElement.isDisplayed() || webElement.isEnabled())
                 return "PASS";
             else if(webElement.isEnabled())
@@ -162,9 +162,23 @@ public class WebHelp {
         }
     }
 
+    public static String isNotDisplayed(String elementSelector)
+    {
+        try
+        {
+            WebElement webElement  = webDriver.findElement(By.xpath(elementSelector));
+            if(webElement.isDisplayed() || webElement.isEnabled())
+                return "Element is displayed";
+            else return "PASS :";
+        }
+        catch (Exception ex){
+            return ex.toString();
+        }
+    }
+
     public static WebElement getWebElement(String elementSelector)
     {
-        return webDriver.findElement(By.xpath(elementSelector));
+        return waitToAppear(elementSelector);
     }
 
     public static String sleep(int sleep)
@@ -177,21 +191,21 @@ public class WebHelp {
         catch (Exception ex){return ex.toString();}
     }
 
-    public static String waitToAppear(String elementSelector)
+    public static WebElement waitToAppear(String elementSelector)
     {
         double startTime = 0;
         while (startTime < waitTimeMax)
         {
             sleep(waitTime);
             if(isDisplayed(elementSelector).equalsIgnoreCase("PASS"))
-                return  "PASS";
+                return  webDriver.findElement(By.xpath(elementSelector));
             else
                 {
                     sleep(waitTime);
                     startTime = startTime + waitTime;
                 }
         }
-        return isDisplayed(elementSelector);
+        return null;
     }
 
     public static String waitToDisappear(String elementSelector)

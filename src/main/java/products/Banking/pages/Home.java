@@ -5,9 +5,7 @@ import java.util.HashMap;
 public class Home {
 
     static HashMap<String, String> elementLocators = new HashMap<>();
-
-    public static void setElements()
-    {
+    static {
         elementLocators.put("", "");
     }
 

@@ -5,9 +5,7 @@ import java.util.HashMap;
 public class Deposit {
 
     static HashMap<String, String> elementLocators = new HashMap<String, String>();
-
-    public static void setElements()
-    {
+    static {
         elementLocators.put("amount_field", "//input[@placeholder='amount']");
         elementLocators.put("deposit_submit", "//button[text()='Deposit']");
         elementLocators.put("deposit_successful", "//*[text()='Deposit Successful']");
@@ -22,7 +20,6 @@ public class Deposit {
         elementLocators.put("home_button", "//button[text()='Home']");
         elementLocators.put("logout_button", "//button[text()='Logout']");
         elementLocators.put("", "");
-
     }
 
     public static String getElementSelector(String element_name)

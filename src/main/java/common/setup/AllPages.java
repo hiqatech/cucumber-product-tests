@@ -19,12 +19,4 @@ public class AllPages {
             return "NoSuchAnElement";}
     }
 
-    public static void setAllProductsPageElements(){
-        products.Banking.pages.Deposit.setElements();
-        products.Banking.pages.Home.setElements();
-        products.Banking.pages.Login.setElements();
-        products.Banking.pages.Transactions.setElements();
-        products.Banking.pages.UserHome.setElements();
-    }
-
 }
